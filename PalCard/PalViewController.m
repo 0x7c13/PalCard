@@ -154,6 +154,7 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
+    // 隐藏 navigation bar
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -168,6 +169,7 @@
     [super viewDidLoad];
     
     
+    // iphone 3.5寸屏幕 适配
     if (!DEVICE_IS_IPHONE5) {
         
         [self.Card1 setFrame:CGRectMake(30, 3, 78, 110)];
@@ -198,6 +200,7 @@
         [self.Display setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
         [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
     }
+    
     
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
@@ -235,6 +238,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 给 View 加上阴影效果
 - (void)addShadow: (UIImageView *)view
 {
     [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
@@ -297,6 +301,7 @@
 
 - (void)initilize
 {
+    // 设置所有卡牌为不可见状态
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) {
         _cardIsVisiable[i] = NO;
         _isBlackCard[i] = NO;
@@ -312,12 +317,16 @@
         [MCSoundBoard playAudioForKey:@"BGM" fadeInInterval:1.0];
     }
     
+    // 使用 PalCardGenerator 产生随机卡牌名称
     PalCardGenerator *cardGenerator = [[PalCardGenerator alloc]init];
     
     
     self.cardViews = [NSArray arrayWithObjects:self.PalCardView1, self.PalCardView2, self.PalCardView3, self.PalCardView4, self.PalCardView5, self.PalCardView6, self.PalCardView7, self.PalCardView8, self.PalCardView9, self.PalCardView10, self.PalCardView11, self.PalCardView12, nil];
     
     self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12 , nil];
+    
+    
+    // 讲当前模式告知 PalCardGenerator
     
     if ([self.mode isEqualToString:@"easy"]) {
         cardGenerator.NumbersOfBlackCards = 0;
@@ -328,6 +337,8 @@
     else if ([self.mode isEqualToString:@"hard"]) {
         cardGenerator.NumbersOfBlackCards = 2;
     }
+    
+    // _isBlackCard[]  数组记录当前黑牌位置
     
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
         
@@ -348,6 +359,8 @@
         
     }
     
+    // 变量设为 default value
+    
     self.Display.text = @"";
     
     _gameOver = NO;
@@ -358,6 +371,8 @@
     _endWithBlack = NO;
     _rights = 0;
     _wrongs = 0;
+    
+    // 根据难度模式 设置游戏时间
     
     if ([self.mode isEqualToString:@"easy"]) {
         _totalTime = 15;
@@ -401,18 +416,20 @@
 
 - (void)prepare:(NSTimer *) timer
 {
-    [self cardsVisiable];
+    [self cardsVisiable]; // 翻开所有卡牌
     self.TextDisplay.text = @"请记忆卡牌位置";
 }
 
 - (void)prepareDone:(NSTimer *) timer
 {
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = YES;
-    [self cardsInvisiable];
+    [self cardsInvisiable]; // 翻回所有卡牌
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(startTimer:) userInfo:nil repeats: NO];
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = NO;
 }
 
+
+// 游戏主计时器
 - (void)startTimer:(NSTimer *) timer
 {
     _animating = NO;
@@ -424,6 +441,8 @@
     //[NSTimer scheduledTimerWithTimeInterval: 15 target:self selector:@selector(GameOver:) userInfo:nil repeats: NO];
 }
 
+
+// 游戏结束后调用此method
 - (void)gameFinish
 {
     _gameOver = YES;
@@ -438,7 +457,7 @@
         [MCSoundBoard playSoundForKey:@"LOS"];
     }
     
-    
+    // 检查此局时候有新成就产生
     if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeRemain:_totalTime - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
@@ -450,6 +469,7 @@
     self.Display.text = @"";
 
     
+    // 调用 alertview 选择是返回还是继续游戏
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
     [alert show];
     
@@ -457,7 +477,7 @@
     imgv.image = [UIImage imageNamed:@_GameLoseImg];
 }
 
-
+// 计时器SEL
 - (void)GameTimer:(NSTimer *) timer
 {
     if (!_gameOver) {
@@ -485,6 +505,8 @@
     [self initilize];
 }
 
+
+// 卡片翻转效果
 - (void)flipActionWithFirst:(UIImageView *)firstView
          andSecond:(UIImageView *)secondView
 {
@@ -492,6 +514,7 @@
     [UIView commitAnimations];
 }
 
+// 检查当前游戏是否获胜
 
 - (bool) win
 {
@@ -502,6 +525,7 @@
     if (_gameOver) return NO;
     
     _gameOver = YES;
+    
     
     if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeRemain:15 - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
@@ -534,6 +558,7 @@
     
     return YES;
 }
+
 
 - (void)rightCardAnimation
 {

@@ -268,6 +268,8 @@
 
 #pragma mark -
 
+// iCarousel Class protocol
+
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {

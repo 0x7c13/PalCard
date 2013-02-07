@@ -56,6 +56,7 @@
     
     self.bgPic2.alpha = 0.7;
     
+    // moutain
     
     CGRect frame = self.bgPic.frame;
     frame.origin.x = 0;
@@ -121,7 +122,6 @@
 - (void) refresh{
     
     [self prepare];
-    //NSLog(@"trigger event when will enter foreground.");
 }
 
 

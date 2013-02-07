@@ -97,7 +97,7 @@
         }
     }
     
-    
+    // 从 Userdefault 中读取当前卡牌解锁信息
 
     NSMutableArray *CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"CardIsUnlocked"]];
 
@@ -559,7 +559,7 @@
     }
     
     
-    // Write back
+    // 将新的记录已经卡牌解锁信息保存至 Userdefaults
     
     [[NSUserDefaults standardUserDefaults] setValue:CardIsUnlocked forKey:@"CardIsUnlocked"];
     

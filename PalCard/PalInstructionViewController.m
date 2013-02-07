@@ -118,6 +118,9 @@
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
+    
+    // 在NotificationCenter 中注册self，以便在游戏从后台返回前台或者segue切换后刷新 背景跑马灯效果
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -125,7 +128,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    
+   
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
@@ -135,6 +138,12 @@
     //NSLog(@"trigger event when will enter foreground.");
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+    
+    // View 消失后取消 NotificationCenter关注
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -204,9 +213,6 @@
     
 }
 
--(void) viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 - (void)didReceiveMemoryWarning
 {

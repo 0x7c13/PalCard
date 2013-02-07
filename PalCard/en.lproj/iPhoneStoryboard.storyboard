@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SWO-lb-cUf">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Pal Main Menu View Controller-->
+        <scene sceneID="7Wh-mh-605">
+            <objects>
+                <viewController id="SWO-lb-cUf" customClass="PalMainMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfZ-zC-z0W">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eV5-c6-3VD" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="zDt-oZ-u6C" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KuK-SJ-mu5" userLabel="BG3">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Zyu-Ef-qFH" userLabel="logo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" id="Qsw-yD-Uiw" userLabel="soundOnOff">
+                                <rect key="frame" x="259" y="504" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="q3f-bD-0mg" appends="YES" id="OZQ-sH-ZQl"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="L48-Em-FrK">
+                                <rect key="frame" x="20" y="255" width="60" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="10" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gameStartButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="eG5-2O-91q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="JL3-RW-Ah8">
+                                <rect key="frame" x="92" y="290" width="60" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="10" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="achievementButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="zbJ-gh-ZCN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="Pkp-kK-rKN">
+                                <rect key="frame" x="167" y="255" width="60" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="10" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="instructionButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="5xb-e9-nNo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="G3F-by-pXG">
+                                <rect key="frame" x="240" y="290" width="60" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="10" height="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="informationButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="yyu-h0-GRL"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oby-zd-wah" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="achViewButton" destination="JL3-RW-Ah8" id="Bus-j5-Koz"/>
+                        <outlet property="bgPic" destination="eV5-c6-3VD" id="sLc-Yv-vI7"/>
+                        <outlet property="bgPic2" destination="zDt-oZ-u6C" id="MeZ-BV-no1"/>
+                        <outlet property="bgPic3" destination="KuK-SJ-mu5" id="gzk-WR-MHO"/>
+                        <outlet property="blackBG" destination="oby-zd-wah" id="g4Y-NJ-aWS"/>
+                        <outlet property="gameStartButton" destination="L48-Em-FrK" id="bbE-ms-bMD"/>
+                        <outlet property="informationButton" destination="G3F-by-pXG" id="26Z-72-KiU"/>
+                        <outlet property="instructionButton" destination="Pkp-kK-rKN" id="RiV-vC-66M"/>
+                        <outlet property="logoPic" destination="Zyu-Ef-qFH" id="amB-9h-SZp"/>
+                        <outlet property="soundSwitch" destination="Qsw-yD-Uiw" id="PCd-Hj-OGL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCr-lZ-oKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="q3f-bD-0mg">
+                    <connections>
+                        <action selector="soundOnOffButtonPressed:" destination="SWO-lb-cUf" id="Zcq-SE-Juz"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1560" y="-1422"/>
+        </scene>
+        <!--Pal Achievement View Controller-->
+        <scene sceneID="UOs-Ti-8OZ">
+            <objects>
+                <viewController storyboardIdentifier="achSegue" id="aog-W9-chg" customClass="PalAchievementViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="520-rk-zBx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lDW-NF-VZe" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KpF-MO-KrZ" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Kb-ps-fpa" userLabel="ReturnButton">
+                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnBottonPressed:" destination="aog-W9-chg" eventType="touchUpInside" id="F5D-VZ-IA1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="Ydb-gn-SSJ" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="20" width="320" height="336"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/文字框.png" id="Pf7-w3-Bza" userLabel="achLabel">
+                                <rect key="frame" x="19" y="379" width="283" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AQv-I7-cZN">
+                                <rect key="frame" x="44" y="379" width="232" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="p9R-ab-n0N" userLabel="nameTag">
+                                <rect key="frame" x="35" y="40" width="250" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1xE-fB-HId" userLabel="cardName">
+                                <rect key="frame" x="35" y="35" width="250" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="crw-uK-Nnh" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CRe-Mq-Ygt"/>
+                    <connections>
+                        <outlet property="achLabel" destination="Pf7-w3-Bza" id="Hau-FU-P2W"/>
+                        <outlet property="bgPic" destination="lDW-NF-VZe" id="Wig-H2-wbs"/>
+                        <outlet property="bgPic2" destination="KpF-MO-KrZ" id="cR4-mm-QWY"/>
+                        <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
+                        <outlet property="cardNameDisplay" destination="1xE-fB-HId" id="Za4-kd-3Dy"/>
+                        <outlet property="carousel" destination="Ydb-gn-SSJ" id="3jf-Tp-xKl"/>
+                        <outlet property="debugDisplay" destination="AQv-I7-cZN" id="BtV-MD-CZn"/>
+                        <outlet property="nameTag" destination="p9R-ab-n0N" id="O3Q-R4-wOl"/>
+                        <outlet property="returnButton" destination="4Kb-ps-fpa" id="t9k-Jn-hXn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MN-U8-CGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-551" y="-842"/>
+        </scene>
+        <!--Pal Mode Menu View Controller-->
+        <scene sceneID="mCq-0K-asH">
+            <objects>
+                <viewController id="bwh-ww-fUJ" customClass="PalModeMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nX6-2r-326">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="TuX-zU-VDf" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UtM-lo-3sB" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="rhG-2P-En9" userLabel="cloud1">
+                                <rect key="frame" x="60" y="136" width="200" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="U8n-x3-m6A" userLabel="cloud2">
+                                <rect key="frame" x="60" y="236" width="200" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="4O2-2I-Bmj" userLabel="cloud3">
+                                <rect key="frame" x="60" y="336" width="200" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UH3-Gp-LDu" userLabel="difChoice">
+                                <rect key="frame" x="40" y="15" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0v-5L-7Hz">
+                                <rect key="frame" x="95" y="161" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="easyModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="fMF-1D-yf6"/>
+                                    <segue destination="2" kind="push" id="lXA-94-2O3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Yf-5J-pjS">
+                                <rect key="frame" x="95" y="261" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="normalModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="577-xT-7hy"/>
+                                    <segue destination="2" kind="push" id="cVy-CT-gdy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1z5-B7-c2w">
+                                <rect key="frame" x="94.5" y="361" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hardModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="Klm-qQ-wTj"/>
+                                    <segue destination="2" kind="push" id="pAc-MM-VQ0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hJL-YD-g4u" userLabel="ReturnButton">
+                                <rect key="frame" x="250" y="505" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="htA-F3-ufK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="OdW-Cb-2p5" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MtB-Wu-tKy"/>
+                    <connections>
+                        <outlet property="bgPic" destination="TuX-zU-VDf" id="1rs-Sa-jIu"/>
+                        <outlet property="bgPic2" destination="UtM-lo-3sB" id="Tsm-TF-swz"/>
+                        <outlet property="blackBG" destination="OdW-Cb-2p5" id="Tqq-oj-7Hj"/>
+                        <outlet property="cloud1" destination="rhG-2P-En9" id="OPg-GU-Oyo"/>
+                        <outlet property="cloud2" destination="U8n-x3-m6A" id="Udv-wy-Oic"/>
+                        <outlet property="cloud3" destination="4O2-2I-Bmj" id="9R4-RS-ABi"/>
+                        <outlet property="difChoice" destination="UH3-Gp-LDu" id="jI7-ex-fS4"/>
+                        <outlet property="easyButton" destination="e0v-5L-7Hz" id="6rE-29-xS1"/>
+                        <outlet property="hardButton" destination="1z5-B7-c2w" id="1Uv-T1-f3Y"/>
+                        <outlet property="normalButton" destination="3Yf-5J-pjS" id="Og2-EF-d8a"/>
+                        <outlet property="returnButton" destination="hJL-YD-g4u" id="rpo-Is-sHf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0P-6w-VTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1026" y="-368"/>
+        </scene>
+        <!--Pal View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController storyboardIdentifier="segueGame" id="2" customClass="PalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="rj4-Z9-WvK" userLabel="Background">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleAspectFill" id="UBq-le-ALj" userLabel="Card_1_View">
+                                <rect key="frame" x="26" y="20" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="rVo-TE-Gtd" userLabel="Card_1">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="ChX-mC-Ore" userLabel="DefaultView_1">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mOP-oQ-wQY" appends="YES" id="HGy-ic-yZF"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="xsW-n1-CBP" userLabel="Card_2_View">
+                                <rect key="frame" x="121" y="20" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="xUk-RK-Gh0" userLabel="Card_2">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="iFw-ME-cJp" userLabel="DefaultView_2">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HaO-Yg-ctr" appends="YES" id="a6B-WO-xFx"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="B45-VY-JDP" userLabel="Card_3_View">
+                                <rect key="frame" x="216" y="20" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="MUo-MB-BVu" userLabel="Card_3">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="fIV-U6-4bp" userLabel="DefaultView_3">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="anC-Xp-oXq" appends="YES" id="YuT-e9-8nG"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="Jq3-8k-KIP" userLabel="Card_4_View">
+                                <rect key="frame" x="26" y="138" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="oWM-Nv-iMX" userLabel="Card_4">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="OfS-uJ-eMA" userLabel="DefaultView_4">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Yvm-kW-Uyj" appends="YES" id="IlX-V3-fdY"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="fif-3s-Jmq" userLabel="Card_5_View">
+                                <rect key="frame" x="121" y="138" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="ZyZ-H7-CcF" userLabel="Card_5">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="8QI-hC-IUp" userLabel="DefaultView_5">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MPm-JE-oyI" appends="YES" id="A9i-51-PkI"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="QxP-Oh-7BX" userLabel="Card_6_View">
+                                <rect key="frame" x="216" y="138" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="IOe-bd-Svt" userLabel="Card_6">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="UaR-Dx-AFs" userLabel="DefaultView_6">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0z5-F8-rBF" appends="YES" id="WnN-13-mfM"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="X8k-lm-Uoo" userLabel="Card_7_View">
+                                <rect key="frame" x="26" y="256" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="1IW-tG-YKq" userLabel="Card_7">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="KuL-0J-bN0" userLabel="DefaultView_7">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kp3-Zg-l94" appends="YES" id="dgP-TY-0g4"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="pYC-0W-aZr" userLabel="Card_8_View">
+                                <rect key="frame" x="121" y="256" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="p1Y-1G-z6o" userLabel="Card_8">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Jnl-gk-n4O" userLabel="DefaultView_8">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="24k-PL-Z2D" appends="YES" id="xSY-Vg-G42"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="s6S-wh-w4D" userLabel="Card_9_View">
+                                <rect key="frame" x="216" y="256" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="vsa-UH-dYQ" userLabel="Card_9">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="gCI-1u-jcJ" userLabel="DefaultView_9">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GdK-dp-RG0" appends="YES" id="GiP-Pv-cnl"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="ev1-25-Zam" userLabel="Card_10_View">
+                                <rect key="frame" x="26" y="374" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="ObD-4P-62L" userLabel="Card_10">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="7wt-PB-iFP" userLabel="DefaultView_10">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nJ0-5Y-zq4" appends="YES" id="YLS-u0-7X7"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="Q8h-oz-8OX" userLabel="Card_11_View">
+                                <rect key="frame" x="121" y="374" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="nPG-hw-ssM" userLabel="Card_11">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="4oB-GH-deV" userLabel="DefaultView_11">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lND-YK-b4V" appends="YES" id="FI5-tb-doX"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleAspectFill" id="k2O-hP-888" userLabel="Card_12_View">
+                                <rect key="frame" x="216" y="374" width="78" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="FY8-2y-KCB" userLabel="Card_12">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="9Cy-qh-vod" userLabel="DefaultView_12">
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HuO-WX-gk8" appends="YES" id="gvo-gc-i6a"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="54t-2d-TBz" userLabel="Time Label">
+                                <rect key="frame" x="59" y="505" width="202" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="ley-P5-X8j" userLabel="Timer">
+                                <rect key="frame" x="201" y="505" width="60" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <gestureRecognizers/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wcj-vk-FPg"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="Card1" destination="UBq-le-ALj" id="q9o-VH-nYW"/>
+                        <outlet property="Card10" destination="ev1-25-Zam" id="uRV-Dx-sdd"/>
+                        <outlet property="Card11" destination="Q8h-oz-8OX" id="6Qq-Ln-RTr"/>
+                        <outlet property="Card12" destination="k2O-hP-888" id="U8Z-aH-rdh"/>
+                        <outlet property="Card2" destination="xsW-n1-CBP" id="b0e-Ya-v99"/>
+                        <outlet property="Card3" destination="B45-VY-JDP" id="cjz-Fl-r0x"/>
+                        <outlet property="Card4" destination="Jq3-8k-KIP" id="uNU-hB-LuP"/>
+                        <outlet property="Card5" destination="fif-3s-Jmq" id="dwh-CJ-j5L"/>
+                        <outlet property="Card6" destination="QxP-Oh-7BX" id="srv-7K-pIb"/>
+                        <outlet property="Card7" destination="X8k-lm-Uoo" id="NPR-QY-dNe"/>
+                        <outlet property="Card8" destination="pYC-0W-aZr" id="khF-aQ-xIk"/>
+                        <outlet property="Card9" destination="s6S-wh-w4D" id="HHb-Fr-FDI"/>
+                        <outlet property="DefaultView1" destination="ChX-mC-Ore" id="exY-cG-EY0"/>
+                        <outlet property="DefaultView10" destination="7wt-PB-iFP" id="rv2-is-EGQ"/>
+                        <outlet property="DefaultView11" destination="4oB-GH-deV" id="Jmc-z0-Pgy"/>
+                        <outlet property="DefaultView12" destination="9Cy-qh-vod" id="X8I-IS-v1l"/>
+                        <outlet property="DefaultView2" destination="iFw-ME-cJp" id="rOV-qk-xqH"/>
+                        <outlet property="DefaultView3" destination="fIV-U6-4bp" id="9qu-kU-vUr"/>
+                        <outlet property="DefaultView4" destination="OfS-uJ-eMA" id="spL-HC-6WZ"/>
+                        <outlet property="DefaultView5" destination="8QI-hC-IUp" id="28m-9e-T3a"/>
+                        <outlet property="DefaultView6" destination="UaR-Dx-AFs" id="4Sb-2d-rhI"/>
+                        <outlet property="DefaultView7" destination="KuL-0J-bN0" id="PMQ-n8-OG6"/>
+                        <outlet property="DefaultView8" destination="Jnl-gk-n4O" id="BC3-hp-vPb"/>
+                        <outlet property="DefaultView9" destination="gCI-1u-jcJ" id="p5j-7z-xyp"/>
+                        <outlet property="Display" destination="ley-P5-X8j" id="ZMk-B8-jqF"/>
+                        <outlet property="MainGameBG" destination="rj4-Z9-WvK" id="RL3-aN-exc"/>
+                        <outlet property="PalCardView1" destination="rVo-TE-Gtd" id="n8b-0c-NTH"/>
+                        <outlet property="PalCardView10" destination="ObD-4P-62L" id="j2t-Az-peP"/>
+                        <outlet property="PalCardView11" destination="nPG-hw-ssM" id="7Tr-EO-hoP"/>
+                        <outlet property="PalCardView12" destination="FY8-2y-KCB" id="Thu-xN-omc"/>
+                        <outlet property="PalCardView2" destination="xUk-RK-Gh0" id="Aui-OZ-ReC"/>
+                        <outlet property="PalCardView3" destination="MUo-MB-BVu" id="8ke-hZ-3qy"/>
+                        <outlet property="PalCardView4" destination="oWM-Nv-iMX" id="I8b-3b-9UY"/>
+                        <outlet property="PalCardView5" destination="ZyZ-H7-CcF" id="f2D-uY-EJx"/>
+                        <outlet property="PalCardView6" destination="IOe-bd-Svt" id="rr7-dB-Svg"/>
+                        <outlet property="PalCardView7" destination="1IW-tG-YKq" id="Hmh-m8-I4X"/>
+                        <outlet property="PalCardView8" destination="p1Y-1G-z6o" id="N53-lb-wrS"/>
+                        <outlet property="PalCardView9" destination="vsa-UH-dYQ" id="iGA-lE-0ot"/>
+                        <outlet property="TextDisplay" destination="54t-2d-TBz" id="5LC-Ko-ZE9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mOP-oQ-wQY">
+                    <connections>
+                        <action selector="Card1Pressed:" destination="2" id="kCa-Gb-tpE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HaO-Yg-ctr">
+                    <connections>
+                        <action selector="Card2Pressed:" destination="2" id="X1g-r7-Mcs"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="anC-Xp-oXq">
+                    <connections>
+                        <action selector="Card3Pressed:" destination="2" id="wfc-d4-S4A"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Yvm-kW-Uyj">
+                    <connections>
+                        <action selector="Card4Pressed:" destination="2" id="4kS-cn-qcR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="MPm-JE-oyI">
+                    <connections>
+                        <action selector="Card5Pressed:" destination="2" id="hxu-UT-A43"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0z5-F8-rBF">
+                    <connections>
+                        <action selector="Card6Pressed:" destination="2" id="zeV-Yu-jHJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kp3-Zg-l94">
+                    <connections>
+                        <action selector="Card7Pressed:" destination="2" id="d2x-TL-aZd"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="24k-PL-Z2D">
+                    <connections>
+                        <action selector="Card8Pressed:" destination="2" id="msf-1Z-pk4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GdK-dp-RG0">
+                    <connections>
+                        <action selector="Card9Pressed:" destination="2" id="gtp-ej-DhR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nJ0-5Y-zq4">
+                    <connections>
+                        <action selector="Card10Pressed:" destination="2" id="0kR-c9-Pek"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lND-YK-b4V">
+                    <connections>
+                        <action selector="Card11Pressed:" destination="2" id="bZc-lf-qVE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HuO-WX-gk8">
+                    <connections>
+                        <action selector="Card12Pressed:" destination="2" id="gyY-VC-hCg"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-512" y="-136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xx7-bU-B6u">
+            <objects>
+                <navigationController storyboardIdentifier="mainGameSegue" id="J2x-cs-6Tb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c9b-0D-g6I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bwh-ww-fUJ" kind="relationship" relationship="rootViewController" id="bgA-Ni-JfM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEG-8h-y4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1560" y="-655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dOE-5N-vYj">
+            <objects>
+                <navigationController storyboardIdentifier="achRootSegue" id="ipH-6M-f5u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtQ-kb-9Hg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aog-W9-chg" kind="relationship" relationship="rootViewController" id="2Vu-Tu-ubx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMl-P2-miI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1051" y="-1137"/>
+        </scene>
+        <!--Pal Instruction View Controller-->
+        <scene sceneID="pyV-IW-Y0u">
+            <objects>
+                <viewController storyboardIdentifier="insSegue" id="AJ5-5R-ohp" customClass="PalInstructionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rsC-5e-MuC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hT0-vu-nEY" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pAS-KS-YXx" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ico-BA-RwE" userLabel="ReturnButton">
+                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButtonPressed:" destination="AJ5-5R-ohp" eventType="touchUpInside" id="4zo-vc-gxi"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" id="e3K-3M-sBC" userLabel="infoBG">
+                                <rect key="frame" x="-10" y="5" width="340" height="520"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="z3T-qU-bly" userLabel="easyPic">
+                                <rect key="frame" x="30" y="30" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="YYK-wb-YKP" userLabel="normalPic">
+                                <rect key="frame" x="30" y="150" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8fc-dh-hqh" userLabel="hardPic">
+                                <rect key="frame" x="30" y="295" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.5秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关" id="b2m-Ah-xga" userLabel="textEasy">
+                                <rect key="frame" x="40" y="82" width="240" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.2秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关，六对牌中有一对为黑牌，点开任意一张黑牌算失败" id="G8R-Ce-spE" userLabel="textNormal">
+                                <rect key="frame" x="40" y="210" width="240" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关，六对牌中有两对为黑牌，点开任意一张黑牌算失败" id="cbu-zA-IGo" userLabel="textHard">
+                                <rect key="frame" x="40" y="355" width="240" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="DDK-5j-Pau" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1vK-DM-5sr"/>
+                    <connections>
+                        <outlet property="bgPic" destination="hT0-vu-nEY" id="SYL-br-zmh"/>
+                        <outlet property="bgPic2" destination="pAS-KS-YXx" id="2zi-3M-52l"/>
+                        <outlet property="blackBG" destination="DDK-5j-Pau" id="Z96-xn-tIs"/>
+                        <outlet property="easyView" destination="z3T-qU-bly" id="UDb-sH-HTp"/>
+                        <outlet property="hardView" destination="8fc-dh-hqh" id="nVG-Ca-o5V"/>
+                        <outlet property="infoBG" destination="e3K-3M-sBC" id="k3d-Nv-v1d"/>
+                        <outlet property="normalView" destination="YYK-wb-YKP" id="KPG-yL-D47"/>
+                        <outlet property="returnButton" destination="ico-BA-RwE" id="Udd-0A-wLk"/>
+                        <outlet property="text1" destination="b2m-Ah-xga" id="gaM-jo-mAW"/>
+                        <outlet property="text2" destination="G8R-Ce-spE" id="TZJ-98-yKS"/>
+                        <outlet property="text3" destination="cbu-zA-IGo" id="HV2-IA-Xl3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrY-7x-Rmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-173" y="-1567"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Khp-93-GxZ">
+            <objects>
+                <navigationController storyboardIdentifier="instructionSegue" id="B82-Qe-Gli" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="imw-bO-Xwi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AJ5-5R-ohp" kind="relationship" relationship="rootViewController" id="kIx-Rf-mcG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJG-h4-zHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-659" y="-1847"/>
+        </scene>
+        <!--Pal Information View Controller-->
+        <scene sceneID="Ghz-uf-fCx">
+            <objects>
+                <viewController storyboardIdentifier="infoSegue" id="a7P-ZE-sH8" customClass="PalInformationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfd-Qp-1So">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="c7d-Jh-glo" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Bp8-NU-xep" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3a-ST-F8Y" userLabel="ReturnButton">
+                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnBottonPressed:" destination="a7P-ZE-sH8" eventType="touchUpInside" id="Z2Q-61-ZT7"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" id="N0Z-HZ-GyP" userLabel="infoBG">
+                                <rect key="frame" x="-10" y="5" width="340" height="520"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="1R6-zB-Mng">
+                                <rect key="frame" x="27" y="35" width="266" height="425"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
+仙剑卡牌翻转逍遥游
+V 1.0 --- 02/05/13
+---------------------------------------------
+程序: FlyinGeek 美术: ColdusT
+作者联系方式:
+微薄: @柒才 邮箱: flyingeek@live.com
+---------------------------------------------
+作者的话:
+相信玩过仙剑奇侠传五前传的玩家一定对这个小游戏不陌生，作者大学生仙迷一枚，花了一个星期，抽空把这小游戏搬到了iOS来，初次用Objective-C，初次写游戏，难免会有疏漏。如果有不好的地方或者bug，请在微薄@我或者发邮件联系，如果你有什么好的想法或者主意，也可以向我提出（作者在美国，因时差原因如果未及时回复请见谅）。最后，祝大家新年快乐！
+---------------------------------------------
+版权信息
+本游戏使用的大部分图片素材以及音频资料来源于仙剑奇侠传五前传，仙剑奇侠传五前传为软星科技（北京）有限公司作品，所有涉及图片以及音频资料版权均归软星科技（北京）有限公司所有，本游戏为免费游戏，无广告，无应用内支付，不带任何盈利目的，请不要二次使用本游戏所持内容。
+---------------------------------------------
+2013年2月5号.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GNe-Gr-d3k" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xZk-NC-2Ce"/>
+                    <connections>
+                        <outlet property="bgPic" destination="c7d-Jh-glo" id="sER-33-dCd"/>
+                        <outlet property="bgPic2" destination="Bp8-NU-xep" id="Db3-hJ-FmS"/>
+                        <outlet property="blackBG" destination="GNe-Gr-d3k" id="w1J-Qh-4RY"/>
+                        <outlet property="infoBG" destination="N0Z-HZ-GyP" id="2dV-7c-j0i"/>
+                        <outlet property="returnButton" destination="s3a-ST-F8Y" id="RcX-pO-7lT"/>
+                        <outlet property="textInfo" destination="1R6-zB-Mng" id="O9q-1R-MJM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJG-mB-uFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1627" y="-2279"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J9d-wi-eR3">
+            <objects>
+                <navigationController storyboardIdentifier="informationSegue" id="MFv-IG-2rp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uEE-lu-bLN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a7P-ZE-sH8" kind="relationship" relationship="rootViewController" id="jGK-aV-vkz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILy-3z-fCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1169" y="-2063"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="UIimages/single_cloud.png" width="16" height="16"/>
+        <image name="UIimages/文字框.png" width="16" height="16"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="pAc-MM-VQ0"/>
+    </inferredMetricsTieBreakers>
+</document>

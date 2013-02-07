@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PalViewController : UIViewController
+
+@interface PalViewController : UIViewController <UIAlertViewDelegate>
+
+@property (copy, nonatomic) NSString *mode;
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end
+
+

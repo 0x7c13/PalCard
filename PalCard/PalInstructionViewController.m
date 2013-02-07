@@ -14,6 +14,16 @@
 #define _BGPIC2 "UIimages/cloud-front.png"
 #define _BGPIC3 "UIimages/cloud-back.png"
 #define _LOGOPIC "UIimages/main_logo.png"
+#define _EasyImg "UIimages/easy.png"
+#define _NormalImg "UIimages/normal.png"
+#define _HardImg "UIimages/hard.png"
+
+#define _ReturnButtonImg "UIimages/back.png"
+#define _ReturnButtonPressedImg "UIimages/back_push.png"
+#define _InfoBG "UIimages/info_bg.png"
+
+#define _ButtonPressedSound "button_pressed.wav"
+
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -159,9 +169,9 @@
     }
     
     
-    self.easyView.image = [UIImage imageNamed:@"UIimages/easy.png"];
-    self.normalView.image = [UIImage imageNamed:@"UIimages/normal.png"];
-    self.hardView.image = [UIImage imageNamed:@"UIimages/hard.png"];
+    self.easyView.image = [UIImage imageNamed:@_EasyImg];
+    self.normalView.image = [UIImage imageNamed:@_NormalImg];
+    self.hardView.image = [UIImage imageNamed:@_HardImg];
     
     
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
@@ -180,15 +190,15 @@
     }
     
     if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"botton_pressed.wav" ofType:nil] forKey:@"botton"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back.png"] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back_push.png"] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
-    self.infoBG.image = [UIImage imageNamed:@"UIimages/info_bg.png"];
+    self.infoBG.image = [UIImage imageNamed:@_InfoBG];
     
     [self prepare];
     
@@ -222,7 +232,7 @@
 - (IBAction)returnButtonPressed:(UIButton *)sender {
     
     if (!_soundOff) {
-        [MCSoundBoard playSoundForKey:@"botton"];
+        [MCSoundBoard playSoundForKey:@"button"];
     }
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
     

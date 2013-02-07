@@ -15,12 +15,9 @@
 		F71F39BA16BF1F4300F39979 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */; };
 		F71F39D516C0AE1200F39979 /* PalCardsInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D416C0AE1100F39979 /* PalCardsInformation.m */; };
 		F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */; };
-		F742874816BA1E6000C8B9F9 /* 999.png in Resources */ = {isa = PBXBuildFile; fileRef = F742874516BA1E6000C8B9F9 /* 999.png */; };
 		F742874E16BA209B00C8B9F9 /* palsource in Resources */ = {isa = PBXBuildFile; fileRef = F742874D16BA209B00C8B9F9 /* palsource */; };
 		F742875116BA20C000C8B9F9 /* pallogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F742874F16BA20C000C8B9F9 /* pallogo.png */; };
 		F742875216BA20C000C8B9F9 /* titile.png in Resources */ = {isa = PBXBuildFile; fileRef = F742875016BA20C000C8B9F9 /* titile.png */; };
-		F742875416BAFD1100C8B9F9 /* suc.png in Resources */ = {isa = PBXBuildFile; fileRef = F742875316BAFD1100C8B9F9 /* suc.png */; };
-		F742875616BAFE2C00C8B9F9 /* fal.png in Resources */ = {isa = PBXBuildFile; fileRef = F742875516BAFE2C00C8B9F9 /* fal.png */; };
 		F742875916BB07DC00C8B9F9 /* PalCardGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */; };
 		F742875D16BB0F9500C8B9F9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */; };
 		F77DC60816C42B470002D88B /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60716C42B470002D88B /* iPadStoryboard.storyboard */; };
@@ -71,12 +68,9 @@
 		F71F39D416C0AE1100F39979 /* PalCardsInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCardsInformation.m; sourceTree = "<group>"; };
 		F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalAchievementBrain.h; sourceTree = "<group>"; };
 		F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementBrain.m; sourceTree = "<group>"; };
-		F742874516BA1E6000C8B9F9 /* 999.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 999.png; sourceTree = "<group>"; };
 		F742874D16BA209B00C8B9F9 /* palsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = palsource; sourceTree = "<group>"; };
 		F742874F16BA20C000C8B9F9 /* pallogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pallogo.png; sourceTree = "<group>"; };
 		F742875016BA20C000C8B9F9 /* titile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titile.png; sourceTree = "<group>"; };
-		F742875316BAFD1100C8B9F9 /* suc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suc.png; sourceTree = "<group>"; };
-		F742875516BAFE2C00C8B9F9 /* fal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fal.png; sourceTree = "<group>"; };
 		F742875716BB07DC00C8B9F9 /* PalCardGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalCardGenerator.h; sourceTree = "<group>"; };
 		F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCardGenerator.m; sourceTree = "<group>"; };
 		F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -242,11 +236,8 @@
 				F7F7002A16B7211D00876181 /* main.m */,
 				F7F7002C16B7211D00876181 /* PalCard-Prefix.pch */,
 				F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */,
-				F742874516BA1E6000C8B9F9 /* 999.png */,
 				F742874F16BA20C000C8B9F9 /* pallogo.png */,
 				F742875016BA20C000C8B9F9 /* titile.png */,
-				F742875316BAFD1100C8B9F9 /* suc.png */,
-				F742875516BAFE2C00C8B9F9 /* fal.png */,
 				F7F7003016B7211D00876181 /* Default.png */,
 				F7F7003216B7211D00876181 /* Default@2x.png */,
 				F7F7003416B7211D00876181 /* Default-568h@2x.png */,
@@ -315,12 +306,9 @@
 				F7F7003116B7211D00876181 /* Default.png in Resources */,
 				F7F7003316B7211D00876181 /* Default@2x.png in Resources */,
 				F7F7003516B7211D00876181 /* Default-568h@2x.png in Resources */,
-				F742874816BA1E6000C8B9F9 /* 999.png in Resources */,
 				F742874E16BA209B00C8B9F9 /* palsource in Resources */,
 				F742875116BA20C000C8B9F9 /* pallogo.png in Resources */,
 				F742875216BA20C000C8B9F9 /* titile.png in Resources */,
-				F742875416BAFD1100C8B9F9 /* suc.png in Resources */,
-				F742875616BAFE2C00C8B9F9 /* fal.png in Resources */,
 				F7E40B3616BB17DA00F1CF97 /* zd01.mp3 in Resources */,
 				F7E40B4616BB22BB00F1CF97 /* los.wav in Resources */,
 				F7ED0FC716BB5D7B0036B782 /* win.wav in Resources */,

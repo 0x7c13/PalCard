@@ -13,6 +13,19 @@
 #define _BGPIC "UIimages/main_bg.jpg"
 #define _BGPIC2 "UIimages/cloud-front.png"
 
+#define _ModeChoiceLabelImg "UIimages/difficulty_choice.png"
+#define _EasyModeButtonImg "UIimages/easy.png"
+#define _EasyModeButtonPressedImg "UIimages/easy_push.png"
+#define _NormalModeButtonImg "UIimages/normal.png"
+#define _NormalModeButtonPressedImg "UIimages/normal_push.png"
+#define _HardModeButtonImg "UIimages/hard.png"
+#define _HardModeButtonPressedImg "UIimages/hard_push.png"
+#define _ReturnButtonImg "UIimages/back.png"
+#define _ReturnButtonPressedImg "UIimages/back_push.png"
+
+#define _ButtonPressedSound "button_pressed.wav"
+#define _MenuSelectedSound "selected.wav"
+
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 @interface PalModeMenuViewController (){
@@ -152,28 +165,28 @@
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 30)];
     }
     
-    self.difChoice.image = [UIImage imageNamed:@"UIimages/difficulty_choice.png"];
+    self.difChoice.image = [UIImage imageNamed:@_ModeChoiceLabelImg];
     
     
     
     
     [self prepare];
     
-    [self.easyButton setBackgroundImage:[UIImage imageNamed:@"UIimages/easy.png"] forState:UIControlStateNormal];
+    [self.easyButton setBackgroundImage:[UIImage imageNamed:@_EasyModeButtonImg] forState:UIControlStateNormal];
     
-    [self.easyButton setBackgroundImage:[UIImage imageNamed:@"UIimages/easy_push.png"] forState:UIControlStateHighlighted];
+    [self.easyButton setBackgroundImage:[UIImage imageNamed:@_EasyModeButtonPressedImg] forState:UIControlStateHighlighted];
 
-    [self.normalButton setBackgroundImage:[UIImage imageNamed:@"UIimages/normal.png"] forState:UIControlStateNormal];
+    [self.normalButton setBackgroundImage:[UIImage imageNamed:@_NormalModeButtonImg] forState:UIControlStateNormal];
     
-    [self.normalButton setBackgroundImage:[UIImage imageNamed:@"UIimages/normal_push.png"] forState:UIControlStateHighlighted];
+    [self.normalButton setBackgroundImage:[UIImage imageNamed:@_NormalModeButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.hardButton setBackgroundImage:[UIImage imageNamed:@"UIimages/hard.png"] forState:UIControlStateNormal];
+    [self.hardButton setBackgroundImage:[UIImage imageNamed:@_HardModeButtonImg] forState:UIControlStateNormal];
     
-    [self.hardButton setBackgroundImage:[UIImage imageNamed:@"UIimages/hard_push.png"] forState:UIControlStateHighlighted];
+    [self.hardButton setBackgroundImage:[UIImage imageNamed:@_HardModeButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back.png"] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back_push.png"] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
     /*
     [self.easyBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:35]];
@@ -209,8 +222,8 @@
     }
     
     if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"selected.wav" ofType:nil] forKey:@"selected"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"button_pressed.wav" ofType:nil] forKey:@"button"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
     
@@ -273,7 +286,7 @@
 - (IBAction)returnButtonPressed:(UIButton *)sender {
     
     if (!_soundOff) {
-        [MCSoundBoard playSoundForKey:@"botton"];
+        [MCSoundBoard playSoundForKey:@"button"];
     }
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }

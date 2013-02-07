@@ -18,6 +18,29 @@
 #define _BGPIC3 "UIimages/main_bg.jpg"
 #define _LOGOPIC "UIimages/main_logo.png"
 
+#define _GameStartButtonImg "UIimages/button_start.png"
+#define _GameStartButtonPressedImg "UIimages/button_start_p.png"
+#define _AchievementButtonImg "UIimages/button_lib.png"
+#define _AchievementButtonPressedImg "UIimages/button_lib_p.png"
+#define _InstructionButtonImg "UIimages/button_instruction.png"
+#define _InstructionButtonPressedImg "UIimages/button_instruction_p.png"
+#define _InformationButtonImg "UIimages/button_info.png"
+#define _InformationButtonPressedImg "UIimages/button_info_p.png"
+#define _SoundOffImg "UIimages/sound_off1.png"
+#define _SoundOnImg "UIimages/sound_on.png"
+
+#define _DefaultCardImg "palsource/888.png"
+
+#define _ReturnButtonImg "UIimages/back.png"
+#define _ReturnButtonPressedImg "UIimages/back_push.png"
+#define _InfoBG "UIimages/info_bg.png"
+#define _NameTagImg "UIimages/NameTag2.png"
+
+#define _ButtonPressedSound "button_pressed.wav"
+#define _MenuSelectedSound "selected.wav"
+
+#define _ThemeMusic "main01.mp3"
+
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 @interface PalMainMenuViewController (){
@@ -59,9 +82,9 @@
     
     if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
     {
-        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@"main01.mp3" ofType:nil] forKey:@"MainBGM"];
+        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
         
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"button_pressed.wav" ofType:nil]     forKey:@"button"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil]     forKey:@"button"];
         
     
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
@@ -81,21 +104,23 @@
     self.bgPic2.alpha = 0.7;
     
     
-    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_start.png"] forState:UIControlStateNormal];
+    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonImg] forState:UIControlStateNormal];
     
-    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_start_p.png"] forState:UIControlStateHighlighted];
+    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_lib.png"] forState:UIControlStateNormal];
+    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonImg] forState:UIControlStateNormal];
     
-    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_lib_p.png"] forState:UIControlStateHighlighted];
+    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_instruction.png"] forState:UIControlStateNormal];
+    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonImg] forState:UIControlStateNormal];
     
-    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_instruction_p.png"] forState:UIControlStateHighlighted];
+    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.informationButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_info.png"] forState:UIControlStateNormal];
+    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonImg] forState:UIControlStateNormal];
     
-    [self.informationButton setBackgroundImage:[UIImage imageNamed:@"UIimages/button_info_p.png"] forState:UIControlStateHighlighted];
+    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    
     
     CGRect frame = self.bgPic.frame;
     frame.origin.x = 0;
@@ -194,11 +219,11 @@
         
         if ([turnOffSound isEqualToString:@"YES"]) {
             _soundOff = YES;
-            self.soundSwitch.image = [UIImage imageNamed:@"UIimages/sound_off1.png"];
+            self.soundSwitch.image = [UIImage imageNamed:@_SoundOffImg];
         }
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
-            self.soundSwitch.image = [UIImage imageNamed:@"UIimages/sound_on.png"];
+            self.soundSwitch.image = [UIImage imageNamed:@_SoundOnImg];
                                       
         }
     }
@@ -208,7 +233,7 @@
         [[NSUserDefaults standardUserDefaults] setValue:sound forKey:@"turnOffSound"];
         
         _soundOff = NO;
-        self.soundSwitch.image = [UIImage imageNamed:@"UIimages/sound_on.png"];
+        self.soundSwitch.image = [UIImage imageNamed:@_SoundOnImg];
     }
     
     
@@ -361,14 +386,14 @@
     if (_soundOff) {
         
         _soundOff = NO;
-        self.soundSwitch.image = [UIImage imageNamed:@"UIimages/sound_on.png"];
+        self.soundSwitch.image = [UIImage imageNamed:@_SoundOnImg];
         
         NSString *sound = [NSString stringWithFormat:@"NO"];
         [[NSUserDefaults standardUserDefaults] setValue:sound forKey:@"turnOffSound"];
         
         if (![MCSoundBoard audioPlayerForKey:@"MainBGM"])
         {
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@"main01.mp3" ofType:nil] forKey:@"MainBGM"];
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
         }
         
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
@@ -380,7 +405,7 @@
     }
     else {
         _soundOff = YES;
-        self.soundSwitch.image = [UIImage imageNamed:@"UIimages/sound_off1.png"];
+        self.soundSwitch.image = [UIImage imageNamed:@_SoundOffImg];
         
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
         [player stop];

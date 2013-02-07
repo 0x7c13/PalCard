@@ -13,10 +13,19 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#define _BGPIC "palsource/888.png"
 #define _ANITIME_LONG 0.4
 #define _ANITIME_SHORT 0.3
 #define _AMOUNT_OF_CARDS 12
+
+#define _BGPIC "palsource/888.png"
+#define _GameBG "palsource/bg4_R.jpg"
+
+#define _GameLoseImg "UIimages/fal.png"
+#define _GameWinImg "UIimages/suc.png"
+
+#define _ThemeMusic "main01.mp3"
+#define _GameLoseSound "los.wav"
+#define _GameWinSound "win.wav"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -125,7 +134,7 @@
         if (!_soundOff) {
             
         
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@"main01.mp3" ofType:nil] forKey:@"MainBGM"];
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
         
             AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
         
@@ -210,8 +219,8 @@
         gameBGM = [NSString stringWithFormat:@"zd0%d.mp3", arc4random() % 6 + 1 ];
     
         [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:gameBGM ofType:nil]     forKey:@"BGM"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"los.wav" ofType:nil] forKey:@"LOS"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"win.wav" ofType:nil] forKey:@"WIN"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameLoseSound ofType:nil] forKey:@"LOS"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameWinSound ofType:nil] forKey:@"WIN"];
     }
     
     [self initilize];
@@ -293,7 +302,7 @@
         _isBlackCard[i] = NO;
     }
     
-    self.MainGameBG.image = [UIImage imageNamed:@"palsource/bg4_R.jpg"];
+    self.MainGameBG.image = [UIImage imageNamed:@_GameBG];
     
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
@@ -445,7 +454,7 @@
     [alert show];
     
     UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:@"fal.png"];
+    imgv.image = [UIImage imageNamed:@_GameLoseImg];
 }
 
 
@@ -521,7 +530,7 @@
     [alert show];
     
     UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:@"suc.png"];
+    imgv.image = [UIImage imageNamed:@_GameWinImg];
     
     return YES;
 }

@@ -14,6 +14,16 @@
 #define _BGPIC3 "UIimages/cloud-back.png"
 #define _LOGOPIC "UIimages/main_logo.png"
 
+#define _DefaultCardImg "palsource/888.png"
+
+#define _ReturnButtonImg "UIimages/back.png"
+#define _ReturnButtonPressedImg "UIimages/back_push.png"
+#define _InfoBG "UIimages/info_bg.png"
+#define _NameTagImg "UIimages/NameTag2.png"
+
+#define _ButtonPressedSound "button_pressed.wav"
+#define _MenuSelectedSound "selected.wav"
+
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 
@@ -154,15 +164,15 @@
     }
     
     if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@"button_pressed.wav" ofType:nil] forKey:@"button"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back.png"] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@"UIimages/back_push.png"] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
-    self.infoBG.image = [UIImage imageNamed:@"UIimages/info_bg.png"];
+    self.infoBG.image = [UIImage imageNamed:@_InfoBG];
     
     [self prepare];
 }

@@ -12,7 +12,6 @@
 		F71F399F16BE5E3600F39979 /* PalAchievementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */; };
 		F71F39A716BE647A00F39979 /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */; };
 		F71F39BA16BF1F4300F39979 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */; };
-		F71F39D516C0AE1200F39979 /* PalCardsInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D416C0AE1100F39979 /* PalCardsInformation.m */; };
 		F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */; };
 		F742874E16BA209B00C8B9F9 /* palsource in Resources */ = {isa = PBXBuildFile; fileRef = F742874D16BA209B00C8B9F9 /* palsource */; };
 		F742875116BA20C000C8B9F9 /* pallogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F742874F16BA20C000C8B9F9 /* pallogo.png */; };
@@ -22,6 +21,7 @@
 		F77DC60A16C447360002D88B /* button_pressed.wav in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60916C447360002D88B /* button_pressed.wav */; };
 		F77DC60C16C4601D0002D88B /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60B16C4601D0002D88B /* icon57.png */; };
 		F77DC60E16C460210002D88B /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60D16C460210002D88B /* icon114.png */; };
+		F77DC61016C498290002D88B /* CardsInformation.plist in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60F16C498280002D88B /* CardsInformation.plist */; };
 		F7A3C03F16C1CAE100D42AAF /* PalInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A3C03E16C1CAE000D42AAF /* PalInstructionViewController.m */; };
 		F7A3C04216C1E09D00D42AAF /* PalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A3C04116C1E09D00D42AAF /* PalInformationViewController.m */; };
 		F7A3C04816C21F5600D42AAF /* selected.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7A3C04716C21F5600D42AAF /* selected.wav */; };
@@ -61,8 +61,6 @@
 		F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementViewController.m; sourceTree = "<group>"; };
 		F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		F71F39B916BF1F4300F39979 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = PalCard/en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		F71F39D316C0AE1100F39979 /* PalCardsInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalCardsInformation.h; sourceTree = "<group>"; };
-		F71F39D416C0AE1100F39979 /* PalCardsInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCardsInformation.m; sourceTree = "<group>"; };
 		F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalAchievementBrain.h; sourceTree = "<group>"; };
 		F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementBrain.m; sourceTree = "<group>"; };
 		F742874D16BA209B00C8B9F9 /* palsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = palsource; sourceTree = "<group>"; };
@@ -74,6 +72,7 @@
 		F77DC60916C447360002D88B /* button_pressed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_pressed.wav; sourceTree = "<group>"; };
 		F77DC60B16C4601D0002D88B /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		F77DC60D16C460210002D88B /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		F77DC60F16C498280002D88B /* CardsInformation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsInformation.plist; sourceTree = "<group>"; };
 		F7A3C03D16C1CAE000D42AAF /* PalInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalInstructionViewController.h; sourceTree = "<group>"; };
 		F7A3C03E16C1CAE000D42AAF /* PalInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalInstructionViewController.m; sourceTree = "<group>"; };
 		F7A3C04016C1E09D00D42AAF /* PalInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalInformationViewController.h; sourceTree = "<group>"; };
@@ -194,8 +193,6 @@
 				F7E40B3916BB19AD00F1CF97 /* MCSoundBoard.m */,
 				F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */,
 				F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */,
-				F71F39D316C0AE1100F39979 /* PalCardsInformation.h */,
-				F71F39D416C0AE1100F39979 /* PalCardsInformation.m */,
 				F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */,
 				F71F399D16BE5E3600F39979 /* PalAchievementViewController.h */,
 				F7F7002D16B7211D00876181 /* PalAppDelegate.h */,
@@ -203,6 +200,7 @@
 				F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */,
 				F7A3C04016C1E09D00D42AAF /* PalInformationViewController.h */,
 				F7A3C04116C1E09D00D42AAF /* PalInformationViewController.m */,
+				F77DC60F16C498280002D88B /* CardsInformation.plist */,
 				F742875716BB07DC00C8B9F9 /* PalCardGenerator.h */,
 				F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */,
 				F7ED0FCB16BB7A720036B782 /* PalNavViewController.h */,
@@ -319,6 +317,7 @@
 				F77DC60A16C447360002D88B /* button_pressed.wav in Resources */,
 				F77DC60C16C4601D0002D88B /* icon57.png in Resources */,
 				F77DC60E16C460210002D88B /* icon114.png in Resources */,
+				F77DC61016C498290002D88B /* CardsInformation.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +338,6 @@
 				F7ED0FE416BC96C60036B782 /* PalModeMenuViewController.m in Sources */,
 				F71F399516BE32DB00F39979 /* iCarousel.m in Sources */,
 				F71F399F16BE5E3600F39979 /* PalAchievementViewController.m in Sources */,
-				F71F39D516C0AE1200F39979 /* PalCardsInformation.m in Sources */,
 				F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */,
 				F7A3C03F16C1CAE100D42AAF /* PalInstructionViewController.m in Sources */,
 				F7A3C04216C1E09D00D42AAF /* PalInformationViewController.m in Sources */,

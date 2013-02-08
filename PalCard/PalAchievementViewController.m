@@ -7,7 +7,6 @@
 //
 
 #import "PalAchievementViewController.h"
-#import "PalCardsInformation.h"
 #import "MCSoundBoard.h"
 
 #define ITEM_SPACING 200
@@ -42,6 +41,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *cardNameDisplay;
 @property (strong, nonatomic) IBOutlet UIImageView *achLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *nameTag;
+
+@property (strong) NSMutableArray *cardsInformation;
 
 
 @end
@@ -99,17 +100,22 @@
     }
     
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"CardsInformation" ofType:@"plist"];
+    
+    _cardsInformation = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    
 
 
     [self.debugDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
     
     self.debugDisplay.numberOfLines = 5;
     
-    self.debugDisplay.text = [PalCardsInformation descriptionOfCardAtIndex:1];
+    self.debugDisplay.text = self.cardsInformation[1][1];
     
     [self.cardNameDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
     
-    self.cardNameDisplay.text = [PalCardsInformation nameOfCardAtIndex:1];
+    self.cardNameDisplay.text = self.cardsInformation[1][0];
     
     /*
     [self.returnBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
@@ -286,8 +292,8 @@
 - (void)carouselCurrentItemIndexUpdated:(NSInteger)index
 {
     
-    self.debugDisplay.text = [PalCardsInformation descriptionOfCardAtIndex:index + 1];
-    self.cardNameDisplay.text = [PalCardsInformation nameOfCardAtIndex:index + 1];
+    self.cardNameDisplay.text = self.cardsInformation[index + 1][0];
+    self.debugDisplay.text = self.cardsInformation[index + 1][1];
 
 }
 

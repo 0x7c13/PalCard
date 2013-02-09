@@ -43,6 +43,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *nameTag;
 
 @property (strong) NSMutableArray *cardsInformation;
+@property (strong) NSMutableArray *CardIsUnlocked;
 
 
 @end
@@ -77,6 +78,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
+    
     carousel.delegate = self;
     carousel.dataSource = self;
     
@@ -98,7 +101,6 @@
         
         [self.carousel setFrame:CGRectMake(0, 25, 320, 320)];
     }
-    
     
     NSString *path = [[NSBundle mainBundle] pathForResource:
                       @"CardsInformation" ofType:@"plist"];
@@ -308,14 +310,11 @@
     
     UIView *view;
     
-    NSMutableArray *CardIsUnlocked = [[NSUserDefaults standardUserDefaults] valueForKey:@"CardIsUnlocked"];
-    
-    if (CardIsUnlocked) {
-        if ([[CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
-            view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@_DefaultCardImg]];
-            return view;
-        }
+    if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
+        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@_DefaultCardImg]];
+        return view;
     }
+    
     
     if (index < 10) {
         view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"palsource/30%d.png",index]]];

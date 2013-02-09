@@ -373,15 +373,12 @@
     }
     
     if ([CardIsUnlocked[39] isEqualToString:@"NO"]) {
-        if ([gameMode isEqualToString:@"normal"] && rights == 0) {
+        if ([gameMode isEqualToString:@"easy"] && rights == 0) {
             CardIsUnlocked[39] = @"YES";
             flag = YES;
         }
-        else CardIsUnlocked[39] = @"NO";
     }
-    else {
-        CardIsUnlocked[39] = @"YES";
-    }
+
     
     if ([CardIsUnlocked[40] isEqualToString:@"NO"]) {
         if ([gameMode isEqualToString:@"normal"] && rights == 0) {

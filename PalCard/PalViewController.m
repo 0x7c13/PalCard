@@ -109,6 +109,10 @@
 @property (weak, nonatomic) UIImageView *CurrentView;
 @property (weak, nonatomic) UIImageView *CurrentDefault;
 
+// right card animation tmp views
+@property (weak, nonatomic) UIImageView *fView;
+@property (weak, nonatomic) UIImageView *sView;
+
 @property (strong) NSArray *cardViews;
 @property (strong) NSArray *defaultViews;
 
@@ -560,15 +564,15 @@
 }
 
 
-- (void)rightCardAnimation
+- (void)rightCardAnimation: (NSTimer *) timer
 {
     CGFloat t = 2.0;
     
     CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
     CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
     
-    self.CurrentView.transform = leftQuake;  // starting point
-    self.LastView.transform = leftQuake;
+    self.fView.transform = leftQuake;  // starting point
+    self.sView.transform = leftQuake;
     
     [UIView beginAnimations:@"earthquake" context:nil];
     [UIView setAnimationRepeatAutoreverses:YES];    // important
@@ -577,8 +581,8 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
     
-    self.CurrentView.transform = rightQuake;    // end here & auto-reverse
-    self.LastView.transform = rightQuake;
+    self.fView.transform = rightQuake;    // end here & auto-reverse
+    self.sView.transform = rightQuake;
     
     [UIView commitAnimations];
     
@@ -603,7 +607,11 @@
             _cardIsVisiable[_currentCardNumber] = YES;
             
             _rights ++;
-            [self rightCardAnimation];
+            
+            self.fView = self.CurrentView;
+            self.sView = self.LastView;
+            
+            [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:nil repeats: NO];
             
             [self win];
             _animating = NO;

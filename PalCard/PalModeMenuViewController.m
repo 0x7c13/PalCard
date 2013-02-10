@@ -141,6 +141,10 @@
     [self prepare];
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)viewDidLoad
 {

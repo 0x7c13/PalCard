@@ -39,8 +39,8 @@
     int _flag;
     int _lastCardNumber;
     int _currentCardNumber;
-    int _roundTime;
-    int _totalTime;
+    float _roundTime;
+    float _totalTime;
     float _watchTime;
     
     // achievement
@@ -53,6 +53,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *TextDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *Display;
 
+@property (strong, nonatomic) IBOutlet UIProgressView *gameProgress;
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *PalCardView1;
@@ -198,6 +199,8 @@
         
         [self.Display setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
         [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
+        
+        [self.gameProgress setFrame:CGRectMake(25, 460, 270, 9) ];
 
     }
     else {
@@ -379,15 +382,15 @@
     // 根据难度模式 设置游戏时间
     
     if ([self.mode isEqualToString:@"easy"]) {
-        _totalTime = 15;
+        _totalTime = 15.0;
         _watchTime = 1.5;
     }
     else if ([self.mode isEqualToString:@"normal"]) {
-        _totalTime = 15;
+        _totalTime = 15.0;
         _watchTime = 1.2;
     }
     else if ([self.mode isEqualToString:@"hard"]) {
-        _totalTime = 15;
+        _totalTime = 15.0;
         _watchTime = 1.0;
     }
         
@@ -436,11 +439,20 @@
 // 游戏主计时器
 - (void)startTimer:(NSTimer *) timer
 {
-    _animating = NO;
-    self.TextDisplay.text = @"剩余时间";
-    self.Display.text = @"15 秒";
+    self.gameProgress.alpha = 1.0;
     
-    [NSTimer scheduledTimerWithTimeInterval: 1 target:self selector:@selector(GameTimer:) userInfo:nil repeats: YES];
+    _animating = NO;
+    
+    if (DEVICE_IS_IPHONE5) {
+        self.TextDisplay.text = @"剩余时间";
+        self.Display.text = @"15 秒";
+    }
+    else {
+        self.TextDisplay.text = @"";
+        self.Display.text = @"";
+    }
+    
+    [NSTimer scheduledTimerWithTimeInterval: 0.1 target:self selector:@selector(GameTimer:) userInfo:nil repeats: YES];
     
     //[NSTimer scheduledTimerWithTimeInterval: 15 target:self selector:@selector(GameOver:) userInfo:nil repeats: NO];
 }
@@ -450,6 +462,8 @@
 - (void)gameFinish
 {
     _gameOver = YES;
+    
+    self.gameProgress.alpha = 0.0;
     
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
@@ -486,8 +500,14 @@
 {
     if (!_gameOver) {
         
-        self.Display.text = [NSString stringWithFormat:@"%d 秒", --_roundTime];
-        if (_roundTime <= -1) {
+        _roundTime -= 0.1;
+        self.gameProgress.progress = (float)_roundTime / _totalTime;
+        
+        if (DEVICE_IS_IPHONE5) {
+            self.Display.text = [NSString stringWithFormat:@"%.0f 秒", _roundTime + 0.5];
+        }
+        
+        if (_roundTime <= 0.0) {
             
             [timer invalidate];
             [self gameFinish];
@@ -530,6 +550,7 @@
     
     _gameOver = YES;
     
+    self.gameProgress.alpha = 0.0;
     
     if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeRemain:15 - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {

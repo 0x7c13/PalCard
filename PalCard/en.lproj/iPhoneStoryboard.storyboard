@@ -599,6 +599,12 @@
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
+                            <progressView opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" progress="1" id="0Me-u5-fSC">
+                                <rect key="frame" x="25" y="540" width="270" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="progressTintColor" red="0.89626514668367352" green="0.0" blue="0.0097253787864384541" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" red="0.41770966198979587" green="0.41770966198979587" blue="0.41770966198979587" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <gestureRecognizers/>
                     </view>
@@ -644,6 +650,7 @@
                         <outlet property="PalCardView8" destination="p1Y-1G-z6o" id="N53-lb-wrS"/>
                         <outlet property="PalCardView9" destination="vsa-UH-dYQ" id="iGA-lE-0ot"/>
                         <outlet property="TextDisplay" destination="54t-2d-TBz" id="5LC-Ko-ZE9"/>
+                        <outlet property="gameProgress" destination="0Me-u5-fSC" id="5vi-SJ-7Lz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -959,6 +966,149 @@ V 1.0 --- 02/05/13
         <image name="UIimages/single_cloud.png" width="16" height="16"/>
         <image name="UIimages/文字框.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="PalAchievementViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="debugDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PalInformationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="PalInstructionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="easyView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="hardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="normalView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="PalMainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="achievementButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameStartButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="informationButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="instructionButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="soundOnOffButtonPressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gameStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="informationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="instructionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="logoPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="soundSwitch" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PalModeMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cloud1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cloud2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cloud3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="difChoice" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="easyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="normalButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card11" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card12" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card2" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card3" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card4" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card5" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card6" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card7" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card8" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card9" candidateClass="UIView"/>
+                <relationship kind="outlet" name="DefaultView1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView10" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView11" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView12" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView6" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView7" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView8" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView9" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="Display" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="MainGameBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView10" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView11" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView12" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView6" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView7" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView8" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView9" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TextDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameProgress" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

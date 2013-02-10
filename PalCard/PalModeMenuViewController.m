@@ -51,9 +51,10 @@
 
 
 
-- (void)prepare
+- (void)backgroundAnimation
 {
     
+    // Background  animation
     self.blackBG.alpha = 1.0;
     
     self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
@@ -107,17 +108,27 @@
     
 }
 
-- (void) refresh{
+- (void) restartAnimation{
     
-    [self prepare];
-    //NSLog(@"trigger event when will enter foreground.");
+    [self backgroundAnimation];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
 	[super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    // register for later use:
+    // restart animation when game enter to foreground
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    
+    // unregister when view disappear
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -138,18 +149,18 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self prepare];
+    [self backgroundAnimation];
 }
 
--(void) viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
         
         [self.difChoice setFrame:CGRectMake(40, 0, 240, 128)];
@@ -169,12 +180,12 @@
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 30)];
     }
     
+    
+    // set default images
     self.difChoice.image = [UIImage imageNamed:@_ModeChoiceLabelImg];
     
-    
-    
-    
-    [self prepare];
+    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
+
     
     [self.easyButton setBackgroundImage:[UIImage imageNamed:@_EasyModeButtonImg] forState:UIControlStateNormal];
     
@@ -192,24 +203,8 @@
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
-    /*
-    [self.easyBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:35]];
     
-    self.easyBotton.titleLabel.text = @"简单模式";
-    
-    [self.normalBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:35]];
-    
-    self.normalBotton.titleLabel.text = @"普通模式";
-    
-    [self.hardBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:35]];
-    
-    self.hardBotton.titleLabel.text = @"困难模式";
-    
-    [self.returnBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
-    
-    self.returnBotton.titleLabel.text = @"返回";
-     */
-    
+    // check whether user has turned off sound
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
     if (turnOffSound) {
@@ -221,24 +216,16 @@
             _soundOff = NO;
         }
     }
-    else {
-        _soundOff = NO;
-    }
-    
+
     if (!_soundOff) {
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
     
-    self.blackBG.alpha = 1.0;
-    [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.5];
-    self.blackBG.alpha = 0.0f;
-    [UIView commitAnimations];
-    
-    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
-	// Do any additional setup after loading the view.
+	
+    // start background animation
+    [self backgroundAnimation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -294,8 +281,6 @@
     }
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
-
-
 
 
 - (void)viewDidUnload {

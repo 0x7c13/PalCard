@@ -77,49 +77,17 @@
     return self;
 }
 
-- (void)prepare
+- (void)backgroundAnimation
 {
     
-    if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
-    {
-        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
-        
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil]     forKey:@"button"];
-        
-    
-        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
-    
-        player.numberOfLoops = -1;  // Endless
-        [player play];
-        [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
-    }
-    
-    
+    // Background  animation
     self.blackBG.alpha = 1.0;
     
     self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
     self.bgPic2.image = [UIImage imageNamed:@_BGPIC2];
     self.logoPic.image = [UIImage imageNamed:@_LOGOPIC];
-
+    
     self.bgPic2.alpha = 0.7;
-    
-    
-    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonImg] forState:UIControlStateNormal];
-    
-    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonPressedImg] forState:UIControlStateHighlighted];
-    
-    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonImg] forState:UIControlStateNormal];
-    
-    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonPressedImg] forState:UIControlStateHighlighted];
-    
-    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonImg] forState:UIControlStateNormal];
-    
-    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonPressedImg] forState:UIControlStateHighlighted];
-    
-    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonImg] forState:UIControlStateNormal];
-    
-    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonPressedImg] forState:UIControlStateHighlighted];
-    
     
     
     CGRect frame = self.bgPic.frame;
@@ -169,49 +137,30 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    // register for later use:
+    // restart animation when game enter to foreground
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
-- (void) refresh{
+- (void) restartAnimation{
     
-    [self prepare];
+    [self backgroundAnimation];
     //NSLog(@"trigger event when will enter foreground.");
 }
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self prepare];
-
-}
-
 -(void) viewDidDisappear:(BOOL)animated{
+    
+    // unregister when view disappear
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
-    
-    if (!DEVICE_IS_IPHONE5) {
-        
-        [self.gameStartButton setFrame:CGRectMake(22, 210, 60, 180)];
-        
-        [self.achViewButton setFrame:CGRectMake(94, 245, 60, 180)];
-        
-        [self.instructionButton setFrame:CGRectMake(169, 210, 60, 180)];
-        
-        [self.informationButton setFrame:CGRectMake(242, 245, 60, 180)];
-        
-        [self.soundSwitch setFrame:CGRectMake(260, 430, 30, 30)];
-    }
-    
-    
-    // App 第一次启动，加载 UserDefault 默认信息
-    
-    // 声音默认开启
+    [self backgroundAnimation];
+}
+
+- (void)gameDataInit
+{
     
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
@@ -224,7 +173,7 @@
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
             self.soundSwitch.image = [UIImage imageNamed:@_SoundOnImg];
-                                      
+            
         }
     }
     else {
@@ -243,34 +192,34 @@
     if (!myLove) {
         
         [[NSUserDefaults standardUserDefaults] setValue:@"FY" forKey:@"myLove"];
-
-        //  成就系统： 卡牌全部锁定
+        
+        //  lock every sigle card
         
         NSMutableArray *CardIsUnlocked = [[NSUserDefaults standardUserDefaults] valueForKey:@"CardIsUnlocked"];
-    
+        
         if (!CardIsUnlocked) {
             
             CardIsUnlocked = [NSMutableArray arrayWithCapacity:100];
             for (int i = 0; i < 100; i++) {
                 CardIsUnlocked[i] = @"NO";
             }
-        
+            
             [[NSUserDefaults standardUserDefaults] setValue:CardIsUnlocked forKey:@"CardIsUnlocked"];
         }
         
         // General Data
         NSNumber *totalGames = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalGames forKey:@"totalGames"];
-
+        
         NSNumber *totalWins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalWins forKey:@"totalWins"];
-
+        
         NSNumber *totalLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalLosses forKey:@"totalLosses"];
-
+        
         NSNumber *wins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:wins forKey:@"wins"];
-
+        
         NSNumber *losses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:losses forKey:@"losses"];
         
@@ -295,12 +244,12 @@
         
         NSNumber *totalHardLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalHardLosses forKey:@"totalHardLosses"];
-
+        
         
         
         NSNumber *easyWins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:easyWins forKey:@"easyWins"];
-
+        
         NSNumber *normalWins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:normalWins forKey:@"normalWins"];
         
@@ -319,11 +268,67 @@
     }
 
 
-    [self prepare];
-    
+}
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
-	// Do any additional setup after loading the view.
+    [self gameDataInit];
+    
+    
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S
+    if (!DEVICE_IS_IPHONE5) {
+        
+        [self.gameStartButton setFrame:CGRectMake(22, 210, 60, 180)];
+        
+        [self.achViewButton setFrame:CGRectMake(94, 245, 60, 180)];
+        
+        [self.instructionButton setFrame:CGRectMake(169, 210, 60, 180)];
+        
+        [self.informationButton setFrame:CGRectMake(242, 245, 60, 180)];
+        
+        [self.soundSwitch setFrame:CGRectMake(260, 430, 30, 30)];
+    }
+    
+    
+    // check whether user has turned off sound
+    if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
+    {
+        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
+        
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil]     forKey:@"button"];
+        
+        
+        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
+        
+        player.numberOfLoops = -1;  // Endless
+        [player play];
+        [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
+    }
+    
+    
+    // set default images for the buttons
+    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonImg] forState:UIControlStateNormal];
+    
+    [self.gameStartButton setBackgroundImage:[UIImage imageNamed:@_GameStartButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonImg] forState:UIControlStateNormal];
+    
+    [self.achViewButton setBackgroundImage:[UIImage imageNamed:@_AchievementButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonImg] forState:UIControlStateNormal];
+    
+    [self.instructionButton setBackgroundImage:[UIImage imageNamed:@_InstructionButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonImg] forState:UIControlStateNormal];
+    
+    [self.informationButton setBackgroundImage:[UIImage imageNamed:@_InformationButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    // start background animation
+    [self backgroundAnimation];
+
 }
 
 

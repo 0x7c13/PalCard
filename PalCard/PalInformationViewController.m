@@ -46,7 +46,7 @@
 
 
 
-- (void)prepare
+- (void)backgroundAnimation
 {
     
     self.blackBG.alpha = 1.0;
@@ -100,28 +100,34 @@
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
     
-    
-    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    // register for later use:
+    // restart animation when game enter to foreground
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    
+    // unregister when view disappear
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) restartAnimation{
+    
+    [self backgroundAnimation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
     
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-
-- (void) refresh{
-    
-    [self prepare];
 }
 
 
@@ -137,8 +143,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
         
         [self.infoBG setFrame:CGRectMake(-10, 5, 340, 440)];
@@ -148,6 +156,8 @@
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 35)];
     }
     
+    
+    // check whether user has turned off sound
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
     if (turnOffSound) {
@@ -157,29 +167,21 @@
         }
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
         }
     }
-    else {
-        _soundOff = NO;
-    }
-    
-    if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
-    }
     
     
+    // set default images for return button
     [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
     self.infoBG.image = [UIImage imageNamed:@_InfoBG];
     
-    [self prepare];
+    [self backgroundAnimation];
 }
 
--(void) viewDidDisappear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 - (void)didReceiveMemoryWarning
 {

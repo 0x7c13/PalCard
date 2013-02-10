@@ -170,7 +170,7 @@
                                 <rect key="frame" x="19" y="379" width="283" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AQv-I7-cZN">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AQv-I7-cZN" userLabel="descriptionLabel">
                                 <rect key="frame" x="44" y="379" width="232" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -206,7 +206,7 @@
                         <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
                         <outlet property="cardNameDisplay" destination="1xE-fB-HId" id="Za4-kd-3Dy"/>
                         <outlet property="carousel" destination="Ydb-gn-SSJ" id="3jf-Tp-xKl"/>
-                        <outlet property="debugDisplay" destination="AQv-I7-cZN" id="BtV-MD-CZn"/>
+                        <outlet property="descriptionDisplay" destination="AQv-I7-cZN" id="CiI-G0-h12"/>
                         <outlet property="nameTag" destination="p9R-ab-n0N" id="O3Q-R4-wOl"/>
                         <outlet property="returnButton" destination="4Kb-ps-fpa" id="t9k-Jn-hXn"/>
                     </connections>
@@ -970,13 +970,14 @@ V 1.0 --- 02/05/13
         <class className="PalAchievementViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
-                <relationship kind="outlet" name="debugDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
             </relationships>

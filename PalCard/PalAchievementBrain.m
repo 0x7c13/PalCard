@@ -24,7 +24,7 @@
     bool flag = NO;
     
     
-    // Get data from UserDefault
+    // Get game data from UserDefault
     
     NSNumber *totalGames = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalGames"];
     NSNumber *totalWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalWins"];
@@ -49,6 +49,8 @@
     NSNumber *hardLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"hardLosses"];
     
     
+    
+    // calculate new game data 
     totalGames = [NSNumber numberWithInteger:[totalGames integerValue] + 1];
     
     if (win) {
@@ -97,13 +99,12 @@
         }
     }
     
-    // 从 Userdefault 中读取当前卡牌解锁信息
+    // read card unlock information for userdefault
 
     NSMutableArray *CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] valueForKey:@"CardIsUnlocked"]];
 
-   // NSLog(@"%@",CardIsUnlocked);
-    
  
+    // achievement brain
     if ([CardIsUnlocked[1] isEqualToString:@"NO"]) {
         if ([totalWins isEqualToNumber:[NSNumber numberWithInteger: 1]]) {
             CardIsUnlocked[1] = @"YES";
@@ -556,7 +557,7 @@
     }
     
     
-    // 将新的记录已经卡牌解锁信息保存至 Userdefaults
+    // Store new game data in userdefaults
     
     [[NSUserDefaults standardUserDefaults] setValue:CardIsUnlocked forKey:@"CardIsUnlocked"];
     
@@ -583,11 +584,8 @@
     [[NSUserDefaults standardUserDefaults] setValue:normalLosses forKey:@"normalLosses"];
     [[NSUserDefaults standardUserDefaults] setValue:hardLosses forKey:@"hardLosses"];
 
-    
     return flag;
 }
-
-
 
 
 

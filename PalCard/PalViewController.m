@@ -122,7 +122,7 @@
 @implementation PalViewController
 
 
-// delegate ----------------------------
+#pragma mark  alert  delegate 
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -154,12 +154,13 @@
 }
 
 
-// initialize
+
+#pragma mark -------
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    // 隐藏 navigation bar
+    // hide navigation bar
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -169,12 +170,181 @@
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+#pragma mark cards animation
+
+// flip effect
+- (void)flipActionWithFirst:(UIImageView *)firstView
+                  andSecond:(UIImageView *)secondView
+{
+    [UIView transitionFromView:firstView toView:secondView duration:_ANITIME_LONG options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    [UIView commitAnimations];
+}
+
+
+- (void)cardsVisiable
+{
+    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
+        
+        if (!_cardIsVisiable[i]) {
+            [self flipActionWithFirst:[self.defaultViews objectAtIndex:(i - 1)] andSecond:   [self.cardViews objectAtIndex:(i - 1)]];
+        }
+    }
+}
+
+- (void)cardsInvisiable
+{
+    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
+        
+        if (_cardIsVisiable[i]) {
+            [self flipActionWithFirst:[self.cardViews objectAtIndex:(i - 1)] andSecond:   [self.defaultViews objectAtIndex:(i - 1)]];
+        }
+    }
+}
+
+// add shadow to the given view
+- (void)addShadow: (UIImageView *)view
+{
+    [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [view.layer setShadowOffset:CGSizeMake(5, 5)];
+    [view.layer setShadowOpacity:0.3];
+    [view.layer setShadowRadius:6.0];
+}
+
+
+/*
+ -(UIImage*)getGrayImage:(UIImage*)sourceImage
+ {
+    int width = sourceImage.size.width;
+    int height = sourceImage.size.height;
+ 
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
+    CGColorSpaceRelease(colorSpace);
+ 
+    if (context == NULL) {
+        return nil;
+    }
+ 
+    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
+    UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
+    CGContextRelease(context);
+ 
+    return grayImage;
+ }
+ 
+ 
+ 
+ - (void)addBlackCard
+ {
+    int blackCard= arc4random() % _AMOUNT_OF_CARDS;
+ 
+    while (_isBlackCard[blackCard + 1]) blackCard = arc4random() % _AMOUNT_OF_CARDS;
+ 
+    UIImageView *first = [self.cardViews objectAtIndex:blackCard];
+    UIImageView *second;
+ 
+    _isBlackCard[blackCard + 1] = YES;
+ 
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
+ 
+        second = [self.cardViews objectAtIndex:i];
+ 
+        if (first.image == second.image && blackCard != i) {
+ 
+            _isBlackCard[i + 1] = YES;
+            break;
+        }
+    }
+ 
+    first.image = [self getGrayImage:first.image];
+    second.image = [self getGrayImage:second.image];
+ 
+ }
+ 
+ */
+
+- (void)rightCardAnimation: (NSTimer *) timer
+{
+    CGFloat t = 2.0;
+    
+    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
+    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
+    
+    self.fView.transform = leftQuake;  // starting point
+    self.sView.transform = leftQuake;
+    
+    [UIView beginAnimations:@"earthquake" context:nil];
+    [UIView setAnimationRepeatAutoreverses:YES];    // important
+    [UIView setAnimationRepeatCount:5];
+    [UIView setAnimationDuration:0.07];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+    
+    self.fView.transform = rightQuake;    // end here & auto-reverse
+    self.sView.transform = rightQuake;
+    
+    [UIView commitAnimations];
+    
+}
+
+
+- (void) wrongCardAnimation: (NSTimer *) timer
+{
+    /*
+     NSMutableArray *ary = [[NSMutableArray alloc]init];
+     
+     [ary addObject:[UIImage imageNamed:@"020.png"]];
+     [ary addObject:[UIImage imageNamed:@"999.png"]];
+     
+     [FirstView setImage:[UIImage imageNamed:@"999.png"]];
+     [SecondView setImage:[UIImage imageNamed:@"999.png"]];
+     
+     FirstView.animationImages = ary;
+     FirstView.animationDuration = 1;
+     FirstView.animationRepeatCount = 1;
+     
+     SecondView.animationImages = ary;
+     SecondView.animationDuration = 1;
+     SecondView.animationRepeatCount = 1;
+     
+     [FirstView startAnimating];
+     [SecondView startAnimating];
+     */
+    
+    
+    _animating = YES;
+    
+    [UIView transitionFromView:self.LastView toView:self.LastDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    [UIView transitionFromView:self.CurrentView toView:self.CurrentDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
+    
+    [UIView commitAnimations];
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval: _ANITIME_SHORT target:self selector:@selector(ArrowAnimationPlay:) userInfo:nil repeats: NO];
+    
+}
+
+
+
+
+
+#pragma mark -------
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     
-    // iphone 3.5寸屏幕 适配
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
         
         [self.Card1 setFrame:CGRectMake(30, 3, 78, 110)];
@@ -209,6 +379,7 @@
     }
     
     
+    // check whether user has turned off sound
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
     if (turnOffSound) {
@@ -218,97 +389,26 @@
         }
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
+            
+            NSString *gameBGM = [[NSString alloc]init];
+            gameBGM = [NSString stringWithFormat:@"zd0%d.mp3", arc4random() % 6 + 1 ];
+            
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:gameBGM ofType:nil]     forKey:@"BGM"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameLoseSound ofType:nil] forKey:@"LOS"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameWinSound ofType:nil] forKey:@"WIN"];
         }
     }
-    else {
-        _soundOff = NO;
-    }
+
     
-    if (!_soundOff) {
-        NSString *gameBGM = [[NSString alloc]init];
-        gameBGM = [NSString stringWithFormat:@"zd0%d.mp3", arc4random() % 6 + 1 ];
-    
-        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:gameBGM ofType:nil]     forKey:@"BGM"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameLoseSound ofType:nil] forKey:@"LOS"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameWinSound ofType:nil] forKey:@"WIN"];
-    }
-    
-    [self initilize];
+    [self gameInitilize];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 
-- (void)didReceiveMemoryWarning
+- (void)gameInitilize
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-// 给 View 加上阴影效果
-- (void)addShadow: (UIImageView *)view
-{
-    [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [view.layer setShadowOffset:CGSizeMake(5, 5)];
-    [view.layer setShadowOpacity:0.3];
-    [view.layer setShadowRadius:6.0];
-}
-
-/*
--(UIImage*)getGrayImage:(UIImage*)sourceImage
-{
-    int width = sourceImage.size.width;
-    int height = sourceImage.size.height;
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
-    CGColorSpaceRelease(colorSpace);
-    
-    if (context == NULL) {
-        return nil;
-    }
-    
-    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
-    UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
-    CGContextRelease(context);
-    
-    return grayImage;
-}
- 
-
-
-- (void)addBlackCard
-{
-    int blackCard= arc4random() % _AMOUNT_OF_CARDS;
-    
-    while (_isBlackCard[blackCard + 1]) blackCard = arc4random() % _AMOUNT_OF_CARDS;
-    
-    UIImageView *first = [self.cardViews objectAtIndex:blackCard];
-    UIImageView *second;
-    
-    _isBlackCard[blackCard + 1] = YES;
-    
-    for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
-        
-        second = [self.cardViews objectAtIndex:i];
-        
-        if (first.image == second.image && blackCard != i) {
-            
-            _isBlackCard[i + 1] = YES;
-            break;
-        }
-    }
-    
-    first.image = [self getGrayImage:first.image];
-    second.image = [self getGrayImage:second.image];
-    
-}
-
-*/
-
-- (void)initilize
-{
-    // 设置所有卡牌为不可见状态
+    // hide all cards
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) {
         _cardIsVisiable[i] = NO;
         _isBlackCard[i] = NO;
@@ -324,7 +424,7 @@
         [MCSoundBoard playAudioForKey:@"BGM" fadeInInterval:1.0];
     }
     
-    // 使用 PalCardGenerator 产生随机卡牌名称
+    // use PalCardGenerator to generate images of 12 cards
     PalCardGenerator *cardGenerator = [[PalCardGenerator alloc]init];
     
     
@@ -333,7 +433,7 @@
     self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12 , nil];
     
     
-    // 讲当前模式告知 PalCardGenerator
+    // mode settings
     
     if ([self.mode isEqualToString:@"easy"]) {
         cardGenerator.NumbersOfBlackCards = 0;
@@ -345,8 +445,7 @@
         cardGenerator.NumbersOfBlackCards = 2;
     }
     
-    // _isBlackCard[]  数组记录当前黑牌位置
-    
+    // black cards settings
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
         
         UIImageView *tmp;
@@ -366,7 +465,7 @@
         
     }
     
-    // 变量设为 default value
+    // set default values
     
     self.Display.text = @"";
     
@@ -413,17 +512,17 @@
     
     self.TextDisplay.text = @"游戏马上开始";
     
-    // 翻开卡牌
+    // preparation time before game started
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG + 1 target:self selector:@selector(prepare:) userInfo:nil repeats: NO];
     
-    // 延时后翻回
+    // preparation finished
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG + 1 + _watchTime target:self selector:@selector(prepareDone:) userInfo:nil repeats: NO];
     
 }
 
 - (void)prepare:(NSTimer *) timer
 {
-    [self cardsVisiable]; // 翻开所有卡牌
+    [self cardsVisiable];
     self.TextDisplay.text = @"请记忆卡牌位置";
 }
 
@@ -436,7 +535,10 @@
 }
 
 
-// 游戏主计时器
+
+
+#pragma mark Game Timer
+
 - (void)startTimer:(NSTimer *) timer
 {
     self.gameProgress.alpha = 1.0;
@@ -457,45 +559,6 @@
     //[NSTimer scheduledTimerWithTimeInterval: 15 target:self selector:@selector(GameOver:) userInfo:nil repeats: NO];
 }
 
-
-// 游戏结束后调用此method
-- (void)gameFinish
-{
-    _gameOver = YES;
-    
-    self.gameProgress.alpha = 0.0;
-    
-    if (!_soundOff) {
-        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
-        if (player.playing) {
-            [MCSoundBoard pauseAudioForKey:@"BGM" fadeOutInterval:0.0];
-        } else {
-            [MCSoundBoard playAudioForKey:@"BGM" fadeInInterval:0.0];
-        }
-        [MCSoundBoard playSoundForKey:@"LOS"];
-    }
-    
-    // 检查此局时候有新成就产生
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeRemain:_totalTime - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
-    {
-        self.TextDisplay.text = @"新卡牌解锁！";
-    }
-    else {
-        self.TextDisplay.text = @"游戏结束";
-    }
-    
-    self.Display.text = @"";
-
-    
-    // 调用 alertview 选择是返回还是继续游戏
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
-    [alert show];
-    
-    UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:@_GameLoseImg];
-}
-
-// 计时器SEL
 - (void)GameTimer:(NSTimer *) timer
 {
     if (!_gameOver) {
@@ -518,27 +581,14 @@
     }
 }
 
-- (void)ArrowAnimationPlay:(NSTimer *) timer
-{
-    _animating = NO;
-}
 
 
-- (void)nextRound:(NSTimer *) timer
-{
-    [self initilize];
-}
 
 
-// 卡片翻转效果
-- (void)flipActionWithFirst:(UIImageView *)firstView
-         andSecond:(UIImageView *)secondView
-{
-    [UIView transitionFromView:firstView toView:secondView duration:_ANITIME_LONG options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    [UIView commitAnimations];
-}
+#pragma mark ------- win and lose
 
-// 检查当前游戏是否获胜
+
+// check whether user win the game 
 
 - (bool) win
 {
@@ -561,7 +611,6 @@
     }
     
     
-    
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
         if (player.playing) {
@@ -569,12 +618,12 @@
         } else {
             [MCSoundBoard playAudioForKey:@"BGM" fadeInInterval:0.0];
         }
-    
+        
         [MCSoundBoard playSoundForKey:@"WIN"];
     }
     
     self.Display.text = @"";
-
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
     [alert show];
     
@@ -585,29 +634,56 @@
 }
 
 
-- (void)rightCardAnimation: (NSTimer *) timer
+- (void)gameFinish
 {
-    CGFloat t = 2.0;
+    _gameOver = YES;
     
-    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
-    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
+    self.gameProgress.alpha = 0.0;
     
-    self.fView.transform = leftQuake;  // starting point
-    self.sView.transform = leftQuake;
+    if (!_soundOff) {
+        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
+        if (player.playing) {
+            [MCSoundBoard pauseAudioForKey:@"BGM" fadeOutInterval:0.0];
+        } else {
+            [MCSoundBoard playAudioForKey:@"BGM" fadeInInterval:0.0];
+        }
+        [MCSoundBoard playSoundForKey:@"LOS"];
+    }
     
-    [UIView beginAnimations:@"earthquake" context:nil];
-    [UIView setAnimationRepeatAutoreverses:YES];    // important
-    [UIView setAnimationRepeatCount:5];
-    [UIView setAnimationDuration:0.07];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+    // check whether new achievement unlocked
+    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeRemain:_totalTime - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    {
+        self.TextDisplay.text = @"新卡牌解锁！";
+    }
+    else {
+        self.TextDisplay.text = @"游戏结束";
+    }
     
-    self.fView.transform = rightQuake;    // end here & auto-reverse
-    self.sView.transform = rightQuake;
+    self.Display.text = @"";
+
     
-    [UIView commitAnimations];
+    // call alert
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
+    [alert show];
     
+    UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
+    imgv.image = [UIImage imageNamed:@_GameLoseImg];
 }
+
+
+- (void)ArrowAnimationPlay:(NSTimer *) timer
+{
+    _animating = NO;
+}
+
+
+- (void)nextRound:(NSTimer *) timer
+{
+    [self gameInitilize];
+}
+
+
+
 
 
 - (void)CardDecision:(NSTimer *) timer
@@ -646,41 +722,6 @@
     }
 }
 
-- (void) wrongCardAnimation: (NSTimer *) timer
-{
-    /*
-    NSMutableArray *ary = [[NSMutableArray alloc]init];
-    
-    [ary addObject:[UIImage imageNamed:@"020.png"]];
-    [ary addObject:[UIImage imageNamed:@"999.png"]];
-    
-    [FirstView setImage:[UIImage imageNamed:@"999.png"]];
-    [SecondView setImage:[UIImage imageNamed:@"999.png"]];
-    
-    FirstView.animationImages = ary;
-    FirstView.animationDuration = 1;
-    FirstView.animationRepeatCount = 1;
-    
-    SecondView.animationImages = ary;
-    SecondView.animationDuration = 1;
-    SecondView.animationRepeatCount = 1;
-    
-    [FirstView startAnimating];
-    [SecondView startAnimating];
-    */
-    
-    
-    _animating = YES;
-    
-    [UIView transitionFromView:self.LastView toView:self.LastDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    [UIView transitionFromView:self.CurrentView toView:self.CurrentDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    
-    [UIView commitAnimations];
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval: _ANITIME_SHORT target:self selector:@selector(ArrowAnimationPlay:) userInfo:nil repeats: NO];
-
-}
 
 
 - (void)processWithCardView:(UIImageView *)cardImage
@@ -725,26 +766,6 @@
 
 }
 
-
-- (void)cardsVisiable
-{
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
-        
-        if (!_cardIsVisiable[i]) {
-            [self flipActionWithFirst:[self.defaultViews objectAtIndex:(i - 1)] andSecond:   [self.cardViews objectAtIndex:(i - 1)]];
-        }
-    }
-}
-
-- (void)cardsInvisiable
-{
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
-        
-        if (_cardIsVisiable[i]) {
-            [self flipActionWithFirst:[self.cardViews objectAtIndex:(i - 1)] andSecond:   [self.defaultViews objectAtIndex:(i - 1)]];
-        }
-    }
-}
 
 
 - (IBAction)Card1Pressed:(UITapGestureRecognizer *)sender {

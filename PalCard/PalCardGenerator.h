@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSInteger NumbersOfBlackCards;
 
+
 - (NSString *) getACardWithPath;
 - (NSString *) lastIsBlackOrNot;
 

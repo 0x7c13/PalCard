@@ -36,7 +36,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bgPic;
 @property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
-@property (strong, nonatomic) IBOutlet UILabel *debugDisplay;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UILabel *cardNameDisplay;
 @property (strong, nonatomic) IBOutlet UIImageView *achLabel;
@@ -54,6 +54,8 @@
 
 @synthesize wrap;
 
+
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder]))
@@ -65,130 +67,10 @@
 }
 
 
-
-- (void) refresh{
-    
-    [self prepare];
-    //NSLog(@"trigger event when will enter foreground.");
-}
-
-
-- (void)viewDidLoad
+- (void)backgroundAnimation
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
-    
-    carousel.delegate = self;
-    carousel.dataSource = self;
-    
-    carousel.type = iCarouselTypeCoverFlow;
-    
-    
-    
-    if (!DEVICE_IS_IPHONE5) {
-        
-        [self.cardNameDisplay setFrame:CGRectMake(35, 10, 250, 38)];
-        
-        [self.nameTag setFrame:CGRectMake(35, 15, 250, 38)];
-        
-        [self.returnButton setFrame:CGRectMake(250, 435, 50, 35)];
-        
-        [self.debugDisplay setFrame:CGRectMake(44, 315, 232, 120)];
-        
-        [self.achLabel setFrame:CGRectMake(19, 320, 283, 115)];
-        
-        [self.carousel setFrame:CGRectMake(0, 25, 320, 320)];
-    }
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:
-                      @"CardsInformation" ofType:@"plist"];
-    
-    _cardsInformation = [[NSMutableArray alloc] initWithContentsOfFile:path];
-    
-
-
-    [self.debugDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
-    
-    self.debugDisplay.numberOfLines = 5;
-    
-    self.debugDisplay.text = self.cardsInformation[1][1];
-    
-    [self.cardNameDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
-    
-    self.cardNameDisplay.text = self.cardsInformation[1][0];
-    
-    /*
-    [self.returnBotton.titleLabel setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
-    
-    self.returnBotton.titleLabel.text = @"返回";
-     */
-    
-    
-    NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
-    
-    if (turnOffSound) {
-        
-        if ([turnOffSound isEqualToString:@"YES"]) {
-            _soundOff = YES;
-        }
-        else if ([turnOffSound isEqualToString:@"NO"]) {
-            _soundOff = NO;
-        }
-    }
-    else {
-        _soundOff = NO;
-    }
-    
-    if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
-    }
-    
-    
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
-    
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
-    
-    self.nameTag.image = [UIImage imageNamed:@_NameTagImg];
-    
-    [self prepare];
-}
-
-- (void)viewDidUnload
-{
-    [self setNameTag:nil];
-    [super viewDidUnload];
-    
-    self.carousel = nil;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-    
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-
-
-
-- (void)prepare
-{
+    // Background  animation
     
     self.blackBG.alpha = 1.0;
     
@@ -197,6 +79,8 @@
     
     self.bgPic2.alpha = 0.7;
     
+    
+    // mountain
     
     CGRect frame = self.bgPic.frame;
     frame.origin.x = 0;
@@ -243,7 +127,131 @@
     
 }
 
+- (void) restartAnimation{
+    
+    [self backgroundAnimation];
+
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S
+    if (!DEVICE_IS_IPHONE5) {
+        
+        [self.cardNameDisplay setFrame:CGRectMake(35, 10, 250, 38)];
+        
+        [self.nameTag setFrame:CGRectMake(35, 15, 250, 38)];
+        
+        [self.returnButton setFrame:CGRectMake(250, 435, 50, 35)];
+        
+        [self.descriptionDisplay setFrame:CGRectMake(44, 315, 232, 120)];
+        
+        [self.achLabel setFrame:CGRectMake(19, 320, 283, 115)];
+        
+        [self.carousel setFrame:CGRectMake(0, 25, 320, 320)];
+    }
+    
+    
+    // carousel view initialization
+    
+    self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
+    
+    carousel.delegate = self;
+    carousel.dataSource = self;
+    carousel.type = iCarouselTypeCoverFlow;
+    
+    
+    // read cards information from CardsInformation.plist
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"CardsInformation" ofType:@"plist"];
+    
+    _cardsInformation = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    
+
+    // default settings for labels
+    [self.descriptionDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
+    
+    self.descriptionDisplay.numberOfLines = 5;
+    
+    self.descriptionDisplay.text = self.cardsInformation[1][1];
+    
+    [self.cardNameDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:30]];
+    
+    self.cardNameDisplay.text = self.cardsInformation[1][0];
+    
+    
+    // check whether user has turned off sound
+    NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
+    
+    if (turnOffSound) {
+        
+        if ([turnOffSound isEqualToString:@"YES"]) {
+            _soundOff = YES;
+        }
+        else if ([turnOffSound isEqualToString:@"NO"]) {
+            _soundOff = NO;
+            
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
+        }
+    }
+    
+    
+    // set default images for return button
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
+    
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    self.nameTag.image = [UIImage imageNamed:@_NameTagImg];
+    
+    
+    // start back ground animation
+    [self backgroundAnimation];
+}
+
+
+- (void)viewDidUnload
+{
+    [self setNameTag:nil];
+    [super viewDidUnload];
+    
+    self.carousel = nil;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+	[super viewWillAppear:animated];
+    
+    // register for later use:
+    // restart animation when game enter to foreground
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+	[super viewWillDisappear:animated];
+    
+	[self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+
 -(void) viewDidDisappear:(BOOL)animated{
+    
+    // unregister when view disappear
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -259,7 +267,7 @@
 }
 
 
-#pragma mark -
+#pragma mark - protocol
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
@@ -274,20 +282,16 @@
     
 }
 
-#pragma mark -
-
 // iCarousel Class protocol
 
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    //NSLog(@"%d", index);
-    //self.debugDisplay.text = [NSString stringWithFormat:@"%d",index ];
+    
     if (!_soundOff) {
         [MCSoundBoard playSoundForKey:@"selected"];
     }
-    //self.debugDisplay.text = [PalCardsInformation descriptionOfCardAtIndex:index + 1];
-    //self.cardNameDisplay.text = [PalCardsInformation nameOfCardAtIndex:index + 1];
+
 }
  
 
@@ -295,7 +299,7 @@
 {
     
     self.cardNameDisplay.text = self.cardsInformation[index + 1][0];
-    self.debugDisplay.text = self.cardsInformation[index + 1][1];
+    self.descriptionDisplay.text = self.cardsInformation[index + 1][1];
 
 }
 

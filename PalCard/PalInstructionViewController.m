@@ -52,10 +52,9 @@
 
 
 
-
-- (void)prepare
+- (void)backgroundAnimation
 {
-    // prepare method 是用来放映背景云和山跑马灯效果
+    // Background  animation
     
     
     self.blackBG.alpha = 1.0;
@@ -111,39 +110,44 @@
     [UIView commitAnimations];
     
     
-    
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
 	[super viewWillAppear:animated];
     
     
-    // 在NotificationCenter 中注册self，以便在游戏从后台返回前台或者segue切换后刷新 背景跑马灯效果
+    // register for later use:
+    // restart animation when game enter to foreground
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-   
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-
-- (void) refresh{
     
-    [self prepare];
-    //NSLog(@"trigger event when will enter foreground.");
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
     
-    // View 消失后取消 NotificationCenter关注
+    // unregister when view disappear
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void) restartAnimation{
+    
+    [self backgroundAnimation];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+	[super viewWillDisappear:animated];
+   
+	[self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -155,13 +159,14 @@
 }
 
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
     
+    // I use storyboard to design UI for iphone 5
+    // here are frame tweaks for iPhone 4/4S 
     if (!DEVICE_IS_IPHONE5) {
         
         [self.easyView setFrame:CGRectMake(30, 20, 130, 78)];
@@ -177,12 +182,19 @@
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 35)];
     }
     
-    
+    // set default images
     self.easyView.image = [UIImage imageNamed:@_EasyImg];
     self.normalView.image = [UIImage imageNamed:@_NormalImg];
     self.hardView.image = [UIImage imageNamed:@_HardImg];
+    self.infoBG.image = [UIImage imageNamed:@_InfoBG];
+    
+    // set images for return button
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
+    
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
     
+    // check whether user has turned off sound
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
     if (turnOffSound) {
@@ -192,33 +204,23 @@
         }
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
         }
     }
-    else {
-        _soundOff = NO;
-    }
     
-    if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
-    }
-    
-    
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
-    
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
-    
-    self.infoBG.image = [UIImage imageNamed:@_InfoBG];
-    
-    [self prepare];
+
+    // start background animation
+    [self backgroundAnimation];
+
     
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)viewDidUnload {
     [self setBgPic:nil];

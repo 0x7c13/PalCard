@@ -11,7 +11,7 @@
 @interface PalAchievementBrain : NSObject
 
 
-
+// return YES if new achievement unlocked
 + (BOOL) newAchievementUnlocked: (NSString *)gameMode
                       winOrLose: (BOOL)win
                      timeRemain: (int)usedTime

@@ -31,6 +31,7 @@
 
 
 @interface PalViewController (){
+    
     bool _cardIsVisiable[_AMOUNT_OF_CARDS + 1];
     bool _isBlackCard[_AMOUNT_OF_CARDS + 1];
     bool _animating;
@@ -53,7 +54,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *TextDisplay;
 @property (weak, nonatomic) IBOutlet UILabel *Display;
 
-@property (strong, nonatomic) IBOutlet UIProgressView *gameProgress;
+@property (weak, nonatomic) IBOutlet UIProgressView *gameProgress;
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *PalCardView1;
@@ -97,12 +98,6 @@
 @property (strong, nonatomic) IBOutlet UIView *Card10;
 @property (strong, nonatomic) IBOutlet UIView *Card11;
 @property (strong, nonatomic) IBOutlet UIView *Card12;
-
-
-
-
-
-
 
 
 @property (weak, nonatomic) UIImageView *LastView;
@@ -478,8 +473,8 @@
     _rights = 0;
     _wrongs = 0;
     
-    // 根据难度模式 设置游戏时间
     
+    // Time setting
     if ([self.mode isEqualToString:@"easy"]) {
         _totalTime = 15.0;
         _watchTime = 1.5;
@@ -681,8 +676,6 @@
 {
     [self gameInitilize];
 }
-
-
 
 
 

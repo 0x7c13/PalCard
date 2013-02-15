@@ -52,19 +52,6 @@
 
 @synthesize carousel;
 
-@synthesize wrap;
-
-
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if ((self = [super initWithCoder:aDecoder]))
-    {
-        wrap = YES;
-    }
-    
-    return self;
-}
 
 
 - (void)backgroundAnimation
@@ -167,12 +154,12 @@
     
     
     // read cards information from CardsInformation.plist
-    NSString *path = [[NSBundle mainBundle] pathForResource:
-                      @"CardsInformation" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"CardsInformation" ofType:@"plist"];
     
     _cardsInformation = [[NSMutableArray alloc] initWithContentsOfFile:path];
     
-
+    
+    
     // default settings for labels
     [self.descriptionDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
     
@@ -293,9 +280,8 @@
     }
 
 }
- 
 
-- (void)carouselCurrentItemIndexUpdated:(NSInteger)index
+- (void)carouselCurrentItemIndexDidChange:(NSInteger)index
 {
     
     self.cardNameDisplay.text = self.cardsInformation[index + 1][0];
@@ -308,11 +294,9 @@
     return 64;
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     index ++; // default start from 0
-    
-    UIView *view;
     
     if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
         view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@_DefaultCardImg]];
@@ -336,11 +320,6 @@
 	return 0;
 }
 
-- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel
-{
-    return 64;
-}
-
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel
 {
     return ITEM_SPACING;
@@ -357,12 +336,12 @@
     return CATransform3DTranslate(transform, 0.0, 0.0, offset * self.carousel.itemWidth);
 }
 
-- (BOOL)carouselShouldWrap:(iCarousel *)carousel
+/*
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value;
 {
-    return wrap;
+    return iCarouselOptionWrap;
 }
-
-
+*/
 
 
 @end

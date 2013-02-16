@@ -5,7 +5,7 @@ App名:仙剑卡牌
 
 PalCard.app
 
-V 1.0.2 Source Code
+V 1.0.3 Source Code
 
 Author: FlyinGeek
 
@@ -26,6 +26,8 @@ iPhone 3GS/4/4S/5 supported
 Open Source Classes used in this project:
 
 iCarousel : https://github.com/nicklockwood/iCarousel
+
+MCSoundBoard : https://github.com/Baglan/MCSoundBoard
 
 --------------------------------
 

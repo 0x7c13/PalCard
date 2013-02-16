@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70F928616CF40E700151527 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928316CF40E700151527 /* FXImageView.m */; };
+		F70F928716CF40E700151527 /* UIImage+FX.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928516CF40E700151527 /* UIImage+FX.m */; };
 		F710265C16CDC17700FD2836 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265B16CDC17700FD2836 /* iCarousel.m */; };
 		F710266016CDC19900FD2836 /* MCSoundBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265F16CDC19900FD2836 /* MCSoundBoard.m */; };
 		F71F398D16BE282200F39979 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71F398C16BE282200F39979 /* QuartzCore.framework */; };
@@ -54,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F70F928216CF40E700151527 /* FXImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXImageView.h; sourceTree = "<group>"; };
+		F70F928316CF40E700151527 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
+		F70F928416CF40E700151527 /* UIImage+FX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FX.h"; sourceTree = "<group>"; };
+		F70F928516CF40E700151527 /* UIImage+FX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FX.m"; sourceTree = "<group>"; };
 		F710265A16CDC17700FD2836 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F710265B16CDC17700FD2836 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F710265E16CDC19900FD2836 /* MCSoundBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSoundBoard.h; sourceTree = "<group>"; };
@@ -132,6 +138,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F70F928116CF40E700151527 /* FXImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F70F928216CF40E700151527 /* FXImageView.h */,
+				F70F928316CF40E700151527 /* FXImageView.m */,
+				F70F928416CF40E700151527 /* UIImage+FX.h */,
+				F70F928516CF40E700151527 /* UIImage+FX.m */,
+			);
+			path = FXImageView;
+			sourceTree = "<group>";
+		};
 		F710265916CDC17700FD2836 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +242,7 @@
 				F7ED0FE316BC96C60036B782 /* PalModeMenuViewController.m */,
 				F7F7003916B7211D00876181 /* PalViewController.h */,
 				F7F7003A16B7211D00876181 /* PalViewController.m */,
+				F70F928116CF40E700151527 /* FXImageView */,
 				F710265D16CDC19900FD2836 /* MCSoundBoard */,
 				F710265916CDC17700FD2836 /* iCarousel */,
 				F7F7002516B7211D00876181 /* Supporting Files */,
@@ -357,6 +375,8 @@
 				F7A3C04216C1E09D00D42AAF /* PalInformationViewController.m in Sources */,
 				F710265C16CDC17700FD2836 /* iCarousel.m in Sources */,
 				F710266016CDC19900FD2836 /* MCSoundBoard.m in Sources */,
+				F70F928616CF40E700151527 /* FXImageView.m in Sources */,
+				F70F928716CF40E700151527 /* UIImage+FX.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PalCard/PalCard-Prefix.pch";
 				INFOPLIST_FILE = "PalCard/PalCard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -454,7 +474,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PalCard/PalCard-Prefix.pch";
 				INFOPLIST_FILE = "PalCard/PalCard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

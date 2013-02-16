@@ -313,21 +313,38 @@
 {
     index ++; // default start from 0
     
+    NSString *viewPath;
+    
     if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
-        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_DefaultCardImg]];
-        
-        return view;
+        viewPath = _DefaultCardImg;
+   
     }
-    
-    
-    if (index < 10) {
-        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"palsource/30%d.png",index]]];
+    else if (index < 10) {
+        viewPath = [NSString stringWithFormat:@"palsource/30%d.png",index];
     }
     else {
-        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"palsource/3%d.png",index]]];
+        viewPath = [NSString stringWithFormat:@"palsource/3%d.png",index];
     }
     
-    view.frame = CGRectMake(70, 80, 180, 260);
+    //create new view if no view is available for recycling
+    if (view == nil)
+    {
+        FXImageView *imageView = [[FXImageView alloc] initWithFrame:CGRectMake(70, 80, 180, 260)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.asynchronous = YES;
+        imageView.reflectionScale = 0.5f;
+        imageView.reflectionAlpha = 0.25f;
+        imageView.reflectionGap = 10.0f;
+        imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
+        imageView.shadowBlur = 5.0f;
+        imageView.cornerRadius = 0.0f;
+        
+        view = imageView;
+    }
+    
+    //load image
+    [(FXImageView *)view setImage:[UIImage imageNamed:viewPath]];
+    
     return view;
 }
 

@@ -15,7 +15,8 @@
 
 + (BOOL) newAchievementUnlocked: (NSString *)gameMode
                       winOrLose: (BOOL)win
-                     timeRemain: (int)usedTime
+                       timeUsed: (float)usedTime
+                       timeLeft: (float)lastTime
                     wrongsTimes: (int)wrongs
                      rightTimes: (int)rights
               endWithBlackOrNot: (BOOL) endWithBlack
@@ -438,14 +439,14 @@
     }
     
     if ([CardIsUnlocked[48] isEqualToString:@"NO"]) {
-        if ([gameMode isEqualToString:@"normal"] && win && usedTime == 14) {
+        if ([gameMode isEqualToString:@"normal"] && win && lastTime <= 1) {
             CardIsUnlocked[48] = @"YES";
             flag = YES;
         }
     }
     
     if ([CardIsUnlocked[49] isEqualToString:@"NO"]) {
-        if ([gameMode isEqualToString:@"hard"] && win && usedTime == 14) {
+        if ([gameMode isEqualToString:@"hard"] && win && lastTime <= 14) {
             CardIsUnlocked[49] = @"YES";
             flag = YES;
         }
@@ -508,7 +509,7 @@
     }
     
     if ([CardIsUnlocked[58] isEqualToString:@"NO"]) {
-        if ([gameMode isEqualToString:@"easy"] && win && usedTime == 14) {
+        if ([gameMode isEqualToString:@"easy"] && win && lastTime <= 1) {
             CardIsUnlocked[58] = @"YES";
             flag = YES;
         }

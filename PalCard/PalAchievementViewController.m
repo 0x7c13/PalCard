@@ -11,20 +11,20 @@
 
 #define ITEM_SPACING 200
 
-#define _BGPIC "UIimages/main_bg.jpg"
-#define _BGPIC2 "UIimages/cloud-front.png"
-#define _BGPIC3 "UIimages/cloud-back.png"
-#define _LOGOPIC "UIimages/main_logo.png"
+#define _BGPIC @"UIimages/main_bg.jpg"
+#define _BGPIC2 @"UIimages/cloud-front.png"
+#define _BGPIC3 @"UIimages/cloud-back.png"
+#define _LOGOPIC @"UIimages/main_logo.png"
 
-#define _DefaultCardImg "palsource/888.png"
+#define _DefaultCardImg @"palsource/888.png"
 
-#define _ReturnButtonImg "UIimages/back.png"
-#define _ReturnButtonPressedImg "UIimages/back_push.png"
-#define _InfoBG "UIimages/info_bg.png"
-#define _NameTagImg "UIimages/NameTag2.png"
+#define _ReturnButtonImg @"UIimages/back.png"
+#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _InfoBG @"UIimages/info_bg.png"
+#define _NameTagImg @"UIimages/NameTag2.png"
 
-#define _ButtonPressedSound "button_pressed.wav"
-#define _MenuSelectedSound "selected.wav"
+#define _ButtonPressedSound @"button_pressed.wav"
+#define _MenuSelectedSound @"selected.wav"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -61,8 +61,8 @@
     
     self.blackBG.alpha = 1.0;
     
-    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:@_BGPIC2];
+    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
+    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
     
     self.bgPic2.alpha = 0.7;
     
@@ -183,18 +183,18 @@
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
             
-            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
-            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_MenuSelectedSound ofType:nil] forKey:@"selected"];
         }
     }
     
     
     // set default images for return button
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
-    self.nameTag.image = [UIImage imageNamed:@_NameTagImg];
+    self.nameTag.image = [UIImage imageNamed:_NameTagImg];
     
     
     // start back ground animation
@@ -299,7 +299,7 @@
     index ++; // default start from 0
     
     if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
-        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@_DefaultCardImg]];
+        view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_DefaultCardImg]];
         return view;
     }
     

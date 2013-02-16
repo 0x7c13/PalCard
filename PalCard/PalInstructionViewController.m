@@ -10,19 +10,19 @@
 #import "PalInstructionViewController.h"
 #import "MCSoundBoard.h"
 
-#define _BGPIC "UIimages/main_bg.jpg"
-#define _BGPIC2 "UIimages/cloud-front.png"
-#define _BGPIC3 "UIimages/cloud-back.png"
-#define _LOGOPIC "UIimages/main_logo.png"
-#define _EasyImg "UIimages/easy.png"
-#define _NormalImg "UIimages/normal.png"
-#define _HardImg "UIimages/hard.png"
+#define _BGPIC @"UIimages/main_bg.jpg"
+#define _BGPIC2 @"UIimages/cloud-front.png"
+#define _BGPIC3 @"UIimages/cloud-back.png"
+#define _LOGOPIC @"UIimages/main_logo.png"
+#define _EasyImg @"UIimages/easy.png"
+#define _NormalImg @"UIimages/normal.png"
+#define _HardImg @"UIimages/hard.png"
 
-#define _ReturnButtonImg "UIimages/back.png"
-#define _ReturnButtonPressedImg "UIimages/back_push.png"
-#define _InfoBG "UIimages/info_bg.png"
+#define _ReturnButtonImg @"UIimages/back.png"
+#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _InfoBG @"UIimages/info_bg.png"
 
-#define _ButtonPressedSound "button_pressed.wav"
+#define _ButtonPressedSound @"button_pressed.wav"
 
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
@@ -59,8 +59,8 @@
     
     self.blackBG.alpha = 1.0;
     
-    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:@_BGPIC2];
+    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
+    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
     
     self.bgPic2.alpha = 0.7;
     
@@ -183,15 +183,15 @@
     }
     
     // set default images
-    self.easyView.image = [UIImage imageNamed:@_EasyImg];
-    self.normalView.image = [UIImage imageNamed:@_NormalImg];
-    self.hardView.image = [UIImage imageNamed:@_HardImg];
-    self.infoBG.image = [UIImage imageNamed:@_InfoBG];
+    self.easyView.image = [UIImage imageNamed:_EasyImg];
+    self.normalView.image = [UIImage imageNamed:_NormalImg];
+    self.hardView.image = [UIImage imageNamed:_HardImg];
+    self.infoBG.image = [UIImage imageNamed:_InfoBG];
     
     // set images for return button
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
     
     // check whether user has turned off sound
@@ -204,7 +204,7 @@
         }
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
-            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
         }
     }
     

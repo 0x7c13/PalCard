@@ -10,21 +10,21 @@
 #import "PalViewController.h"
 #import "MCSoundBoard.h"
 
-#define _BGPIC "UIimages/main_bg.jpg"
-#define _BGPIC2 "UIimages/cloud-front.png"
+#define _BGPIC @"UIimages/main_bg.jpg"
+#define _BGPIC2 @"UIimages/cloud-front.png"
 
-#define _ModeChoiceLabelImg "UIimages/difficulty_choice.png"
-#define _EasyModeButtonImg "UIimages/easy.png"
-#define _EasyModeButtonPressedImg "UIimages/easy_push.png"
-#define _NormalModeButtonImg "UIimages/normal.png"
-#define _NormalModeButtonPressedImg "UIimages/normal_push.png"
-#define _HardModeButtonImg "UIimages/hard.png"
-#define _HardModeButtonPressedImg "UIimages/hard_push.png"
-#define _ReturnButtonImg "UIimages/back.png"
-#define _ReturnButtonPressedImg "UIimages/back_push.png"
+#define _ModeChoiceLabelImg @"UIimages/difficulty_choice.png"
+#define _EasyModeButtonImg @"UIimages/easy.png"
+#define _EasyModeButtonPressedImg @"UIimages/easy_push.png"
+#define _NormalModeButtonImg @"UIimages/normal.png"
+#define _NormalModeButtonPressedImg @"UIimages/normal_push.png"
+#define _HardModeButtonImg @"UIimages/hard.png"
+#define _HardModeButtonPressedImg @"UIimages/hard_push.png"
+#define _ReturnButtonImg @"UIimages/back.png"
+#define _ReturnButtonPressedImg @"UIimages/back_push.png"
 
-#define _ButtonPressedSound "button_pressed.wav"
-#define _MenuSelectedSound "selected.wav"
+#define _ButtonPressedSound @"button_pressed.wav"
+#define _MenuSelectedSound @"selected.wav"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -57,8 +57,8 @@
     // Background  animation
     self.blackBG.alpha = 1.0;
     
-    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:@_BGPIC2];
+    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
+    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
     
     self.bgPic2.alpha = 0.7;
     
@@ -182,26 +182,26 @@
     
     
     // set default images
-    self.difChoice.image = [UIImage imageNamed:@_ModeChoiceLabelImg];
+    self.difChoice.image = [UIImage imageNamed:_ModeChoiceLabelImg];
     
-    self.bgPic.image  = [UIImage imageNamed:@_BGPIC];
+    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
 
     
-    [self.easyButton setBackgroundImage:[UIImage imageNamed:@_EasyModeButtonImg] forState:UIControlStateNormal];
+    [self.easyButton setBackgroundImage:[UIImage imageNamed:_EasyModeButtonImg] forState:UIControlStateNormal];
     
-    [self.easyButton setBackgroundImage:[UIImage imageNamed:@_EasyModeButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.easyButton setBackgroundImage:[UIImage imageNamed:_EasyModeButtonPressedImg] forState:UIControlStateHighlighted];
 
-    [self.normalButton setBackgroundImage:[UIImage imageNamed:@_NormalModeButtonImg] forState:UIControlStateNormal];
+    [self.normalButton setBackgroundImage:[UIImage imageNamed:_NormalModeButtonImg] forState:UIControlStateNormal];
     
-    [self.normalButton setBackgroundImage:[UIImage imageNamed:@_NormalModeButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.normalButton setBackgroundImage:[UIImage imageNamed:_NormalModeButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.hardButton setBackgroundImage:[UIImage imageNamed:@_HardModeButtonImg] forState:UIControlStateNormal];
+    [self.hardButton setBackgroundImage:[UIImage imageNamed:_HardModeButtonImg] forState:UIControlStateNormal];
     
-    [self.hardButton setBackgroundImage:[UIImage imageNamed:@_HardModeButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.hardButton setBackgroundImage:[UIImage imageNamed:_HardModeButtonPressedImg] forState:UIControlStateHighlighted];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonImg] forState:UIControlStateNormal];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
-    [self.returnButton setBackgroundImage:[UIImage imageNamed:@_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
+    [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
     
     // check whether user has turned off sound
@@ -218,8 +218,8 @@
     }
 
     if (!_soundOff) {
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_MenuSelectedSound ofType:nil] forKey:@"selected"];
-        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_ButtonPressedSound ofType:nil] forKey:@"button"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_MenuSelectedSound ofType:nil] forKey:@"selected"];
+        [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
     

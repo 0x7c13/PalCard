@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PalCard/PalViewController.m"
-         timestampString = "382667512.286712"
+         timestampString = "382670598.521107"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "445"
-         endingLineNumber = "445"
+         startingLineNumber = "449"
+         endingLineNumber = "449"
          landmarkName = "-gameInitilize"
          landmarkType = "5">
       </FileBreakpoint>

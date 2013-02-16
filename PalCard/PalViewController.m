@@ -17,15 +17,15 @@
 #define _ANITIME_SHORT 0.3
 #define _AMOUNT_OF_CARDS 12
 
-#define _BGPIC "palsource/888.png"
-#define _GameBG "palsource/bg4_R.jpg"
+#define _BGPIC @"palsource/888.png"
+#define _GameBG @"palsource/bg4_R.jpg"
 
-#define _GameLoseImg "UIimages/fal.png"
-#define _GameWinImg "UIimages/suc.png"
+#define _GameLoseImg @"UIimages/fal.png"
+#define _GameWinImg @"UIimages/suc.png"
 
-#define _ThemeMusic "main01.mp3"
-#define _GameLoseSound "los.wav"
-#define _GameWinSound "win.wav"
+#define _ThemeMusic @"main01.mp3"
+#define _GameLoseSound @"los.wav"
+#define _GameWinSound @"win.wav"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -37,9 +37,13 @@
     bool _animating;
     bool _gameOver;
     bool _soundOff;
+    
     int _flag;
     int _lastCardNumber;
     int _currentCardNumber;
+    int _numberOfFinishedCards;
+    int _numberOfBlackCards;
+    
     float _roundTime;
     float _totalTime;
     float _watchTime;
@@ -135,7 +139,7 @@
         if (!_soundOff) {
             
         
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:@_ThemeMusic ofType:nil] forKey:@"MainBGM"];
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:_ThemeMusic ofType:nil] forKey:@"MainBGM"];
         
             AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
         
@@ -390,8 +394,8 @@
             gameBGM = [NSString stringWithFormat:@"zd0%d.mp3", arc4random() % 6 + 1 ];
             
             [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:gameBGM ofType:nil]     forKey:@"BGM"];
-            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameLoseSound ofType:nil] forKey:@"LOS"];
-            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:@_GameWinSound ofType:nil] forKey:@"WIN"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_GameLoseSound ofType:nil] forKey:@"LOS"];
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_GameWinSound ofType:nil] forKey:@"WIN"];
         }
     }
 
@@ -410,7 +414,7 @@
         _isBlackCard[i] = NO;
     }
     
-    self.MainGameBG.image = [UIImage imageNamed:@_GameBG];
+    self.MainGameBG.image = [UIImage imageNamed:_GameBG];
     
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
@@ -460,7 +464,7 @@
         [self addShadow:tmp];
         
         tmp = [self.defaultViews objectAtIndex:i];
-        tmp.image = [UIImage imageNamed:@_BGPIC];
+        tmp.image = [UIImage imageNamed:_BGPIC];
         [self addShadow:tmp];
         
     }
@@ -473,6 +477,7 @@
     _flag = 0;
     _lastCardNumber = 0;
     _currentCardNumber = 0;
+    _numberOfFinishedCards = 0;
     
     _endWithBlack = NO;
     _rights = 0;
@@ -483,14 +488,17 @@
     if ([self.mode isEqualToString:@"easy"]) {
         _totalTime = 15.0;
         _watchTime = 1.5;
+        _numberOfBlackCards = 0;
     }
     else if ([self.mode isEqualToString:@"normal"]) {
-        _totalTime = 15.0;
+        _totalTime = 13.0;
         _watchTime = 1.2;
+        _numberOfBlackCards = 2;
     }
     else if ([self.mode isEqualToString:@"hard"]) {
-        _totalTime = 15.0;
+        _totalTime = 9.0;
         _watchTime = 1.0;
+        _numberOfBlackCards = 4;
     }
         
     _roundTime = _totalTime;
@@ -592,17 +600,13 @@
 
 - (bool) win
 {
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i ++) {
-        if (!_cardIsVisiable[i] && !_isBlackCard[i]) return NO;
-    }
-    
     if (_gameOver) return NO;
     
     _gameOver = YES;
     
     self.gameProgress.alpha = 0.0;
     
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeRemain:15 - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
     }
@@ -628,7 +632,7 @@
     [alert show];
     
     UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:@_GameWinImg];
+    imgv.image = [UIImage imageNamed:_GameWinImg];
     
     return YES;
 }
@@ -651,7 +655,7 @@
     }
     
     // check whether new achievement unlocked
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeRemain:_totalTime - _roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
     }
@@ -667,7 +671,7 @@
     [alert show];
     
     UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:@_GameLoseImg];
+    imgv.image = [UIImage imageNamed:_GameLoseImg];
 }
 
 
@@ -702,13 +706,17 @@
             _cardIsVisiable[_currentCardNumber] = YES;
             
             _rights ++;
+            _numberOfFinishedCards += 2;
             
             self.fView = self.CurrentView;
             self.sView = self.LastView;
             
             [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:nil repeats: NO];
             
-            [self win];
+            if (_numberOfFinishedCards == _AMOUNT_OF_CARDS - _numberOfBlackCards) {
+                [self win];
+            }
+            
             _animating = NO;
         }
         

@@ -109,8 +109,9 @@
 @property (weak, nonatomic) UIImageView *fView;
 @property (weak, nonatomic) UIImageView *sView;
 
-@property (strong) NSArray *cardViews;
-@property (strong) NSArray *defaultViews;
+@property (strong, nonatomic) NSArray *cardViews;
+@property (strong, nonatomic) NSArray *defaultViews;
+@property (strong, nonatomic) NSMutableArray *imagePathValue;
 
 @end 
 
@@ -209,7 +210,7 @@
 {
     [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
     [view.layer setShadowOffset:CGSizeMake(5, 5)];
-    [view.layer setShadowOpacity:0.3];
+    //[view.layer setShadowOpacity:0.3];
     [view.layer setShadowRadius:6.0];
 }
 
@@ -440,16 +441,20 @@
         cardGenerator.NumbersOfBlackCards = 2;
     }
     
+    
+    self.imagePathValue = [NSMutableArray arrayWithArray: [[NSMutableArray alloc] initWithCapacity:_AMOUNT_OF_CARDS]];
     // black cards settings
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
         
+        
         UIImageView *tmp;
         tmp = [self.cardViews objectAtIndex:i];
-        tmp.image = [UIImage imageNamed:cardGenerator.getACardWithPath];
+        self.imagePathValue[i] = [NSString stringWithString:cardGenerator.getACardWithPath];
+        tmp.image = [UIImage imageNamed:self.imagePathValue[i]];
+        
         
         if ([[cardGenerator lastIsBlackOrNot] isEqualToString:@"YES"]) {
             _isBlackCard[i + 1] = YES;
-
         }
         
         [self addShadow:tmp];
@@ -683,7 +688,7 @@
 {
     if (_flag == 2) {
         
-        if (self.LastView.image != self.CurrentView.image) {
+        if (![self.imagePathValue[_lastCardNumber - 1] isEqualToString:self.imagePathValue[_currentCardNumber - 1]]) {
         
             _cardIsVisiable[_lastCardNumber] = NO;
             _cardIsVisiable[_currentCardNumber] = NO;

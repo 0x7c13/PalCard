@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface PalViewController : UIViewController <UIAlertViewDelegate>
 
 @property (copy, nonatomic) NSString *mode;

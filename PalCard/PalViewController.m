@@ -435,7 +435,7 @@
     
     // mode settings
     
-    if ([self.mode isEqualToString:@"easy"]) {
+    if ([self.mode isEqualToString:@"easy"] || [self.mode isEqualToString:@"freestyle"]) {
         cardGenerator.NumbersOfBlackCards = 0;
     }
     else if ([self.mode isEqualToString:@"normal"]) {
@@ -483,7 +483,6 @@
     _rights = 0;
     _wrongs = 0;
     
-    
     // Time setting
     if ([self.mode isEqualToString:@"easy"]) {
         _totalTime = 15.0;
@@ -499,6 +498,11 @@
         _totalTime = 9.0;
         _watchTime = 1.0;
         _numberOfBlackCards = 4;
+    }
+    else if ([self.mode isEqualToString:@"freestyle"]) {
+        _totalTime = 18.0;
+        _watchTime = 0.0;
+        _numberOfBlackCards = 0;
     }
         
     _roundTime = _totalTime;
@@ -688,7 +692,7 @@
 
 
 
-- (void)CardDecision:(NSTimer *) timer
+- (void)CardDecision
 {
     if (_flag == 2) {
         
@@ -767,7 +771,7 @@
         }
         
         //[NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(CardDecision:) userInfo:nil repeats: NO];
-        [self CardDecision:nil];
+        [self CardDecision];
     }
 
 }

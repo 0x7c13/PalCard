@@ -135,15 +135,15 @@
             <objects>
                 <viewController storyboardIdentifier="achSegue" id="aog-W9-chg" customClass="PalAchievementViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="520-rk-zBx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lDW-NF-VZe" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KpF-MO-KrZ" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Kb-ps-fpa" userLabel="ReturnButton">
@@ -163,7 +163,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="Ydb-gn-SSJ" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="20" width="320" height="336"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="380"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/文字框.png" id="Pf7-w3-Bza" userLabel="achLabel">
@@ -190,6 +190,13 @@
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KQU-3u-n1m" userLabel="totalAchInfo">
+                                <rect key="frame" x="44" y="501" width="180" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="crw-uK-Nnh" userLabel="blackBG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,6 +207,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CRe-Mq-Ygt"/>
                     <connections>
+                        <outlet property="achDisplay" destination="KQU-3u-n1m" id="0Jh-ib-U1q"/>
                         <outlet property="achLabel" destination="Pf7-w3-Bza" id="Hau-FU-P2W"/>
                         <outlet property="bgPic" destination="lDW-NF-VZe" id="Wig-H2-wbs"/>
                         <outlet property="bgPic2" destination="KpF-MO-KrZ" id="cR4-mm-QWY"/>
@@ -220,15 +228,15 @@
             <objects>
                 <viewController id="bwh-ww-fUJ" customClass="PalModeMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nX6-2r-326">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="TuX-zU-VDf" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UtM-lo-3sB" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="rhG-2P-En9" userLabel="cloud1">
@@ -282,7 +290,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1z5-B7-c2w">
-                                <rect key="frame" x="94.5" y="361" width="130" height="78"/>
+                                <rect key="frame" x="94" y="361" width="130" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -346,7 +354,7 @@
             <objects>
                 <viewController storyboardIdentifier="segueGame" id="2" customClass="PalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="rj4-Z9-WvK" userLabel="Background">
@@ -720,7 +728,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xx7-bU-B6u">
             <objects>
-                <navigationController storyboardIdentifier="mainGameSegue" id="J2x-cs-6Tb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainGameSegue" navigationBarHidden="YES" id="J2x-cs-6Tb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c9b-0D-g6I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -738,7 +746,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dOE-5N-vYj">
             <objects>
-                <navigationController storyboardIdentifier="achRootSegue" id="ipH-6M-f5u" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="achRootSegue" navigationBarHidden="YES" id="ipH-6M-f5u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KtQ-kb-9Hg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -758,15 +766,15 @@
             <objects>
                 <viewController storyboardIdentifier="insSegue" id="AJ5-5R-ohp" customClass="PalInstructionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rsC-5e-MuC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hT0-vu-nEY" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pAS-KS-YXx" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ico-BA-RwE" userLabel="ReturnButton">
@@ -807,13 +815,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.2秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关，六对牌中有一对为黑牌，点开任意一张黑牌算失败" id="G8R-Ce-spE" userLabel="textNormal">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.2秒钟时间记忆卡牌，13秒钟之内翻开所有成对卡牌即可通关，六对牌中有一对为黑牌，点开任意一张黑牌算失败" id="G8R-Ce-spE" userLabel="textNormal">
                                 <rect key="frame" x="40" y="210" width="240" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关，六对牌中有两对为黑牌，点开任意一张黑牌算失败" id="cbu-zA-IGo" userLabel="textHard">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1秒钟时间记忆卡牌，9秒钟之内翻开所有成对卡牌即可通关，六对牌中有两对为黑牌，点开任意一张黑牌算失败" id="cbu-zA-IGo" userLabel="textHard">
                                 <rect key="frame" x="40" y="355" width="240" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -849,7 +857,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Khp-93-GxZ">
             <objects>
-                <navigationController storyboardIdentifier="instructionSegue" id="B82-Qe-Gli" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="instructionSegue" navigationBarHidden="YES" id="B82-Qe-Gli" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="imw-bO-Xwi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -869,15 +877,15 @@
             <objects>
                 <viewController storyboardIdentifier="infoSegue" id="a7P-ZE-sH8" customClass="PalInformationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gfd-Qp-1So">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="c7d-Jh-glo" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Bp8-NU-xep" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3a-ST-F8Y" userLabel="ReturnButton">
@@ -946,7 +954,7 @@ V 1.0 --- 02/05/13
         <!--Navigation Controller-->
         <scene sceneID="J9d-wi-eR3">
             <objects>
-                <navigationController storyboardIdentifier="informationSegue" id="MFv-IG-2rp" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="informationSegue" navigationBarHidden="YES" id="MFv-IG-2rp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uEE-lu-bLN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -971,6 +979,7 @@ V 1.0 --- 02/05/13
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
             <relationships>
                 <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="achDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
@@ -1048,18 +1057,6 @@ V 1.0 --- 02/05/13
         <class className="PalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
             <relationships>
-                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card11" candidateClass="UIView"/>

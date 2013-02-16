@@ -32,13 +32,16 @@
 
 @interface PalAchievementViewController (){
     bool _soundOff;
+    int _amountOfUnlockedCards;
 }
+
 @property (strong, nonatomic) IBOutlet UIImageView *bgPic;
 @property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UILabel *cardNameDisplay;
+@property (strong, nonatomic) IBOutlet UILabel *achDisplay;
 @property (strong, nonatomic) IBOutlet UIImageView *achLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *nameTag;
 
@@ -141,16 +144,28 @@
         [self.achLabel setFrame:CGRectMake(19, 320, 283, 115)];
         
         [self.carousel setFrame:CGRectMake(0, 25, 320, 320)];
+        
+        [self.achDisplay setFrame:CGRectMake(44, 430, 180, 40)];
     }
     
     
     // carousel view initialization
+    
+    _amountOfUnlockedCards = 0;
     
     self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
     
     carousel.delegate = self;
     carousel.dataSource = self;
     carousel.type = iCarouselTypeCoverFlow;
+    
+    for (int i = 0; i < 64; i++) {
+        if([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"YES"]) {
+            _amountOfUnlockedCards ++;
+        }
+    }
+    
+    self.achDisplay.text = [NSString stringWithFormat: @"卡牌解锁进度:%.1f%%",(float)_amountOfUnlockedCards * 100.0 / 64.0];
     
     
     // read cards information from CardsInformation.plist
@@ -300,6 +315,7 @@
     
     if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
         view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_DefaultCardImg]];
+        
         return view;
     }
     

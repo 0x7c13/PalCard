@@ -48,6 +48,8 @@
 @property (strong) NSMutableArray *cardsInformation;
 @property (strong) NSMutableArray *CardIsUnlocked;
 
+@property (strong, nonatomic) ASMediaFocusManager *mediaFocusManager;
+@property (strong, nonatomic) NSMutableArray *cardViews;
 
 @end
 
@@ -128,7 +130,6 @@
 {
     [super viewDidLoad];
     
-    
     // I use storyboard to design UI for iphone 5
     // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
@@ -155,11 +156,22 @@
     
     self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
     
+    [self prepareForCardsViews];
+    
+    
+    
+    self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
+    self.mediaFocusManager.delegate = self;
+    // Tells which views need to be focusable. You can put your image views in an array and give it to the focus manager.
+    [self.mediaFocusManager installOnViews:self.cardViews];
+    
+    
+    
     carousel.delegate = self;
     carousel.dataSource = self;
     carousel.type = iCarouselTypeCoverFlow;
     
-    for (int i = 0; i < 64; i++) {
+    for (int i = 1; i < 65; i++) {
         if([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"YES"]) {
             _amountOfUnlockedCards ++;
         }
@@ -268,6 +280,51 @@
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
 
+#pragma prepare for Image Views
+
+- (void) prepareForCardsViews
+{
+    _cardViews = [[NSMutableArray alloc] init];
+    
+    for (int i = 1; i <= 64; i++)
+    {
+        UIView *view;
+        NSString *viewPath;
+    
+        if ([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"NO"]) {
+            viewPath = _DefaultCardImg;
+            
+        }
+        else if (i < 10) {
+            viewPath = [NSString stringWithFormat:@"palsource/30%d.png", i];
+        }
+        else {
+            viewPath = [NSString stringWithFormat:@"palsource/3%d.png", i];
+        }
+   
+        FXImageView *imageView = [[FXImageView alloc] initWithFrame:CGRectMake(70, 80, 180, 260)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.asynchronous = YES;
+        imageView.reflectionScale = 0.5f;
+        imageView.reflectionAlpha = 0.25f;
+        imageView.reflectionGap = 10.0f;
+        imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
+        imageView.shadowBlur = 5.0f;
+        imageView.cornerRadius = 0.0f;
+        
+        view = imageView;
+ 
+        //load image
+        [(FXImageView *)view setImage:[UIImage imageNamed:viewPath]];
+        
+        [self.cardViews addObject:view];
+    }
+
+
+}
+
+
+
 
 #pragma mark - protocol
 
@@ -284,7 +341,7 @@
     
 }
 
-// iCarousel Class protocol
+#pragma mark - iCarousel protocol
 
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
@@ -310,42 +367,8 @@
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
-{
-    index ++; // default start from 0
-    
-    NSString *viewPath;
-    
-    if ([[self.CardIsUnlocked objectAtIndex:index] isEqualToString:@"NO"]) {
-        viewPath = _DefaultCardImg;
-   
-    }
-    else if (index < 10) {
-        viewPath = [NSString stringWithFormat:@"palsource/30%d.png",index];
-    }
-    else {
-        viewPath = [NSString stringWithFormat:@"palsource/3%d.png",index];
-    }
-    
-    //create new view if no view is available for recycling
-    if (view == nil)
-    {
-        FXImageView *imageView = [[FXImageView alloc] initWithFrame:CGRectMake(70, 80, 180, 260)];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.asynchronous = YES;
-        imageView.reflectionScale = 0.5f;
-        imageView.reflectionAlpha = 0.25f;
-        imageView.reflectionGap = 10.0f;
-        imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
-        imageView.shadowBlur = 5.0f;
-        imageView.cornerRadius = 0.0f;
-        
-        view = imageView;
-    }
-    
-    //load image
-    [(FXImageView *)view setImage:[UIImage imageNamed:viewPath]];
-    
-    return view;
+{    
+    return self.cardViews[index];
 }
 
 - (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel
@@ -375,6 +398,56 @@
     return iCarouselOptionWrap;
 }
 */
+
+
+
+
+#pragma mark - ASMediaFocusDelegate
+
+- (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view
+{
+    return ((UIImageView *)view).image;
+}
+
+// Returns the final focused frame for this media view. This frame is usually a full screen frame.
+- (CGRect)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager finalFrameforView:(UIView *)view
+{
+    return self.parentViewController.view.bounds;
+}
+
+// Returns the view controller in which the focus controller is going to be added.
+// This can be any view controller, full screen or not.
+- (UIViewController *)parentViewControllerForMediaFocusManager:(ASMediaFocusManager *)mediaFocusManager
+{
+    return self.parentViewController;
+}
+
+// Returns a local media path, it must be an image path. This path is used to create an image at full screen.
+- (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager mediaPathForView:(UIView *)view
+{
+    NSString *path;
+    NSString *name;
+    
+    int i = [self.cardViews indexOfObject:view] + 1;
+    
+    if ([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"NO"]) {
+        name = _DefaultCardImg;
+    }
+    else if (i < 10) {
+        name = [NSString stringWithFormat:@"palsource/30%d.png", i];
+    }
+    else {
+        name = [NSString stringWithFormat:@"palsource/3%d.png", i];
+    }
+    
+    path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+
+    
+    return path;
+}
+
+
+
 
 
 @end

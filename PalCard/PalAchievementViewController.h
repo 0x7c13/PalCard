@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 #import "FXImageView.h"
+#import "ASMediaFocusManager.h"
 
-@interface PalAchievementViewController : UIViewController <iCarouselDataSource,iCarouselDelegate,UIActionSheetDelegate>
+@interface PalAchievementViewController : UIViewController <iCarouselDataSource,iCarouselDelegate,UIActionSheetDelegate, ASMediasFocusDelegate>
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 

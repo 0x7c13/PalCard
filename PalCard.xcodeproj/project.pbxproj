@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F70F928616CF40E700151527 /* FXImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928316CF40E700151527 /* FXImageView.m */; };
 		F70F928716CF40E700151527 /* UIImage+FX.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928516CF40E700151527 /* UIImage+FX.m */; };
+		F70F929016CF523D00151527 /* ASImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928A16CF523D00151527 /* ASImageScrollView.m */; };
+		F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928C16CF523D00151527 /* ASMediaFocusController.m */; };
+		F70F929216CF523D00151527 /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70F928D16CF523D00151527 /* ASMediaFocusController.xib */; };
+		F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928F16CF523D00151527 /* ASMediaFocusManager.m */; };
 		F710265C16CDC17700FD2836 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265B16CDC17700FD2836 /* iCarousel.m */; };
 		F710266016CDC19900FD2836 /* MCSoundBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265F16CDC19900FD2836 /* MCSoundBoard.m */; };
 		F71F398D16BE282200F39979 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71F398C16BE282200F39979 /* QuartzCore.framework */; };
@@ -60,6 +64,13 @@
 		F70F928316CF40E700151527 /* FXImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXImageView.m; sourceTree = "<group>"; };
 		F70F928416CF40E700151527 /* UIImage+FX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FX.h"; sourceTree = "<group>"; };
 		F70F928516CF40E700151527 /* UIImage+FX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FX.m"; sourceTree = "<group>"; };
+		F70F928916CF523D00151527 /* ASImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageScrollView.h; sourceTree = "<group>"; };
+		F70F928A16CF523D00151527 /* ASImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageScrollView.m; sourceTree = "<group>"; };
+		F70F928B16CF523D00151527 /* ASMediaFocusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusController.h; sourceTree = "<group>"; };
+		F70F928C16CF523D00151527 /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
+		F70F928D16CF523D00151527 /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
+		F70F928E16CF523D00151527 /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
+		F70F928F16CF523D00151527 /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
 		F710265A16CDC17700FD2836 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F710265B16CDC17700FD2836 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F710265E16CDC19900FD2836 /* MCSoundBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSoundBoard.h; sourceTree = "<group>"; };
@@ -147,6 +158,20 @@
 				F70F928516CF40E700151527 /* UIImage+FX.m */,
 			);
 			path = FXImageView;
+			sourceTree = "<group>";
+		};
+		F70F928816CF523D00151527 /* ASMediaFocusManager */ = {
+			isa = PBXGroup;
+			children = (
+				F70F928916CF523D00151527 /* ASImageScrollView.h */,
+				F70F928A16CF523D00151527 /* ASImageScrollView.m */,
+				F70F928B16CF523D00151527 /* ASMediaFocusController.h */,
+				F70F928C16CF523D00151527 /* ASMediaFocusController.m */,
+				F70F928D16CF523D00151527 /* ASMediaFocusController.xib */,
+				F70F928E16CF523D00151527 /* ASMediaFocusManager.h */,
+				F70F928F16CF523D00151527 /* ASMediaFocusManager.m */,
+			);
+			path = ASMediaFocusManager;
 			sourceTree = "<group>";
 		};
 		F710265916CDC17700FD2836 /* iCarousel */ = {
@@ -242,6 +267,7 @@
 				F7ED0FE316BC96C60036B782 /* PalModeMenuViewController.m */,
 				F7F7003916B7211D00876181 /* PalViewController.h */,
 				F7F7003A16B7211D00876181 /* PalViewController.m */,
+				F70F928816CF523D00151527 /* ASMediaFocusManager */,
 				F70F928116CF40E700151527 /* FXImageView */,
 				F710265D16CDC19900FD2836 /* MCSoundBoard */,
 				F710265916CDC17700FD2836 /* iCarousel */,
@@ -352,6 +378,7 @@
 				F77DC60C16C4601D0002D88B /* icon57.png in Resources */,
 				F77DC60E16C460210002D88B /* icon114.png in Resources */,
 				F77DC61016C498290002D88B /* CardsInformation.plist in Resources */,
+				F70F929216CF523D00151527 /* ASMediaFocusController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +404,9 @@
 				F710266016CDC19900FD2836 /* MCSoundBoard.m in Sources */,
 				F70F928616CF40E700151527 /* FXImageView.m in Sources */,
 				F70F928716CF40E700151527 /* UIImage+FX.m in Sources */,
+				F70F929016CF523D00151527 /* ASImageScrollView.m in Sources */,
+				F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */,
+				F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

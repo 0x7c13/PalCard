@@ -150,28 +150,24 @@
     }
     
     
-    // carousel view initialization
-    
+    // cards init
     _amountOfUnlockedCards = 0;
-    
     self.CardIsUnlocked = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults]valueForKey:@"CardIsUnlocked"]];
-    
     [self prepareForCardsViews];
     
     
-    
+    // ASMediaFocus init
     self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
     self.mediaFocusManager.delegate = self;
-    // Tells which views need to be focusable. You can put your image views in an array and give it to the focus manager.
     [self.mediaFocusManager installOnViews:self.cardViews];
     
     
-    
+    // carousel view init
     carousel.delegate = self;
     carousel.dataSource = self;
     carousel.type = iCarouselTypeCoverFlow;
     
-    for (int i = 1; i < 65; i++) {
+    for (int i = 1; i <= 64; i++) {
         if([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"YES"]) {
             _amountOfUnlockedCards ++;
         }
@@ -182,7 +178,6 @@
     
     // read cards information from CardsInformation.plist
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CardsInformation" ofType:@"plist"];
-    
     _cardsInformation = [[NSMutableArray alloc] initWithContentsOfFile:path];
     
     
@@ -232,9 +227,18 @@
 - (void)viewDidUnload
 {
     [self setNameTag:nil];
+    [self setAchDisplay:nil];
+    [self setAchLabel:nil];
+    [self setBgPic2:nil];
+    [self setBlackBG:nil];
+    [self setBgPic:nil];
+    [self setCardIsUnlocked:nil];
+    [self setCardNameDisplay:nil];
+    [self setCardsInformation:nil];
+    [self setCardViews:nil];
+    [self setCarousel:nil];
     [super viewDidUnload];
-    
-    self.carousel = nil;
+
 }
 
 - (void)didReceiveMemoryWarning

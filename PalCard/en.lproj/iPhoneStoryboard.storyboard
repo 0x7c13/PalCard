@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SWO-lb-cUf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Pyo-nN-qAi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Pal Data View Controller-->
+        <scene sceneID="c38-kC-k6W">
+            <objects>
+                <viewController storyboardIdentifier="dataSegue" id="jIe-Mn-oea" customClass="PalDataViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kff-jg-uoo">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="palsource/bg4_L.jpg" id="HHs-mK-sv9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THv-tW-sEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1902" y="-1420"/>
+        </scene>
         <!--Pal Main Menu View Controller-->
         <scene sceneID="7Wh-mh-605">
             <objects>
-                <viewController id="SWO-lb-cUf" customClass="PalMainMenuViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rfZ-zC-z0W">
+                <viewController storyboardIdentifier="mainSegue" id="SWO-lb-cUf" customClass="PalMainMenuViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="rfZ-zC-z0W">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eV5-c6-3VD" userLabel="BG1">
                                 <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="zDt-oZ-u6C" userLabel="BG2">
                                 <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KuK-SJ-mu5" userLabel="BG3">
                                 <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Zyu-Ef-qFH" userLabel="logo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
@@ -725,6 +745,20 @@
             </objects>
             <point key="canvasLocation" x="-512" y="-136"/>
         </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="1O0-4z-0Wd">
+            <objects>
+                <viewController id="Pyo-nN-qAi" customClass="InitialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h0j-jQ-uyh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I9w-KL-xIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2273" y="-700"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xx7-bU-B6u">
             <objects>
@@ -973,8 +1007,15 @@ V 1.0 --- 02/05/13
     <resources>
         <image name="UIimages/single_cloud.png" width="16" height="16"/>
         <image name="UIimages/文字框.png" width="16" height="16"/>
+        <image name="palsource/bg4_L.jpg" width="16" height="16"/>
     </resources>
     <classes>
+        <class className="IIViewDeckController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IIViewDeckController.h"/>
+        </class>
+        <class className="InitialViewController" superclassName="IIViewDeckController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+        </class>
         <class className="PalAchievementViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
             <relationships>
@@ -990,6 +1031,9 @@ V 1.0 --- 02/05/13
                 <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="PalDataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
         </class>
         <class className="PalInformationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
@@ -1021,11 +1065,6 @@ V 1.0 --- 02/05/13
         <class className="PalMainMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMainMenuViewController.h"/>
             <relationships>
-                <relationship kind="action" name="achievementButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="gameStartButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="informationButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="instructionButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="soundOnOffButtonPressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
@@ -1041,6 +1080,10 @@ V 1.0 --- 02/05/13
         <class className="PalModeMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
             <relationships>
+                <relationship kind="action" name="easyModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="normalModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1057,6 +1100,18 @@ V 1.0 --- 02/05/13
         <class className="PalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
             <relationships>
+                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card11" candidateClass="UIView"/>

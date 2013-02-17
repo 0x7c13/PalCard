@@ -285,6 +285,15 @@
 
 - (void)viewDidUnload {
     [self setDifChoice:nil];
+    [self setBgPic:nil];
+    [self setBgPic2:nil];
+    [self setBlackBG:nil];
+    [self setCloud1:nil];
+    [self setCloud2:nil];
+    [self setCloud3:nil];
+    [self setEasyButton:nil];
+    [self setHardButton:nil];
+    [self setNormalButton:nil];
     [super viewDidUnload];
 }
 @end

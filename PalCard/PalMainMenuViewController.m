@@ -276,6 +276,8 @@
     
     [self gameDataInit];
     
+    self.viewDeckController.enabled = NO;
+    self.viewDeckController.leftSize = 100;
     
     // I use storyboard to design UI for iphone 5
     // here are frame tweaks for iPhone 4/4S

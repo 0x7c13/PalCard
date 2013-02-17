@@ -334,8 +334,6 @@
 
 
 
-
-
 #pragma mark -------
 
 - (void)viewDidLoad
@@ -840,5 +838,46 @@
 }
 
 
+- (void)viewDidUnload
+{
+    [self setCard1:nil];
+    [self setCard2:nil];
+    [self setCard3:nil];
+    [self setCard4:nil];
+    [self setCard5:nil];
+    [self setCard6:nil];
+    [self setCard7:nil];
+    [self setCard8:nil];
+    [self setCard9:nil];
+    [self setCard10:nil];
+    [self setCard11:nil];
+    [self setCard12:nil];
+    
+    [self setDefaultView1:nil];
+    [self setDefaultView2:nil];
+    [self setDefaultView3:nil];
+    [self setDefaultView4:nil];
+    [self setDefaultView5:nil];
+    [self setDefaultView6:nil];
+    [self setDefaultView7:nil];
+    [self setDefaultView8:nil];
+    [self setDefaultView9:nil];
+    [self setDefaultView10:nil];
+    [self setDefaultView11:nil];
+    [self setDefaultView12:nil];
+    
+    [self setCardViews:nil];
+    [self setCurrentDefault:nil];
+    [self setDefaultViews:nil];
+    [self setCurrentView:nil];
+    [self setDisplay:nil];
+    [self setFView:nil];
+    [self setSView:nil];
+    [self setTextDisplay:nil];
+    [self setLastDefault:nil];
+    [self setLastView:nil];
+
+    [super viewDidUnload];
+}
 
 @end

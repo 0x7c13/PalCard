@@ -19,8 +19,8 @@
 #define _HardImg @"UIimages/hard.png"
 #define _FreeImg @"UIimages/free_ins.png"
 
-#define _ReturnButtonImg @"UIimages/back.png"
-#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _ReturnButtonImg @"UIimages/back_new.png"
+#define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
 #define _InfoBG @"UIimages/info_bg.png"
 
 #define _ButtonPressedSound @"button_pressed.wav"
@@ -172,10 +172,10 @@
     // here are frame tweaks for iPhone 4/4S 
     if (!DEVICE_IS_IPHONE5) {
         
-        [self.easyView setFrame:CGRectMake(30, 10, 130, 78)];
-        [self.normalView setFrame:CGRectMake(160, 90, 130, 78)];
-        [self.hardView setFrame:CGRectMake(30, 215, 130, 78)];
-        [self.freeView setFrame:CGRectMake(160, 320, 130, 78)];
+        [self.easyView setFrame:CGRectMake(30, 15, 110, 66)];
+        [self.normalView setFrame:CGRectMake(160, 95, 110, 66)];
+        [self.hardView setFrame:CGRectMake(30, 220, 110, 66)];
+        [self.freeView setFrame:CGRectMake(160, 325, 110, 66)];
         
         [self.text1 setFrame:CGRectMake(40, 60, 240, 95)];
         [self.text2 setFrame:CGRectMake(40, 140, 240, 95)];
@@ -184,7 +184,7 @@
         
         [self.infoBG setFrame:CGRectMake(-10, 5, 340, 450)];
         
-        [self.returnButton setFrame:CGRectMake(250, 435, 50, 35)];
+        [self.returnButton setFrame:CGRectMake(250, 435, 50, 45)];
     }
     
     // set default images

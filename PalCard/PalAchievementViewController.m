@@ -18,8 +18,8 @@
 
 #define _DefaultCardImg @"palsource/888.png"
 
-#define _ReturnButtonImg @"UIimages/back.png"
-#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _ReturnButtonImg @"UIimages/back_new.png"
+#define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
 #define _InfoBG @"UIimages/info_bg.png"
 #define _NameTagImg @"UIimages/NameTag2.png"
 #define _AchLabelImg @"UIimages/ach_progress_bar.png"
@@ -142,7 +142,7 @@
         
         [self.nameTag setFrame:CGRectMake(35, 15, 250, 38)];
         
-        [self.returnButton setFrame:CGRectMake(250, 435, 50, 35)];
+        [self.returnButton setFrame:CGRectMake(250, 435, 50, 45)];
         
         [self.descriptionDisplay setFrame:CGRectMake(44, 315, 232, 120)];
         

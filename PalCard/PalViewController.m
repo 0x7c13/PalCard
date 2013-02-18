@@ -530,6 +530,7 @@
     
     
     self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
+    self.hintView.alpha = 1.0;
     [UIView animateWithDuration:1.5
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseIn

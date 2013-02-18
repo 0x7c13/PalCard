@@ -16,8 +16,8 @@
 
 #define _DefaultCardImg @"palsource/888.png"
 
-#define _ReturnButtonImg @"UIimages/back.png"
-#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _ReturnButtonImg @"UIimages/back_new.png"
+#define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
 #define _InfoBG @"UIimages/info_bg.png"
 #define _NameTagImg @"UIimages/NameTag2.png"
 
@@ -153,7 +153,7 @@
         
         [self.textInfo setFrame:CGRectMake(27, 35, 266, 373)];
         
-        [self.returnButton setFrame:CGRectMake(250, 430, 50, 35)];
+        [self.returnButton setFrame:CGRectMake(250, 430, 50, 45)];
     }
     
     

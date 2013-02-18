@@ -12,17 +12,89 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="palsource/bg4_L.jpg" id="HHs-mK-sv9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="HHs-mK-sv9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" id="Ip1-NU-bj5" userLabel="infoBG">
+                                <rect key="frame" x="0.0" y="0.0" width="220" height="580"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ONm-Gy-vag" userLabel="easyPic">
+                                <rect key="frame" x="25" y="20" width="90" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hvq-kd-WDj" userLabel="normalPic">
+                                <rect key="frame" x="25" y="135" width="90" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Xuq-ew-5FT" userLabel="hardPic">
+                                <rect key="frame" x="25" y="250" width="90" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="H24-N9-WHA" userLabel="freePic">
+                                <rect key="frame" x="25" y="365" width="90" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f3P-6H-YYP">
+                                <rect key="frame" x="30" y="505" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButtonPressed:" destination="jIe-Mn-oea" eventType="touchUpInside" id="EWt-EA-l0R"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="pOq-Hq-g59" userLabel="text1">
+                                <rect key="frame" x="35" y="60" width="168" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="0Dk-z8-M7a" userLabel="text2">
+                                <rect key="frame" x="35" y="175" width="168" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="aWX-YS-KhI" userLabel="text3">
+                                <rect key="frame" x="35" y="290" width="168" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="d7M-JR-64O" userLabel="text4">
+                                <rect key="frame" x="35" y="405" width="168" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="easyImg" destination="ONm-Gy-vag" id="Z6s-jC-YvL"/>
+                        <outlet property="freeImg" destination="H24-N9-WHA" id="xeo-gO-Lrz"/>
+                        <outlet property="hardImg" destination="Xuq-ew-5FT" id="Hq6-F4-OHx"/>
+                        <outlet property="imageView" destination="HHs-mK-sv9" id="lOz-9c-fRb"/>
+                        <outlet property="infoBG" destination="Ip1-NU-bj5" id="1ZS-0e-raE"/>
+                        <outlet property="normalImg" destination="hvq-kd-WDj" id="Aee-is-11E"/>
+                        <outlet property="returnButton" destination="f3P-6H-YYP" id="T95-cq-nbG"/>
+                        <outlet property="text1" destination="pOq-Hq-g59" id="NO1-9K-Rah"/>
+                        <outlet property="text2" destination="0Dk-z8-M7a" id="mxn-z9-KdU"/>
+                        <outlet property="text3" destination="aWX-YS-KhI" id="dNJ-Kw-It5"/>
+                        <outlet property="text4" destination="d7M-JR-64O" id="984-G8-6LR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THv-tW-sEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1902" y="-1420"/>
+            <point key="canvasLocation" x="-1880" y="-1454"/>
         </scene>
         <!--Pal Main Menu View Controller-->
         <scene sceneID="7Wh-mh-605">
@@ -120,6 +192,21 @@
                                     <action selector="informationButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="yyu-h0-GRL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Czt-8Q-jQK">
+                                <rect key="frame" x="290" y="19" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gameDataButton:" destination="SWO-lb-cUf" eventType="touchUpInside" id="BsY-p5-xQe"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oby-zd-wah" userLabel="blackBG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -167,7 +254,7 @@
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Kb-ps-fpa" userLabel="ReturnButton">
-                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -348,7 +435,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hJL-YD-g4u" userLabel="ReturnButton">
-                                <rect key="frame" x="250" y="505" width="50" height="30"/>
+                                <rect key="frame" x="250" y="505" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -840,19 +927,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="z3T-qU-bly" userLabel="easyPic">
-                                <rect key="frame" x="30" y="15" width="130" height="78"/>
+                                <rect key="frame" x="30" y="20" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="YYK-wb-YKP" userLabel="normalPic">
-                                <rect key="frame" x="160" y="105" width="130" height="78"/>
+                                <rect key="frame" x="160" y="105" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8fc-dh-hqh" userLabel="hardPic">
-                                <rect key="frame" x="30" y="245" width="130" height="78"/>
+                                <rect key="frame" x="30" y="245" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="nqS-N2-BkI" userLabel="freePic">
-                                <rect key="frame" x="160" y="360" width="130" height="78"/>
+                                <rect key="frame" x="160" y="365" width="120" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.5秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关" id="b2m-Ah-xga" userLabel="textEasy">
@@ -880,7 +967,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ico-BA-RwE" userLabel="ReturnButton">
-                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -959,7 +1046,7 @@
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3a-ST-F8Y" userLabel="ReturnButton">
-                                <rect key="frame" x="250" y="510" width="50" height="30"/>
+                                <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -981,7 +1068,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="1R6-zB-Mng">
                                 <rect key="frame" x="27" y="35" width="266" height="425"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
+                                <string key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
 仙剑卡牌翻转逍遥游
 V 1.1 --- 02/17/13
 ---------------------------------------------
@@ -995,7 +1082,7 @@ V 1.1 --- 02/17/13
 版权信息
 本游戏使用的大部分图片素材以及音频资料来源于仙剑奇侠传五前传，仙剑奇侠传五前传为软星科技（北京）有限公司作品，所有涉及图片以及音频资料版权均归软星科技（北京）有限公司所有，本游戏为免费游戏，无广告，无应用内支付，不带任何盈利目的，请不要二次使用本游戏所持内容。
 ---------------------------------------------
-2013年2月17号.</mutableString>
+2013年2月17号.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1042,7 +1129,6 @@ V 1.1 --- 02/17/13
     </scenes>
     <resources>
         <image name="UIimages/文字框.png" width="16" height="16"/>
-        <image name="palsource/bg4_L.jpg" width="16" height="16"/>
     </resources>
     <classes>
         <class className="IIViewDeckController" superclassName="UIViewController">
@@ -1070,10 +1156,25 @@ V 1.1 --- 02/17/13
         </class>
         <class className="PalDataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="easyImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="freeImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="hardImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="normalImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
+            </relationships>
         </class>
         <class className="PalInformationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1085,6 +1186,7 @@ V 1.1 --- 02/17/13
         <class className="PalInstructionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1118,7 +1220,6 @@ V 1.1 --- 02/17/13
         <class className="PalModeMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
             <relationships>
-                <relationship kind="action" name="easyModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="freeStyleModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="normalModeButtonPressed:" candidateClass="UIButton"/>

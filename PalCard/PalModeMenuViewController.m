@@ -24,8 +24,8 @@
 #define _FreeStyleModeButtonImg @"UIimages/free.png"
 #define _FreeStyleModeButtonPressedImg @"UIimages/free_p.png"
 
-#define _ReturnButtonImg @"UIimages/back.png"
-#define _ReturnButtonPressedImg @"UIimages/back_push.png"
+#define _ReturnButtonImg @"UIimages/back_new.png"
+#define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
 
 #define _ButtonPressedSound @"button_pressed.wav"
 #define _MenuSelectedSound @"selected.wav"
@@ -175,7 +175,7 @@
         
         [self.freeStyleButton setFrame:CGRectMake(95, 360, 130, 65)];
         
-        [self.returnButton setFrame:CGRectMake(250, 425, 50, 30)];
+        [self.returnButton setFrame:CGRectMake(250, 425, 50, 45)];
         
 
     }

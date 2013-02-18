@@ -17,6 +17,7 @@
 #define _EasyImg @"UIimages/easy.png"
 #define _NormalImg @"UIimages/normal.png"
 #define _HardImg @"UIimages/hard.png"
+#define _FreeImg @"UIimages/free_ins.png"
 
 #define _ReturnButtonImg @"UIimages/back.png"
 #define _ReturnButtonPressedImg @"UIimages/back_push.png"
@@ -42,9 +43,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *easyView;
 @property (strong, nonatomic) IBOutlet UIImageView *normalView;
 @property (strong, nonatomic) IBOutlet UIImageView *hardView;
+@property (strong, nonatomic) IBOutlet UIImageView *freeView;
 @property (strong, nonatomic) IBOutlet UITextView *text1;
 @property (strong, nonatomic) IBOutlet UITextView *text2;
 @property (strong, nonatomic) IBOutlet UITextView *text3;
+@property (strong, nonatomic) IBOutlet UITextView *text4;
 
 @end
 
@@ -169,23 +172,26 @@
     // here are frame tweaks for iPhone 4/4S 
     if (!DEVICE_IS_IPHONE5) {
         
-        [self.easyView setFrame:CGRectMake(30, 20, 130, 78)];
-        [self.normalView setFrame:CGRectMake(30, 130, 130, 78)];
-        [self.hardView setFrame:CGRectMake(30, 260, 130, 78)];
+        [self.easyView setFrame:CGRectMake(30, 10, 130, 78)];
+        [self.normalView setFrame:CGRectMake(160, 90, 130, 78)];
+        [self.hardView setFrame:CGRectMake(30, 215, 130, 78)];
+        [self.freeView setFrame:CGRectMake(160, 320, 130, 78)];
         
-        [self.text1 setFrame:CGRectMake(40, 70, 240, 70)];
-        [self.text2 setFrame:CGRectMake(40, 182, 240, 95)];
-        [self.text3 setFrame:CGRectMake(40, 310, 240, 95)];
+        [self.text1 setFrame:CGRectMake(40, 60, 240, 95)];
+        [self.text2 setFrame:CGRectMake(40, 140, 240, 95)];
+        [self.text3 setFrame:CGRectMake(40, 270, 240, 95)];
+        [self.text4 setFrame:CGRectMake(40, 370, 240, 95)];
         
-        [self.infoBG setFrame:CGRectMake(-10, 5, 340, 440)];
+        [self.infoBG setFrame:CGRectMake(-10, 5, 340, 450)];
         
-        [self.returnButton setFrame:CGRectMake(250, 425, 50, 35)];
+        [self.returnButton setFrame:CGRectMake(250, 435, 50, 35)];
     }
     
     // set default images
     self.easyView.image = [UIImage imageNamed:_EasyImg];
     self.normalView.image = [UIImage imageNamed:_NormalImg];
     self.hardView.image = [UIImage imageNamed:_HardImg];
+    self.freeView.image = [UIImage imageNamed:_FreeImg];
     self.infoBG.image = [UIImage imageNamed:_InfoBG];
     
     // set images for return button
@@ -234,6 +240,8 @@
     [self setText1:nil];
     [self setText2:nil];
     [self setText3:nil];
+    [self setFreeView:nil];
+    [self setText4:nil];
     [super viewDidUnload];
 }
 

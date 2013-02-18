@@ -149,11 +149,11 @@
     // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
         
-        [self.infoBG setFrame:CGRectMake(-10, 5, 340, 440)];
+        [self.infoBG setFrame:CGRectMake(-10, 5, 340, 445)];
         
-        [self.textInfo setFrame:CGRectMake(27, 35, 266, 370)];
+        [self.textInfo setFrame:CGRectMake(27, 35, 266, 373)];
         
-        [self.returnButton setFrame:CGRectMake(250, 425, 50, 35)];
+        [self.returnButton setFrame:CGRectMake(250, 430, 50, 35)];
     }
     
     

@@ -128,7 +128,7 @@
 	</array>
 	<array>
 		<string>姜云凡</string>
-		<string>总游戏次数达到200场时可获得</string>
+		<string>自由模式连续胜利15场时可获得</string>
 	</array>
 	<array>
 		<string>唐雨柔</string>
@@ -192,7 +192,7 @@
 	</array>
 	<array>
 		<string>积粮隐者</string>
-		<string>总游戏次数达300次时可获得</string>
+		<string>自由模式不出一次错完成时可获得</string>
 	</array>
 	<array>
 		<string>赤鬼王</string>
@@ -204,11 +204,11 @@
 	</array>
 	<array>
 		<string>邪剑仙</string>
-		<string>总游戏胜利次数达到250次时可获得</string>
+		<string>自由模式最后一秒完成时可获得</string>
 	</array>
 	<array>
 		<string>纸马</string>
-		<string>总游戏失败次数达到250次时可获得</string>
+		<string>自由模式五秒内完成时可获得</string>
 	</array>
 	<array>
 		<string>叶灵</string>

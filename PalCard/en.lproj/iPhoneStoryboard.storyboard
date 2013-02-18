@@ -8,7 +8,7 @@
         <scene sceneID="c38-kC-k6W">
             <objects>
                 <viewController storyboardIdentifier="dataSegue" id="jIe-Mn-oea" customClass="PalDataViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kff-jg-uoo">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Kff-jg-uoo">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -154,7 +154,7 @@
         <scene sceneID="UOs-Ti-8OZ">
             <objects>
                 <viewController storyboardIdentifier="achSegue" id="aog-W9-chg" customClass="PalAchievementViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="520-rk-zBx">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="520-rk-zBx">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -263,7 +263,7 @@
         <scene sceneID="mCq-0K-asH">
             <objects>
                 <viewController id="bwh-ww-fUJ" customClass="PalModeMenuViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nX6-2r-326">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="nX6-2r-326">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -823,7 +823,7 @@
         <scene sceneID="pyV-IW-Y0u">
             <objects>
                 <viewController storyboardIdentifier="insSegue" id="AJ5-5R-ohp" customClass="PalInstructionViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rsC-5e-MuC">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="rsC-5e-MuC">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -840,31 +840,41 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="z3T-qU-bly" userLabel="easyPic">
-                                <rect key="frame" x="30" y="30" width="130" height="78"/>
+                                <rect key="frame" x="30" y="15" width="130" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="YYK-wb-YKP" userLabel="normalPic">
-                                <rect key="frame" x="30" y="150" width="130" height="78"/>
+                                <rect key="frame" x="160" y="105" width="130" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8fc-dh-hqh" userLabel="hardPic">
-                                <rect key="frame" x="30" y="295" width="130" height="78"/>
+                                <rect key="frame" x="30" y="245" width="130" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="nqS-N2-BkI" userLabel="freePic">
+                                <rect key="frame" x="160" y="360" width="130" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.5秒钟时间记忆卡牌，15秒钟之内翻开所有成对卡牌即可通关" id="b2m-Ah-xga" userLabel="textEasy">
-                                <rect key="frame" x="40" y="82" width="240" height="70"/>
+                                <rect key="frame" x="40" y="70" width="240" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1.2秒钟时间记忆卡牌，13秒钟之内翻开所有成对卡牌即可通关，六对牌中有一对为黑牌，点开任意一张黑牌算失败" id="G8R-Ce-spE" userLabel="textNormal">
-                                <rect key="frame" x="40" y="210" width="240" height="99"/>
+                                <rect key="frame" x="40" y="160" width="240" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1秒钟时间记忆卡牌，10秒钟之内翻开所有成对卡牌即可通关，六对牌中有两对为黑牌，点开任意一张黑牌算失败" id="cbu-zA-IGo" userLabel="textHard">
-                                <rect key="frame" x="40" y="355" width="240" height="100"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="游戏开始时，系统给定1秒钟时间记忆卡牌，10秒钟之内翻开所有成对卡牌即可通关，六对牌中有两对为黑牌" id="cbu-zA-IGo" userLabel="textHard">
+                                <rect key="frame" x="40" y="305" width="240" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="无记忆时间，无黑牌，20秒之内完成游戏算成功" id="RIc-JI-PA7" userLabel="textFree">
+                                <rect key="frame" x="40" y="420" width="240" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -899,6 +909,7 @@
                         <outlet property="bgPic2" destination="pAS-KS-YXx" id="2zi-3M-52l"/>
                         <outlet property="blackBG" destination="DDK-5j-Pau" id="Z96-xn-tIs"/>
                         <outlet property="easyView" destination="z3T-qU-bly" id="UDb-sH-HTp"/>
+                        <outlet property="freeView" destination="nqS-N2-BkI" id="7VW-7I-R4m"/>
                         <outlet property="hardView" destination="8fc-dh-hqh" id="nVG-Ca-o5V"/>
                         <outlet property="infoBG" destination="e3K-3M-sBC" id="k3d-Nv-v1d"/>
                         <outlet property="normalView" destination="YYK-wb-YKP" id="KPG-yL-D47"/>
@@ -906,11 +917,12 @@
                         <outlet property="text1" destination="b2m-Ah-xga" id="gaM-jo-mAW"/>
                         <outlet property="text2" destination="G8R-Ce-spE" id="TZJ-98-yKS"/>
                         <outlet property="text3" destination="cbu-zA-IGo" id="HV2-IA-Xl3"/>
+                        <outlet property="text4" destination="RIc-JI-PA7" id="lwY-BT-FlA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrY-7x-Rmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-173" y="-1567"/>
+            <point key="canvasLocation" x="-227" y="-1583"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Khp-93-GxZ">
@@ -934,7 +946,7 @@
         <scene sceneID="Ghz-uf-fCx">
             <objects>
                 <viewController storyboardIdentifier="infoSegue" id="a7P-ZE-sH8" customClass="PalInformationViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gfd-Qp-1So">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Gfd-Qp-1So">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -966,24 +978,24 @@
                                 <rect key="frame" x="-10" y="5" width="340" height="520"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="1R6-zB-Mng">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="1R6-zB-Mng">
                                 <rect key="frame" x="27" y="35" width="266" height="425"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
+                                <mutableString key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
 仙剑卡牌翻转逍遥游
-V 1.0 --- 02/05/13
+V 1.1 --- 02/17/13
 ---------------------------------------------
-程序: FlyinGeek 美术: ColdusT
+程序: FlyinGeek 美工: ColdusT
 作者联系方式:
-微薄: @柒才 邮箱: flyingeek@live.com
+微博: @柒才 邮箱: flyingeek@live.com
 ---------------------------------------------
 作者的话:
-相信玩过仙剑奇侠传五前传的玩家一定对这个小游戏不陌生，作者大学生仙迷一枚，花了一个星期，抽空把这小游戏搬到了iOS来，初次用Objective-C，初次写游戏，难免会有疏漏。如果有不好的地方或者bug，请在微薄@我或者发邮件联系，如果你有什么好的想法或者主意，也可以向我提出（作者在美国，因时差原因如果未及时回复请见谅）。最后，祝大家新年快乐！
+我只是普通仙迷一枚，做这个游戏只当练手，不过还是尽量做到最好，如果喜欢，请在App Store内给个好评，说上你的建议或者你想要的功能，我会尽量在下个版本中实现。最近学业比较繁忙，时间有限，可能到暑假才能有空研究安卓版本的可行性，至于iPad版，我会尽量在一个月内搞定，PS美工是我同学，他也很忙，所以请见谅。本游戏完全开源，完整源代码已经上传至 我的GitHub: www.github.com/JasonStein，我不是专业码农，而且这是我的第一个iOS应用，所以代码写的很乱请见谅，如果你想协助我添加功能或者完善游戏修复bug，可以随时联系我或者fork我的代码，另外，游戏的新版本代码我会随时同步，请留意。
 ---------------------------------------------
 版权信息
 本游戏使用的大部分图片素材以及音频资料来源于仙剑奇侠传五前传，仙剑奇侠传五前传为软星科技（北京）有限公司作品，所有涉及图片以及音频资料版权均归软星科技（北京）有限公司所有，本游戏为免费游戏，无广告，无应用内支付，不带任何盈利目的，请不要二次使用本游戏所持内容。
 ---------------------------------------------
-2013年2月5号.</string>
+2013年2月17号.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1042,7 +1054,6 @@ V 1.0 --- 02/05/13
         <class className="PalAchievementViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
             <relationships>
-                <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="achDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="achLabelBG" candidateClass="UIImageView"/>
@@ -1078,6 +1089,7 @@ V 1.0 --- 02/05/13
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="easyView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="freeView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="hardView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="normalView" candidateClass="UIImageView"/>
@@ -1085,6 +1097,7 @@ V 1.0 --- 02/05/13
                 <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="PalMainMenuViewController" superclassName="UIViewController">

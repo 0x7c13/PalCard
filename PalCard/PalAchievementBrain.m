@@ -332,7 +332,7 @@
     }
     
     if ([CardIsUnlocked[31] isEqualToString:@"NO"]) {
-        if ([totalGames isEqualToNumber:[NSNumber numberWithInteger: 200]]) {
+        if ([freeWins isEqualToNumber:[NSNumber numberWithInteger: 15]]) {
             CardIsUnlocked[31] = @"YES";
             flag = YES;
         }
@@ -445,7 +445,7 @@
     }
     
     if ([CardIsUnlocked[47] isEqualToString:@"NO"]) {
-        if ([totalGames isEqualToNumber:[NSNumber numberWithInteger: 300]]) {
+        if ([gameMode isEqualToString:@"freeStyle"] && wrongs == 0 && win) {
             CardIsUnlocked[47] = @"YES";
             flag = YES;
         }
@@ -459,21 +459,21 @@
     }
     
     if ([CardIsUnlocked[49] isEqualToString:@"NO"]) {
-        if ([gameMode isEqualToString:@"hard"] && win && lastTime <= 14) {
+        if ([gameMode isEqualToString:@"hard"] && win && lastTime <= 1) {
             CardIsUnlocked[49] = @"YES";
             flag = YES;
         }
     }
     
     if ([CardIsUnlocked[50] isEqualToString:@"NO"]) {
-        if ([totalWins isEqualToNumber:[NSNumber numberWithInteger: 250]]) {
+        if ([gameMode isEqualToString:@"freeStyle"] && win && lastTime <= 1) {
             CardIsUnlocked[50] = @"YES";
             flag = YES;
         }
     }
     
     if ([CardIsUnlocked[51] isEqualToString:@"NO"]) {
-        if ([totalLosses isEqualToNumber:[NSNumber numberWithInteger: 250]]) {
+        if ([gameMode isEqualToString:@"freeStyle"] && usedTime <= 5 && win) {
             CardIsUnlocked[51] = @"YES";
             flag = YES;
         }

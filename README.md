@@ -5,7 +5,7 @@ App名:仙剑卡牌
 
 PalCard.app
 
-V 1.0.6 Source Code
+V 1.0.8 Source Code
 
 Author: FlyinGeek
 
@@ -32,6 +32,8 @@ MCSoundBoard : https://github.com/Baglan/MCSoundBoard
 FXImageView : https://github.com/nicklockwood/FXImageView
 
 ASMediaFocusManager : https://github.com/autresphere/ASMediaFocusManager
+
+ViewDeck : https://github.com/Inferis/ViewDeck
 
 --------------------------------
 

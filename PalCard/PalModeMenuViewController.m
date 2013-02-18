@@ -14,12 +14,16 @@
 #define _BGPIC2 @"UIimages/cloud-front.png"
 
 #define _ModeChoiceLabelImg @"UIimages/difficulty_choice.png"
-#define _EasyModeButtonImg @"UIimages/easy.png"
-#define _EasyModeButtonPressedImg @"UIimages/easy_push.png"
-#define _NormalModeButtonImg @"UIimages/normal.png"
-#define _NormalModeButtonPressedImg @"UIimages/normal_push.png"
-#define _HardModeButtonImg @"UIimages/hard.png"
-#define _HardModeButtonPressedImg @"UIimages/hard_push.png"
+
+#define _EasyModeButtonImg @"UIimages/easy2.png"
+#define _EasyModeButtonPressedImg @"UIimages/easy2_p.png"
+#define _NormalModeButtonImg @"UIimages/normal2.png"
+#define _NormalModeButtonPressedImg @"UIimages/normal2_p.png"
+#define _HardModeButtonImg @"UIimages/hard2.png"
+#define _HardModeButtonPressedImg @"UIimages/hard2_p.png"
+#define _FreeStyleModeButtonImg @"UIimages/free.png"
+#define _FreeStyleModeButtonPressedImg @"UIimages/free_p.png"
+
 #define _ReturnButtonImg @"UIimages/back.png"
 #define _ReturnButtonPressedImg @"UIimages/back_push.png"
 
@@ -39,10 +43,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *easyButton;
 @property (strong, nonatomic) IBOutlet UIButton *normalButton;
 @property (strong, nonatomic) IBOutlet UIButton *hardButton;
+@property (strong, nonatomic) IBOutlet UIButton *freeStyleButton;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
-@property (strong, nonatomic) IBOutlet UIImageView *cloud1;
-@property (strong, nonatomic) IBOutlet UIImageView *cloud2;
-@property (strong, nonatomic) IBOutlet UIImageView *cloud3;
 @property (strong, nonatomic) IBOutlet UIImageView *difChoice;
 
 @end
@@ -165,19 +167,17 @@
         
         [self.difChoice setFrame:CGRectMake(40, 0, 240, 128)];
         
-        [self.easyButton setFrame:CGRectMake(95, 120, 130, 78)];
+        [self.easyButton setFrame:CGRectMake(95, 120, 130, 65)];
         
-        [self.normalButton setFrame:CGRectMake(95, 215, 130, 78)];
+        [self.normalButton setFrame:CGRectMake(95, 200, 130, 65)];
         
-        [self.hardButton setFrame:CGRectMake(95, 310, 130, 78)];
+        [self.hardButton setFrame:CGRectMake(95, 280, 130, 65)];
         
-        [self.cloud1 setFrame:CGRectMake(70, 95, 180, 120)];
-        
-        [self.cloud2 setFrame:CGRectMake(70, 195, 180, 120)];
-        
-        [self.cloud3 setFrame:CGRectMake(70, 290, 180, 120)];
+        [self.freeStyleButton setFrame:CGRectMake(95, 360, 130, 65)];
         
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 30)];
+        
+
     }
     
     
@@ -198,6 +198,10 @@
     [self.hardButton setBackgroundImage:[UIImage imageNamed:_HardModeButtonImg] forState:UIControlStateNormal];
     
     [self.hardButton setBackgroundImage:[UIImage imageNamed:_HardModeButtonPressedImg] forState:UIControlStateHighlighted];
+    
+    [self.freeStyleButton setBackgroundImage:[UIImage imageNamed:_FreeStyleModeButtonImg] forState:UIControlStateNormal];
+    
+    [self.freeStyleButton setBackgroundImage:[UIImage imageNamed:_FreeStyleModeButtonPressedImg] forState:UIControlStateHighlighted];
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
@@ -273,6 +277,15 @@
     self.mode = @"hard";
 }
 
+- (IBAction)freeStyleModeButtonPressed:(UIButton *)sender {
+    
+    if (!_soundOff) {
+        [MCSoundBoard playSoundForKey:@"selected"];
+    }
+    self.mode = @"freeStyle";
+    
+}
+
 
 - (IBAction)returnButtonPressed:(UIButton *)sender {
     
@@ -288,12 +301,10 @@
     [self setBgPic:nil];
     [self setBgPic2:nil];
     [self setBlackBG:nil];
-    [self setCloud1:nil];
-    [self setCloud2:nil];
-    [self setCloud3:nil];
     [self setEasyButton:nil];
     [self setHardButton:nil];
     [self setNormalButton:nil];
+    [self setFreeStyleButton:nil];
     [super viewDidUnload];
 }
 @end

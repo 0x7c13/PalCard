@@ -36,19 +36,22 @@
     NSNumber *totalEasyWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalEasyWins"];
     NSNumber *totalNormalWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalNormalWins"];
     NSNumber *totalHardWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalHardWins"];
+    NSNumber *totalFreeWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalFreeWins"];
     
     NSNumber *totalEasyLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalEasyLosses"];
     NSNumber *totalNormalLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalNormalLosses"];
     NSNumber *totalHardLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalHardLosses"];
+    NSNumber *totalFreeLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"totalFreeLosses"];
 
     NSNumber *easyWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"easyWins"];
     NSNumber *normalWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"normalWins"];
     NSNumber *hardWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"hardWins"];
+    NSNumber *freeWins = [[NSUserDefaults standardUserDefaults] valueForKey:@"freeWins"];
     
     NSNumber *easyLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"easyLosses"];
     NSNumber *normalLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"normalLosses"];
     NSNumber *hardLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"hardLosses"];
-    
+    NSNumber *freeLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"freeLosses"];
     
     
     // calculate new game data 
@@ -75,6 +78,11 @@
             hardWins = [NSNumber numberWithInteger:[hardWins integerValue] + 1];
             hardLosses = [NSNumber numberWithInteger:0];
         }
+        if ([gameMode isEqualToString:@"freeStyle"]) {
+            totalFreeWins = [NSNumber numberWithInteger:[totalFreeWins integerValue] + 1];
+            freeWins = [NSNumber numberWithInteger:[freeWins integerValue] + 1];
+            freeLosses = [NSNumber numberWithInteger:0];
+        }
     }
     
     if (!win) {
@@ -97,6 +105,11 @@
             totalHardLosses = [NSNumber numberWithInteger:[totalHardLosses integerValue] + 1];
             hardLosses = [NSNumber numberWithInteger:[hardLosses integerValue] + 1];
             hardWins = [NSNumber numberWithInteger:0];
+        }
+        if ([gameMode isEqualToString:@"freeStyle"]) {
+            totalFreeLosses = [NSNumber numberWithInteger:[totalFreeLosses integerValue] + 1];
+            freeLosses = [NSNumber numberWithInteger:[freeLosses integerValue] + 1];
+            freeWins = [NSNumber numberWithInteger:0];
         }
     }
     
@@ -572,19 +585,23 @@
     [[NSUserDefaults standardUserDefaults] setValue:totalEasyWins forKey:@"totalEasyWins"];
     [[NSUserDefaults standardUserDefaults] setValue:totalNormalWins forKey:@"totalNormalWins"];
     [[NSUserDefaults standardUserDefaults] setValue:totalHardWins forKey:@"totalHardWins"];
+    [[NSUserDefaults standardUserDefaults] setValue:totalFreeWins forKey:@"totalFreeWins"];
 
     [[NSUserDefaults standardUserDefaults] setValue:totalEasyLosses forKey:@"totalEasyLosses"];
     [[NSUserDefaults standardUserDefaults] setValue:totalNormalLosses  forKey:@"totalNormalLosses"];
     [[NSUserDefaults standardUserDefaults] setValue:totalHardLosses forKey:@"totalHardLosses"];
+    [[NSUserDefaults standardUserDefaults] setValue:totalFreeLosses forKey:@"totalFreeLosses"];
     
     [[NSUserDefaults standardUserDefaults] setValue:easyWins forKey:@"easyWins"];
     [[NSUserDefaults standardUserDefaults] setValue:normalWins forKey:@"normalWins"];
     [[NSUserDefaults standardUserDefaults] setValue:hardWins forKey:@"hardWins"];
+    [[NSUserDefaults standardUserDefaults] setValue:freeWins forKey:@"freeWins"];
     
     [[NSUserDefaults standardUserDefaults] setValue:easyLosses forKey:@"easyLosses"];
     [[NSUserDefaults standardUserDefaults] setValue:normalLosses forKey:@"normalLosses"];
     [[NSUserDefaults standardUserDefaults] setValue:hardLosses forKey:@"hardLosses"];
-
+    [[NSUserDefaults standardUserDefaults] setValue:freeLosses forKey:@"freeLosses"];
+    
     return flag;
 }
 

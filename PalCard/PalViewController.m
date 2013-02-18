@@ -433,7 +433,7 @@
     
     // mode settings
     
-    if ([self.mode isEqualToString:@"easy"] || [self.mode isEqualToString:@"freestyle"]) {
+    if ([self.mode isEqualToString:@"easy"] || [self.mode isEqualToString:@"freeStyle"]) {
         cardGenerator.NumbersOfBlackCards = 0;
     }
     else if ([self.mode isEqualToString:@"normal"]) {
@@ -497,7 +497,7 @@
         _watchTime = 1.0;
         _numberOfBlackCards = 4;
     }
-    else if ([self.mode isEqualToString:@"freestyle"]) {
+    else if ([self.mode isEqualToString:@"freeStyle"]) {
         _totalTime = 18.0;
         _watchTime = 0.0;
         _numberOfBlackCards = 0;
@@ -657,7 +657,7 @@
     }
     
     // check whether new achievement unlocked
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
     }

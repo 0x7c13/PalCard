@@ -210,12 +210,18 @@
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" id="4un-qV-8aX" userLabel="achLabelBG">
+                                <rect key="frame" x="25" y="510" width="225" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KQU-3u-n1m" userLabel="totalAchInfo">
-                                <rect key="frame" x="44" y="501" width="180" height="40"/>
+                                <rect key="frame" x="65" y="500" width="180" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.89556760204081631" green="0.89556760204081631" blue="0.89556760204081631" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="crw-uK-Nnh" userLabel="blackBG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -229,6 +235,7 @@
                     <connections>
                         <outlet property="achDisplay" destination="KQU-3u-n1m" id="0Jh-ib-U1q"/>
                         <outlet property="achLabel" destination="Pf7-w3-Bza" id="Hau-FU-P2W"/>
+                        <outlet property="achLabelBG" destination="4un-qV-8aX" id="k7f-98-yzv"/>
                         <outlet property="bgPic" destination="lDW-NF-VZe" id="Wig-H2-wbs"/>
                         <outlet property="bgPic2" destination="KpF-MO-KrZ" id="cR4-mm-QWY"/>
                         <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
@@ -259,24 +266,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="rhG-2P-En9" userLabel="cloud1">
-                                <rect key="frame" x="60" y="136" width="200" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="U8n-x3-m6A" userLabel="cloud2">
-                                <rect key="frame" x="60" y="236" width="200" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" image="UIimages/single_cloud.png" id="4O2-2I-Bmj" userLabel="cloud3">
-                                <rect key="frame" x="60" y="336" width="200" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UH3-Gp-LDu" userLabel="difChoice">
                                 <rect key="frame" x="40" y="15" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0v-5L-7Hz">
-                                <rect key="frame" x="95" y="161" width="130" height="78"/>
+                                <rect key="frame" x="95" y="140" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -293,7 +288,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Yf-5J-pjS">
-                                <rect key="frame" x="95" y="261" width="130" height="78"/>
+                                <rect key="frame" x="95" y="230" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -310,7 +305,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1z5-B7-c2w">
-                                <rect key="frame" x="94" y="361" width="130" height="78"/>
+                                <rect key="frame" x="95" y="320" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -324,6 +319,23 @@
                                 <connections>
                                     <action selector="hardModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="Klm-qQ-wTj"/>
                                     <segue destination="2" kind="push" id="pAc-MM-VQ0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZj-ht-IRd">
+                                <rect key="frame" x="95" y="410" width="130" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="freeStyleModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="kE3-zn-APU"/>
+                                    <segue destination="2" kind="push" id="ceh-uk-QvT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hJL-YD-g4u" userLabel="ReturnButton">
@@ -355,11 +367,9 @@
                         <outlet property="bgPic" destination="TuX-zU-VDf" id="1rs-Sa-jIu"/>
                         <outlet property="bgPic2" destination="UtM-lo-3sB" id="Tsm-TF-swz"/>
                         <outlet property="blackBG" destination="OdW-Cb-2p5" id="Tqq-oj-7Hj"/>
-                        <outlet property="cloud1" destination="rhG-2P-En9" id="OPg-GU-Oyo"/>
-                        <outlet property="cloud2" destination="U8n-x3-m6A" id="Udv-wy-Oic"/>
-                        <outlet property="cloud3" destination="4O2-2I-Bmj" id="9R4-RS-ABi"/>
                         <outlet property="difChoice" destination="UH3-Gp-LDu" id="jI7-ex-fS4"/>
                         <outlet property="easyButton" destination="e0v-5L-7Hz" id="6rE-29-xS1"/>
+                        <outlet property="freeStyleButton" destination="FZj-ht-IRd" id="KZI-dK-XxI"/>
                         <outlet property="hardButton" destination="1z5-B7-c2w" id="1Uv-T1-f3Y"/>
                         <outlet property="normalButton" destination="3Yf-5J-pjS" id="Og2-EF-d8a"/>
                         <outlet property="returnButton" destination="hJL-YD-g4u" id="rpo-Is-sHf"/>
@@ -1005,7 +1015,6 @@ V 1.0 --- 02/05/13
         </scene>
     </scenes>
     <resources>
-        <image name="UIimages/single_cloud.png" width="16" height="16"/>
         <image name="UIimages/文字框.png" width="16" height="16"/>
         <image name="palsource/bg4_L.jpg" width="16" height="16"/>
     </resources>
@@ -1022,6 +1031,7 @@ V 1.0 --- 02/05/13
                 <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="achDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="achLabelBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1038,6 +1048,7 @@ V 1.0 --- 02/05/13
         <class className="PalInformationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnBottonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1049,6 +1060,7 @@ V 1.0 --- 02/05/13
         <class className="PalInstructionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
@@ -1065,6 +1077,11 @@ V 1.0 --- 02/05/13
         <class className="PalMainMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMainMenuViewController.h"/>
             <relationships>
+                <relationship kind="action" name="achievementButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameStartButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="informationButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="instructionButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="soundOnOffButtonPressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
@@ -1081,17 +1098,16 @@ V 1.0 --- 02/05/13
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
             <relationships>
                 <relationship kind="action" name="easyModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="freeStyleModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="normalModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cloud1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cloud2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cloud3" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="difChoice" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="easyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="freeStyleButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="hardButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="normalButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
@@ -1100,18 +1116,6 @@ V 1.0 --- 02/05/13
         <class className="PalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
             <relationships>
-                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
                 <relationship kind="outlet" name="Card11" candidateClass="UIView"/>
@@ -1168,6 +1172,6 @@ V 1.0 --- 02/05/13
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pAc-MM-VQ0"/>
+        <segue reference="lXA-94-2O3"/>
     </inferredMetricsTieBreakers>
 </document>

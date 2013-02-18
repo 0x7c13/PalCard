@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IIViewDeckController.h"
 
 @interface PalDataViewController : UIViewController 
 

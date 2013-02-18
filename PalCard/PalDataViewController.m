@@ -8,6 +8,8 @@
 
 #import "PalDataViewController.h"
 
+#define _BGPIC @"UIimages/main_bg.jpg"
+#define _BGPIC2 @"UIimages/cloud-front.png"
 #define _BGIMG @"palsource/shushan_gaosi.png"
 #define _InfoBG @"UIimages/info_bg.png"
 
@@ -16,15 +18,14 @@
 #define _HardImg @"UIimages/hard.png"
 #define _FreeImg @"UIimages/free_ins.png"
 
-#define _ReturnButtonImg @"UIimages/back_new_inv.png"
-#define _ReturnButtonPressedImg @"UIimages/back_new_p_inv.png"
+#define _ReturnButtonImg @"UIimages/back_new.png"
+#define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 
 @interface PalDataViewController ()
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIImageView *easyImg;
 @property (strong, nonatomic) IBOutlet UIImageView *normalImg;
 @property (strong, nonatomic) IBOutlet UIImageView *hardImg;
@@ -37,6 +38,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 
+@property (strong, nonatomic) IBOutlet UIImageView *bgPic;
+@property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
+@property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 
 @end
 
@@ -50,6 +54,105 @@
     }
     return self;
 }
+
+
+
+- (void)backgroundAnimation
+{
+    // Background  animation
+    
+    
+    self.blackBG.alpha = 1.0;
+    
+    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
+    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
+    
+    self.bgPic2.alpha = 0.7;
+    
+    
+    // mountain
+    
+    CGRect frame = self.bgPic.frame;
+    frame.origin.x = 0;
+    self.bgPic.frame = frame;
+    
+    [UIView beginAnimations:@"testAnimation" context:NULL];
+    [UIView setAnimationDuration:20.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationRepeatAutoreverses:NO];
+    [UIView setAnimationRepeatCount:9999];
+    
+    frame = self.bgPic.frame;
+    frame.origin.x = -frame.size.width + 320;
+    self.bgPic.frame = frame;
+    
+    [UIView commitAnimations];
+    
+    // cloud
+    
+    CGRect frame2 = self.bgPic2.frame;
+    frame2.origin.x = 0;
+    self.bgPic2.frame = frame2;
+    
+    [UIView beginAnimations:@"testAnimation2" context:NULL];
+    [UIView setAnimationDuration:8.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationRepeatAutoreverses:NO];
+    [UIView setAnimationRepeatCount:9999];
+    
+    frame2 = self.bgPic2.frame;
+    frame2.origin.x = -frame2.size.width + 285;
+    self.bgPic2.frame = frame2;
+    
+    [UIView commitAnimations];
+    
+    
+    [UIView beginAnimations:@"fadeIn" context:nil];
+    [UIView setAnimationDuration:0.5];
+    self.blackBG.alpha = 0.0f;
+    [UIView commitAnimations];
+    
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+	[super viewWillAppear:animated];
+    
+    
+    // register for later use:
+    // restart animation when game enter to foreground
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+}
+
+-(void) viewDidDisappear:(BOOL)animated{
+    
+    // unregister when view disappear
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) restartAnimation{
+    
+    [self backgroundAnimation];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+	[super viewWillDisappear:animated];
+    
+	[self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+
 
 
 - (void)viewDidLoad
@@ -68,22 +171,18 @@
         [self.text3 setFrame:CGRectMake(35, 252, 168, 98)];
         [self.text4 setFrame:CGRectMake(35, 350, 168, 80)];
         
-        [self.infoBG setFrame:CGRectMake(0, 0, 220, 490)];
+        [self.infoBG setFrame:CGRectMake(-10, 5, 340, 455)];
         
-        [self.returnButton setFrame:CGRectMake(30, 425, 50, 45)];
+        [self.returnButton setFrame:CGRectMake(250, 435, 50, 45)];
         
     }
-    
-    
-    
-    self.imageView.image = [UIImage imageNamed:_BGIMG];
     
     self.easyImg.image = [UIImage imageNamed:_EasyImg];
     self.normalImg.image = [UIImage imageNamed:_NormalImg];
     self.hardImg.image = [UIImage imageNamed:_HardImg];
     self.freeImg.image = [UIImage imageNamed:_FreeImg];
     self.infoBG.image = [UIImage imageNamed:_InfoBG];
-    self.infoBG.alpha = 0.5;
+    self.infoBG.alpha = 0.6;
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
@@ -103,7 +202,10 @@
     
     [self showData];
     
-    self.viewDeckController.closeSlideAnimationDuration = 0.5f;
+    //self.viewDeckController.closeSlideAnimationDuration = 0.5f;
+    
+    // start background animation
+    [self backgroundAnimation];
 }
 
 
@@ -147,7 +249,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setImageView:nil];
+
     [self setEasyImg:nil];
     [self setNormalImg:nil];
     [self setHardImg:nil];
@@ -158,20 +260,16 @@
     [self setText4:nil];
     [self setInfoBG:nil];
     [self setReturnButton:nil];
+    [self setBgPic:nil];
+    [self setBgPic2:nil];
+    [self setBlackBG:nil];
     [super viewDidUnload];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self showData];
 }
 
 
 - (IBAction)returnButtonPressed:(UIButton *)sender {
     
-    [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
-    }];
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 
 }
 @end

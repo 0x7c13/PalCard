@@ -13,11 +13,7 @@
 		F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928C16CF523D00151527 /* ASMediaFocusController.m */; };
 		F70F929216CF523D00151527 /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70F928D16CF523D00151527 /* ASMediaFocusController.xib */; };
 		F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F928F16CF523D00151527 /* ASMediaFocusManager.m */; };
-		F70F929B16D0515A00151527 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F929616D0515A00151527 /* IISideController.m */; };
-		F70F929C16D0515A00151527 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F929816D0515A00151527 /* IIViewDeckController.m */; };
-		F70F929D16D0515A00151527 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F929A16D0515A00151527 /* IIWrapController.m */; };
 		F70F92A216D0527D00151527 /* PalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F92A116D0527D00151527 /* PalDataViewController.m */; };
-		F70F92A516D0549100151527 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70F92A416D0549100151527 /* InitialViewController.m */; };
 		F710265C16CDC17700FD2836 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265B16CDC17700FD2836 /* iCarousel.m */; };
 		F710266016CDC19900FD2836 /* MCSoundBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F710265F16CDC19900FD2836 /* MCSoundBoard.m */; };
 		F71F398D16BE282200F39979 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71F398C16BE282200F39979 /* QuartzCore.framework */; };
@@ -76,16 +72,8 @@
 		F70F928D16CF523D00151527 /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 		F70F928E16CF523D00151527 /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
 		F70F928F16CF523D00151527 /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
-		F70F929516D0515A00151527 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
-		F70F929616D0515A00151527 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
-		F70F929716D0515A00151527 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
-		F70F929816D0515A00151527 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
-		F70F929916D0515A00151527 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
-		F70F929A16D0515A00151527 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
 		F70F92A016D0527D00151527 /* PalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalDataViewController.h; sourceTree = "<group>"; };
 		F70F92A116D0527D00151527 /* PalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalDataViewController.m; sourceTree = "<group>"; };
-		F70F92A316D0549100151527 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		F70F92A416D0549100151527 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		F710265A16CDC17700FD2836 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		F710265B16CDC17700FD2836 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		F710265E16CDC19900FD2836 /* MCSoundBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSoundBoard.h; sourceTree = "<group>"; };
@@ -189,19 +177,6 @@
 			path = ASMediaFocusManager;
 			sourceTree = "<group>";
 		};
-		F70F929416D0515A00151527 /* ViewDeck */ = {
-			isa = PBXGroup;
-			children = (
-				F70F929516D0515A00151527 /* IISideController.h */,
-				F70F929616D0515A00151527 /* IISideController.m */,
-				F70F929716D0515A00151527 /* IIViewDeckController.h */,
-				F70F929816D0515A00151527 /* IIViewDeckController.m */,
-				F70F929916D0515A00151527 /* IIWrapController.h */,
-				F70F929A16D0515A00151527 /* IIWrapController.m */,
-			);
-			path = ViewDeck;
-			sourceTree = "<group>";
-		};
 		F710265916CDC17700FD2836 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,8 +248,6 @@
 		F7F7002416B7211D00876181 /* PalCard */ = {
 			isa = PBXGroup;
 			children = (
-				F70F92A316D0549100151527 /* InitialViewController.h */,
-				F70F92A416D0549100151527 /* InitialViewController.m */,
 				F70F92A016D0527D00151527 /* PalDataViewController.h */,
 				F70F92A116D0527D00151527 /* PalDataViewController.m */,
 				F7A3C03D16C1CAE000D42AAF /* PalInstructionViewController.h */,
@@ -299,7 +272,6 @@
 				F7ED0FE316BC96C60036B782 /* PalModeMenuViewController.m */,
 				F7F7003916B7211D00876181 /* PalViewController.h */,
 				F7F7003A16B7211D00876181 /* PalViewController.m */,
-				F70F929416D0515A00151527 /* ViewDeck */,
 				F70F928816CF523D00151527 /* ASMediaFocusManager */,
 				F70F928116CF40E700151527 /* FXImageView */,
 				F710265D16CDC19900FD2836 /* MCSoundBoard */,
@@ -440,11 +412,7 @@
 				F70F929016CF523D00151527 /* ASImageScrollView.m in Sources */,
 				F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */,
 				F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */,
-				F70F929B16D0515A00151527 /* IISideController.m in Sources */,
-				F70F929C16D0515A00151527 /* IIViewDeckController.m in Sources */,
-				F70F929D16D0515A00151527 /* IIWrapController.m in Sources */,
 				F70F92A216D0527D00151527 /* PalDataViewController.m in Sources */,
-				F70F92A516D0549100151527 /* InitialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "PalAchievementViewController.h"
+#import "PalDataViewController.h"
 #import "MCSoundBoard.h"
 
 #define ITEM_SPACING 200
@@ -54,6 +55,8 @@
 
 @property (strong, nonatomic) ASMediaFocusManager *mediaFocusManager;
 @property (strong, nonatomic) NSMutableArray *cardViews;
+
+@property (strong, nonatomic) IBOutlet UIButton *dataButton;
 
 @end
 
@@ -155,6 +158,8 @@
         [self.achLabelBG setFrame:CGRectMake(25, 440, 225, 23)];
         
         [self.indexLabel setFrame:CGRectMake(225, 400, 60, 20)];
+        
+        [self.dataButton setFrame:CGRectMake(270, 23, 18, 19)];
     }
     
     
@@ -250,6 +255,7 @@
     [self setCarousel:nil];
     [self setAchLabelBG:nil];
     [self setIndexLabel:nil];
+    [self setDataButton:nil];
     [super viewDidUnload];
 
 }
@@ -286,7 +292,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self backgroundAnimation];
+}
 
+
+- (IBAction)dataButtonPressed:(UIButton *)sender {
+    
+    PalDataViewController *dataVC = [self.storyboard instantiateViewControllerWithIdentifier:@"dataRoot"];
+    
+    [self presentViewController:dataVC animated:NO completion:nil];
+}
 
 
 - (IBAction)returnBottonPressed:(UIButton *)sender {

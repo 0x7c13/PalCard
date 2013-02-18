@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Pyo-nN-qAi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="SWO-lb-cUf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -7,17 +7,21 @@
         <!--Pal Data View Controller-->
         <scene sceneID="c38-kC-k6W">
             <objects>
-                <viewController storyboardIdentifier="dataSegue" id="jIe-Mn-oea" customClass="PalDataViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dataSegue" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jIe-Mn-oea" customClass="PalDataViewController" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Kff-jg-uoo">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="HHs-mK-sv9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eqp-JT-INC" userLabel="BG1">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="5UM-af-ZCP" userLabel="BG2">
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" id="Ip1-NU-bj5" userLabel="infoBG">
-                                <rect key="frame" x="0.0" y="0.0" width="220" height="580"/>
+                                <rect key="frame" x="-10" y="0.0" width="340" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ONm-Gy-vag" userLabel="easyPic">
@@ -37,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f3P-6H-YYP">
-                                <rect key="frame" x="30" y="505" width="50" height="45"/>
+                                <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -75,14 +79,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hE8-Xc-ljv" userLabel="blackBG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="28F-nw-gHe"/>
                     <connections>
+                        <outlet property="bgPic" destination="eqp-JT-INC" id="dGF-so-LAs"/>
+                        <outlet property="bgPic2" destination="5UM-af-ZCP" id="PMj-tI-8Dm"/>
+                        <outlet property="blackBG" destination="hE8-Xc-ljv" id="0v8-xV-2iH"/>
                         <outlet property="easyImg" destination="ONm-Gy-vag" id="Z6s-jC-YvL"/>
                         <outlet property="freeImg" destination="H24-N9-WHA" id="xeo-gO-Lrz"/>
                         <outlet property="hardImg" destination="Xuq-ew-5FT" id="Hq6-F4-OHx"/>
-                        <outlet property="imageView" destination="HHs-mK-sv9" id="lOz-9c-fRb"/>
                         <outlet property="infoBG" destination="Ip1-NU-bj5" id="1ZS-0e-raE"/>
                         <outlet property="normalImg" destination="hvq-kd-WDj" id="Aee-is-11E"/>
                         <outlet property="returnButton" destination="f3P-6H-YYP" id="T95-cq-nbG"/>
@@ -94,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THv-tW-sEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1880" y="-1454"/>
+            <point key="canvasLocation" x="20" y="-2120"/>
         </scene>
         <!--Pal Main Menu View Controller-->
         <scene sceneID="7Wh-mh-605">
@@ -192,21 +204,6 @@
                                     <action selector="informationButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="yyu-h0-GRL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Czt-8Q-jQK">
-                                <rect key="frame" x="290" y="19" width="18" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gameDataButton:" destination="SWO-lb-cUf" eventType="touchUpInside" id="BsY-p5-xQe"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oby-zd-wah" userLabel="blackBG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -235,7 +232,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1560" y="-1422"/>
+            <point key="canvasLocation" x="-508" y="-1422"/>
         </scene>
         <!--Pal Achievement View Controller-->
         <scene sceneID="UOs-Ti-8OZ">
@@ -246,11 +243,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lDW-NF-VZe" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KpF-MO-KrZ" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Kb-ps-fpa" userLabel="ReturnButton">
@@ -318,6 +315,21 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="r1Q-73-LvQ">
+                                <rect key="frame" x="270" y="45" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dataButtonPressed:" destination="aog-W9-chg" eventType="touchUpInside" id="KsN-sR-xe6"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="crw-uK-Nnh" userLabel="blackBG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -336,6 +348,7 @@
                         <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
                         <outlet property="cardNameDisplay" destination="1xE-fB-HId" id="Za4-kd-3Dy"/>
                         <outlet property="carousel" destination="Ydb-gn-SSJ" id="3jf-Tp-xKl"/>
+                        <outlet property="dataButton" destination="r1Q-73-LvQ" id="Ipn-Pk-XMl"/>
                         <outlet property="descriptionDisplay" destination="AQv-I7-cZN" id="CiI-G0-h12"/>
                         <outlet property="indexLabel" destination="JDF-hJ-61o" id="yPJ-RJ-x26"/>
                         <outlet property="nameTag" destination="p9R-ab-n0N" id="O3Q-R4-wOl"/>
@@ -344,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MN-U8-CGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="-842"/>
+            <point key="canvasLocation" x="1027" y="-842"/>
         </scene>
         <!--Pal Mode Menu View Controller-->
         <scene sceneID="mCq-0K-asH">
@@ -355,11 +368,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="TuX-zU-VDf" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UtM-lo-3sB" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UH3-Gp-LDu" userLabel="difChoice">
@@ -473,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0P-6w-VTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="-368"/>
+            <point key="canvasLocation" x="-500" y="-368"/>
         </scene>
         <!--Pal View Controller-->
         <scene sceneID="5">
@@ -854,21 +867,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-512" y="-136"/>
-        </scene>
-        <!--Initial View Controller-->
-        <scene sceneID="1O0-4z-0Wd">
-            <objects>
-                <viewController id="Pyo-nN-qAi" customClass="InitialViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h0j-jQ-uyh">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I9w-KL-xIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2273" y="-700"/>
+            <point key="canvasLocation" x="14" y="-136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xx7-bU-B6u">
@@ -886,7 +885,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEG-8h-y4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1560" y="-655"/>
+            <point key="canvasLocation" x="-1034" y="-655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOE-5N-vYj">
@@ -904,7 +903,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMl-P2-miI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1051" y="-1137"/>
+            <point key="canvasLocation" x="527" y="-1137"/>
         </scene>
         <!--Pal Instruction View Controller-->
         <scene sceneID="pyV-IW-Y0u">
@@ -915,11 +914,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hT0-vu-nEY" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pAS-KS-YXx" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" id="e3K-3M-sBC" userLabel="infoBG">
@@ -1009,7 +1008,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrY-7x-Rmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-227" y="-1583"/>
+            <point key="canvasLocation" x="1351" y="-1583"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Khp-93-GxZ">
@@ -1027,7 +1026,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJG-h4-zHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659" y="-1847"/>
+            <point key="canvasLocation" x="919" y="-1847"/>
         </scene>
         <!--Pal Information View Controller-->
         <scene sceneID="Ghz-uf-fCx">
@@ -1038,11 +1037,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="c7d-Jh-glo" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Bp8-NU-xep" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="612"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3a-ST-F8Y" userLabel="ReturnButton">
@@ -1066,7 +1065,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="1R6-zB-Mng">
-                                <rect key="frame" x="27" y="35" width="266" height="425"/>
+                                <rect key="frame" x="27" y="35" width="266" height="435"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
 仙剑卡牌翻转逍遥游
@@ -1124,19 +1123,31 @@ V 1.1 --- 02/17/13
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILy-3z-fCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1169" y="-2063"/>
+            <point key="canvasLocation" x="409" y="-2063"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O8k-wA-OAd">
+            <objects>
+                <navigationController storyboardIdentifier="dataRoot" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="RDq-Nm-vp1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JJi-2Z-5d4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jIe-Mn-oea" kind="relationship" relationship="rootViewController" id="7Nf-YP-me1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ra8-QM-RwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-446" y="-2182"/>
         </scene>
     </scenes>
     <resources>
         <image name="UIimages/文字框.png" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="IIViewDeckController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IIViewDeckController.h"/>
-        </class>
-        <class className="InitialViewController" superclassName="IIViewDeckController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
-        </class>
         <class className="PalAchievementViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
             <relationships>
@@ -1148,6 +1159,7 @@ V 1.1 --- 02/17/13
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="dataButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="descriptionDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="indexLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
@@ -1157,11 +1169,12 @@ V 1.1 --- 02/17/13
         <class className="PalDataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
             <relationships>
-                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="easyImg" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="freeImg" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="hardImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="normalImg" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
@@ -1218,7 +1231,6 @@ V 1.1 --- 02/17/13
         <class className="PalModeMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
             <relationships>
-                <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>

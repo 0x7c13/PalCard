@@ -27,6 +27,9 @@
 #define _GameLoseSound @"los.wav"
 #define _GameWinSound @"win.wav"
 
+#define _HintPrepareIMG @"UIimages/ready.png"
+#define _HintStartIMG @"UIimages/go.png"
+
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 
@@ -103,6 +106,7 @@
 @property (strong, nonatomic) IBOutlet UIView *Card11;
 @property (strong, nonatomic) IBOutlet UIView *Card12;
 
+@property (strong, nonatomic) IBOutlet UIImageView *hintView;
 
 @property (weak, nonatomic) UIImageView *LastView;
 @property (weak, nonatomic) UIImageView *LastDefault;
@@ -369,6 +373,8 @@
         [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
         
         [self.gameProgress setFrame:CGRectMake(25, 460, 270, 9) ];
+        
+        [self.hintView setFrame:CGRectMake(35, 125, 250, 200) ];
 
     }
     else {
@@ -493,12 +499,12 @@
         _numberOfBlackCards = 2;
     }
     else if ([self.mode isEqualToString:@"hard"]) {
-        _totalTime = 9.0;
+        _totalTime = 10.0;
         _watchTime = 1.0;
         _numberOfBlackCards = 4;
     }
     else if ([self.mode isEqualToString:@"freeStyle"]) {
-        _totalTime = 18.0;
+        _totalTime = 20.0;
         _watchTime = 0.0;
         _numberOfBlackCards = 0;
     }
@@ -521,6 +527,29 @@
     
     
     self.TextDisplay.text = @"游戏马上开始";
+    
+    
+    self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
+    [UIView animateWithDuration:1.5
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.hintView.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         // Wait one second and then fade in the view
+                         self.hintView.image = [UIImage imageNamed:_HintStartIMG];
+                         [UIView animateWithDuration:0.5
+                                               delay: _watchTime
+                                             options:UIViewAnimationOptionCurveEaseOut
+                                          animations:^{
+                                              self.hintView.alpha = 1.0;
+                                          }
+                                          completion:^(BOOL finished){
+                                              self.hintView.alpha = 0.0;
+                                          }];
+                     }];
+    
     
     // preparation time before game started
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG + 1 target:self selector:@selector(prepare:) userInfo:nil repeats: NO];
@@ -877,6 +906,7 @@
     [self setLastDefault:nil];
     [self setLastView:nil];
 
+    [self setHintView:nil];
     [super viewDidUnload];
 }
 

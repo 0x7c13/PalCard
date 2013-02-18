@@ -46,6 +46,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *achLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *nameTag;
 @property (strong, nonatomic) IBOutlet UIImageView *achLabelBG;
+@property (strong, nonatomic) IBOutlet UILabel *indexLabel;
+
 
 @property (strong) NSMutableArray *cardsInformation;
 @property (strong) NSMutableArray *CardIsUnlocked;
@@ -146,11 +148,13 @@
         
         [self.achLabel setFrame:CGRectMake(19, 320, 283, 115)];
         
-        [self.carousel setFrame:CGRectMake(0, 25, 320, 320)];
+        [self.carousel setFrame:CGRectMake(0, 23, 320, 320)];
         
         [self.achDisplay setFrame:CGRectMake(65, 430, 180, 40)];
         
         [self.achLabelBG setFrame:CGRectMake(25, 440, 225, 23)];
+        
+        [self.indexLabel setFrame:CGRectMake(225, 400, 60, 20)];
     }
     
     
@@ -178,7 +182,7 @@
     }
     
     self.achDisplay.text = [NSString stringWithFormat: @"卡牌解锁进度: %.1f%%",(float)_amountOfUnlockedCards * 100.0 / 64.0];
-    
+    self.indexLabel.text = [NSString stringWithFormat:@"1/64"];
     
     // read cards information from CardsInformation.plist
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CardsInformation" ofType:@"plist"];
@@ -245,6 +249,7 @@
     [self setCardViews:nil];
     [self setCarousel:nil];
     [self setAchLabelBG:nil];
+    [self setIndexLabel:nil];
     [super viewDidUnload];
 
 }
@@ -370,6 +375,7 @@
     
     self.cardNameDisplay.text = self.cardsInformation[index + 1][0];
     self.descriptionDisplay.text = self.cardsInformation[index + 1][1];
+    self.indexLabel.text = [NSString stringWithFormat:@"%d/64", index + 1];
 
 }
 

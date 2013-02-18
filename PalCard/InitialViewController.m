@@ -18,14 +18,16 @@
 - (void)gameDataInit
 {
     
+    // V 1.0 PalCard
+    
     NSString *myLove = [[NSUserDefaults standardUserDefaults] valueForKey:@"myLove"];
     
     if (!myLove) {
         
+        [[NSUserDefaults standardUserDefaults] setValue:@"FY" forKey:@"myLove"];
+        
         NSString *sound = [NSString stringWithFormat:@"NO"];
         [[NSUserDefaults standardUserDefaults] setValue:sound forKey:@"turnOffSound"];
-        
-        [[NSUserDefaults standardUserDefaults] setValue:@"FY" forKey:@"myLove"];
         
         //  lock every sigle card
         
@@ -69,9 +71,6 @@
         NSNumber *totalHardWins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalHardWins forKey:@"totalHardWins"];
         
-        NSNumber *totalFreeWins = @0;
-        [[NSUserDefaults standardUserDefaults] setValue:totalFreeWins forKey:@"totalFreeWins"];
-        
         
         NSNumber *totalEasyLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalEasyLosses forKey:@"totalEasyLosses"];
@@ -81,9 +80,6 @@
         
         NSNumber *totalHardLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:totalHardLosses forKey:@"totalHardLosses"];
-        
-        NSNumber *totalFreeLosses = @0;
-        [[NSUserDefaults standardUserDefaults] setValue:totalFreeLosses forKey:@"totalFreeLosses"];
         
         
         NSNumber *easyWins = @0;
@@ -95,9 +91,6 @@
         NSNumber *hardWins = @0;
         [[NSUserDefaults standardUserDefaults] setValue:hardWins forKey:@"hardWins"];
         
-        NSNumber *freeWins = @0;
-        [[NSUserDefaults standardUserDefaults] setValue:freeWins forKey:@"freeWins"];
-        
         
         NSNumber *easyLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:easyLosses forKey:@"easyLosses"];
@@ -107,11 +100,31 @@
         
         NSNumber *hardLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:hardLosses forKey:@"hardLosses"];
+    }
+    
+    
+    // V 1.1 PalCard additional
+    NSString *myLove2 = [[NSUserDefaults standardUserDefaults] valueForKey:@"myLove2"];
+    
+    if (!myLove2) {
+        
+        [[NSUserDefaults standardUserDefaults] setValue:@"FY" forKey:@"myLove2"];
+        
+        NSNumber *totalFreeWins = @0;
+        [[NSUserDefaults standardUserDefaults] setValue:totalFreeWins forKey:@"totalFreeWins"];
+        
+        
+        NSNumber *totalFreeLosses = @0;
+        [[NSUserDefaults standardUserDefaults] setValue:totalFreeLosses forKey:@"totalFreeLosses"];
+        
+        
+        NSNumber *freeWins = @0;
+        [[NSUserDefaults standardUserDefaults] setValue:freeWins forKey:@"freeWins"];
+        
         
         NSNumber *freeLosses = @0;
         [[NSUserDefaults standardUserDefaults] setValue:freeLosses forKey:@"freeLosses"];
     }
-    
     
 }
 

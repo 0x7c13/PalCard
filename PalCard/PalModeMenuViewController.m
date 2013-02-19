@@ -103,7 +103,7 @@
     
     
     [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
     

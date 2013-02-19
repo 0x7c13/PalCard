@@ -21,6 +21,7 @@
 		F71F39A716BE647A00F39979 /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */; };
 		F71F39BA16BF1F4300F39979 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */; };
 		F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */; };
+		F72625BA16D2FDDC00C1DC69 /* main02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F72625B916D2FDDC00C1DC69 /* main02.mp3 */; };
 		F742874E16BA209B00C8B9F9 /* palsource in Resources */ = {isa = PBXBuildFile; fileRef = F742874D16BA209B00C8B9F9 /* palsource */; };
 		F742875116BA20C000C8B9F9 /* pallogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F742874F16BA20C000C8B9F9 /* pallogo.png */; };
 		F742875216BA20C000C8B9F9 /* titile.png in Resources */ = {isa = PBXBuildFile; fileRef = F742875016BA20C000C8B9F9 /* titile.png */; };
@@ -85,6 +86,7 @@
 		F71F39B916BF1F4300F39979 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = PalCard/en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalAchievementBrain.h; sourceTree = "<group>"; };
 		F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementBrain.m; sourceTree = "<group>"; };
+		F72625B916D2FDDC00C1DC69 /* main02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = main02.mp3; sourceTree = "<group>"; };
 		F742874D16BA209B00C8B9F9 /* palsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = palsource; sourceTree = "<group>"; };
 		F742874F16BA20C000C8B9F9 /* pallogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pallogo.png; sourceTree = "<group>"; };
 		F742875016BA20C000C8B9F9 /* titile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titile.png; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				F77DC60916C447360002D88B /* button_pressed.wav */,
 				F7ED0FD616BB83B70036B782 /* main01.mp3 */,
+				F72625B916D2FDDC00C1DC69 /* main02.mp3 */,
 				F7E40B4516BB22BB00F1CF97 /* los.wav */,
 				F7ED0FC616BB5D7B0036B782 /* win.wav */,
 				F7E40B3516BB17DA00F1CF97 /* zd01.mp3 */,
@@ -384,6 +387,7 @@
 				F77DC60E16C460210002D88B /* icon114.png in Resources */,
 				F77DC61016C498290002D88B /* CardsInformation.plist in Resources */,
 				F70F929216CF523D00151527 /* ASMediaFocusController.xib in Resources */,
+				F72625BA16D2FDDC00C1DC69 /* main02.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

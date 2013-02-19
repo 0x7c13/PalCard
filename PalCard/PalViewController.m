@@ -23,7 +23,7 @@
 #define _GameLoseImg @"UIimages/fal.png"
 #define _GameWinImg @"UIimages/suc.png"
 
-#define _ThemeMusic @"main01.mp3"
+//#define _ThemeMusic @"main01.mp3"
 #define _GameLoseSound @"los.wav"
 #define _GameWinSound @"win.wav"
 
@@ -143,7 +143,7 @@
         if (!_soundOff) {
             
         
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:_ThemeMusic ofType:nil] forKey:@"MainBGM"];
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
         
             AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
         

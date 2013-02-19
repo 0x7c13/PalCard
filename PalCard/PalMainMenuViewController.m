@@ -39,7 +39,7 @@
 #define _ButtonPressedSound @"button_pressed.wav"
 #define _MenuSelectedSound @"selected.wav"
 
-#define _ThemeMusic @"main01.mp3"
+//#define _ThemeMusic @"main01.mp3"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
@@ -243,7 +243,7 @@
     
     
     [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
     
@@ -318,7 +318,7 @@
     // check whether user has turned off sound
     if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
     {
-        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:_ThemeMusic ofType:nil] forKey:@"MainBGM"];
+        [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
         
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
         
@@ -419,7 +419,7 @@
         
         if (![MCSoundBoard audioPlayerForKey:@"MainBGM"])
         {
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:_ThemeMusic ofType:nil] forKey:@"MainBGM"];
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
         }
         
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];

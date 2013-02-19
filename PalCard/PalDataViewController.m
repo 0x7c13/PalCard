@@ -7,6 +7,7 @@
 //
 
 #import "PalDataViewController.h"
+#import "MCSoundBoard.h"
 
 #define _BGPIC @"UIimages/main_bg.jpg"
 #define _BGPIC2 @"UIimages/cloud-front.png"
@@ -20,11 +21,14 @@
 
 #define _ReturnButtonImg @"UIimages/back_new.png"
 #define _ReturnButtonPressedImg @"UIimages/back_new_p.png"
+#define _ButtonPressedSound @"button_pressed.wav"
 
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 
-@interface PalDataViewController ()
+@interface PalDataViewController (){
+    bool _soundOff;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *easyImg;
 @property (strong, nonatomic) IBOutlet UIImageView *normalImg;
@@ -34,6 +38,10 @@
 @property (strong, nonatomic) IBOutlet UITextView *text2;
 @property (strong, nonatomic) IBOutlet UITextView *text3;
 @property (strong, nonatomic) IBOutlet UITextView *text4;
+@property (strong, nonatomic) IBOutlet UITextView *text1_2;
+@property (strong, nonatomic) IBOutlet UITextView *text2_2;
+@property (strong, nonatomic) IBOutlet UITextView *text3_2;
+@property (strong, nonatomic) IBOutlet UITextView *text4_2;
 
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
@@ -110,7 +118,7 @@
     
     
     [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
     
@@ -161,15 +169,19 @@
     
     if (!DEVICE_IS_IPHONE5) {
         
-        [self.easyImg setFrame:CGRectMake(25, 15, 90, 54)];
-        [self.normalImg setFrame:CGRectMake(25, 118, 90, 54)];
-        [self.hardImg setFrame:CGRectMake(25, 220, 90, 54)];
-        [self.freeImg setFrame:CGRectMake(25, 318, 90, 54)];
+        [self.easyImg setFrame:CGRectMake(25, 25, 100, 60)];
+        [self.normalImg setFrame:CGRectMake(25, 115,100, 60)];
+        [self.hardImg setFrame:CGRectMake(25, 210, 100, 60)];
+        [self.freeImg setFrame:CGRectMake(25, 305, 100, 60)];
         
-        [self.text1 setFrame:CGRectMake(35, 50, 168, 98)];
-        [self.text2 setFrame:CGRectMake(35, 150, 168, 98)];
-        [self.text3 setFrame:CGRectMake(35, 252, 168, 98)];
-        [self.text4 setFrame:CGRectMake(35, 350, 168, 80)];
+        [self.text1 setFrame:CGRectMake(25, 65, 170, 80)];
+        [self.text2 setFrame:CGRectMake(25, 160, 170, 80)];
+        [self.text3 setFrame:CGRectMake(25, 255, 170, 80)];
+        [self.text4 setFrame:CGRectMake(25, 345, 170, 80)];
+        [self.text1_2 setFrame:CGRectMake(140, 65, 170, 80)];
+        [self.text2_2 setFrame:CGRectMake(140, 160, 170, 80)];
+        [self.text3_2 setFrame:CGRectMake(140, 255, 170, 80)];
+        [self.text4_2 setFrame:CGRectMake(140, 345, 170, 80)];
         
         [self.infoBG setFrame:CGRectMake(-10, 5, 340, 455)];
         
@@ -177,26 +189,43 @@
         
     }
     
+    // check whether user has turned off sound
+    NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
+    
+    if (turnOffSound) {
+        
+        if ([turnOffSound isEqualToString:@"YES"]) {
+            _soundOff = YES;
+        }
+        else if ([turnOffSound isEqualToString:@"NO"]) {
+            _soundOff = NO;
+            [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
+        }
+    }
+    
     self.easyImg.image = [UIImage imageNamed:_EasyImg];
     self.normalImg.image = [UIImage imageNamed:_NormalImg];
     self.hardImg.image = [UIImage imageNamed:_HardImg];
     self.freeImg.image = [UIImage imageNamed:_FreeImg];
     self.infoBG.image = [UIImage imageNamed:_InfoBG];
-    self.infoBG.alpha = 0.6;
+    self.infoBG.alpha = 0.7;
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonImg] forState:UIControlStateNormal];
     
     [self.returnButton setBackgroundImage:[UIImage imageNamed:_ReturnButtonPressedImg] forState:UIControlStateHighlighted];
     
  
-    [self.text1 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:16]];
+    [self.text1 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
+    [self.text1_2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
 
-    [self.text2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:16]];
+    [self.text2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
+    [self.text2_2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
 
-    [self.text3 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:16]];
-
-    [self.text4 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:16]];
-
+    [self.text3 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
+    [self.text3_2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
+    
+    [self.text4 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
+    [self.text4_2 setFont:[UIFont fontWithName:@"DuanNing-XIng" size:18]];
     
 	// Do any additional setup after loading the view.
     
@@ -232,13 +261,17 @@
     NSNumber *freeLosses = [[NSUserDefaults standardUserDefaults] valueForKey:@"freeLosses"];
     
 
-    self.text1.text = [NSString stringWithFormat:@"总计获胜次数: %@\n总计失败次数: %@\n连续获胜次数: %@\n连续失败次数: %@", totalEasyWins, totalEasyLosses, easyWins, easyLosses ];
+    self.text1.text = [NSString stringWithFormat:@"获胜次数: %@\n失败次数: %@", totalEasyWins, totalEasyLosses];
+    self.text1_2.text = [NSString stringWithFormat:@"连续获胜次数: %@\n连续失败次数: %@", easyWins, easyLosses ];
 
-    self.text2.text = [NSString stringWithFormat:@"总计获胜次数: %@\n总计失败次数: %@\n连续获胜次数: %@\n连续失败次数: %@", totalNormalWins, totalNormalLosses, normalWins, normalLosses];
-    
-    self.text3.text = [NSString stringWithFormat:@"总计获胜次数: %@\n总计失败次数: %@\n连续获胜次数: %@\n连续失败次数: %@", totalHardWins, totalHardLosses, hardWins, hardLosses];
+    self.text2.text = [NSString stringWithFormat:@"获胜次数: %@\n失败次数: %@", totalNormalWins, totalNormalLosses];
+    self.text2_2.text = [NSString stringWithFormat:@"连续获胜次数: %@\n连续失败次数: %@", normalWins, normalLosses];
 
-    self.text4.text = [NSString stringWithFormat:@"总计获胜次数: %@\n总计失败次数: %@\n连续获胜次数: %@\n连续失败次数: %@", totalFreeWins, totalFreeLosses, freeWins, freeLosses];
+    self.text3.text = [NSString stringWithFormat:@"获胜次数: %@\n失败次数: %@", totalHardWins, totalHardLosses];
+    self.text3_2.text = [NSString stringWithFormat:@"连续获胜次数: %@\n连续失败次数: %@", hardWins, hardLosses];
+
+    self.text4.text = [NSString stringWithFormat:@"获胜次数: %@\n失败次数: %@", totalFreeWins, totalFreeLosses];
+    self.text4_2.text = [NSString stringWithFormat:@"连续获胜次数: %@\n连续失败次数: %@", freeWins, freeLosses];
 
 }
 
@@ -263,12 +296,19 @@
     [self setBgPic:nil];
     [self setBgPic2:nil];
     [self setBlackBG:nil];
+    [self setText1_2:nil];
+    [self setText2_2:nil];
+    [self setText3_2:nil];
+    [self setText4_2:nil];
     [super viewDidUnload];
 }
 
 
 - (IBAction)returnButtonPressed:(UIButton *)sender {
     
+    if (!_soundOff) {
+        [MCSoundBoard playSoundForKey:@"button"];
+    }
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 
 }

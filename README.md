@@ -5,7 +5,7 @@ App名:仙剑卡牌
 
 PalCard.app
 
-V 1.1 Source Code
+V 1.1 beta Source Code
 
 Author: FlyinGeek
 
@@ -44,7 +44,7 @@ ViewDeck : https://github.com/Inferis/ViewDeck
 
 --------------------------------
 
-V 1.0 -> V 1.0 更新说明
+V 1.0 -> V 1.1 更新说明
 ======================
 
 1.修复bug，卡牌解锁条件轻微调整

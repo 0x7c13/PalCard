@@ -15,7 +15,7 @@ Email: FlyinGeek@live.com or Liu.2140@osu.edu
 
 Xcode 4.6
 
-Target: iOS 5.0 +
+Target: iOS 5.0
 
 ARC + Storyboard based
 
@@ -33,8 +33,6 @@ MCSoundBoard : https://github.com/Baglan/MCSoundBoard
 FXImageView : https://github.com/nicklockwood/FXImageView
 
 ASMediaFocusManager : https://github.com/autresphere/ASMediaFocusManager
-
-ViewDeck : https://github.com/Inferis/ViewDeck
 
 --------------------------------
 

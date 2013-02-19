@@ -218,7 +218,7 @@
 {
     [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
     [view.layer setShadowOffset:CGSizeMake(5, 5)];
-    //[view.layer setShadowOpacity:0.3];
+    [view.layer setShadowOpacity:0.3];
     [view.layer setShadowRadius:6.0];
 }
 
@@ -382,6 +382,8 @@
         [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:25]];
     }
     
+    // set images
+    self.MainGameBG.image = [UIImage imageNamed:_GameBG];
     
     // check whether user has turned off sound
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
@@ -394,7 +396,7 @@
         else if ([turnOffSound isEqualToString:@"NO"]) {
             _soundOff = NO;
             
-            NSString *gameBGM = [[NSString alloc]init];
+            NSString *gameBGM;
             gameBGM = [NSString stringWithFormat:@"zd0%d.mp3", arc4random() % 6 + 1 ];
             
             [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:gameBGM ofType:nil]     forKey:@"BGM"];
@@ -418,8 +420,6 @@
         _isBlackCard[i] = NO;
     }
     
-    self.MainGameBG.image = [UIImage imageNamed:_GameBG];
-    
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
     
@@ -438,7 +438,6 @@
     
     
     // mode settings
-    
     if ([self.mode isEqualToString:@"easy"] || [self.mode isEqualToString:@"freeStyle"]) {
         cardGenerator.NumbersOfBlackCards = 0;
     }
@@ -451,9 +450,9 @@
     
     
     self.imagePathValue = [NSMutableArray arrayWithArray: [[NSMutableArray alloc] initWithCapacity:_AMOUNT_OF_CARDS]];
+    
     // black cards settings
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
-        
         
         UIImageView *tmp;
         tmp = [self.cardViews objectAtIndex:i];
@@ -465,16 +464,16 @@
             _isBlackCard[i + 1] = YES;
         }
         
-        [self addShadow:tmp];
+        //[self addShadow:tmp];
         
         tmp = [self.defaultViews objectAtIndex:i];
         tmp.image = [UIImage imageNamed:_BGPIC];
-        [self addShadow:tmp];
+        
+        //[self addShadow:tmp];
         
     }
     
     // set default values
-    
     self.Display.text = @"";
     
     _gameOver = NO;
@@ -525,9 +524,7 @@
     
     _animating = YES;
     
-    
     self.TextDisplay.text = @"游戏马上开始";
-    
     
     self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
     self.hintView.alpha = 1.0;
@@ -569,8 +566,11 @@
 - (void)prepareDone:(NSTimer *) timer
 {
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = YES;
+    
     [self cardsInvisiable]; // 翻回所有卡牌
+    
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(startTimer:) userInfo:nil repeats: NO];
+    
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = NO;
 }
 
@@ -798,7 +798,7 @@
             _currentCardNumber = number;
         }
         
-        //[NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(CardDecision:) userInfo:nil repeats: NO];
+
         [self CardDecision];
     }
 

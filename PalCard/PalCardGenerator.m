@@ -78,7 +78,7 @@
     
     used[cardNumber] ++;
     
-    NSString *path = [[NSString alloc]init];
+    NSString *path;
     
     if(self.NumbersOfBlackCards == 2) {
         if (cardNumber == 1 || cardNumber == 2) {

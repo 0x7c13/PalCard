@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THv-tW-sEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-2120"/>
+            <point key="canvasLocation" x="-228" y="-3424"/>
         </scene>
         <!--Pal Main Menu View Controller-->
         <scene sceneID="7Wh-mh-605">
@@ -260,7 +260,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-508" y="-1422"/>
+            <point key="canvasLocation" x="-1428" y="-1526"/>
         </scene>
         <!--Pal Achievement View Controller-->
         <scene sceneID="UOs-Ti-8OZ">
@@ -385,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MN-U8-CGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1027" y="-842"/>
+            <point key="canvasLocation" x="-1045" y="-2858"/>
         </scene>
         <!--Pal Mode Menu View Controller-->
         <scene sceneID="mCq-0K-asH">
@@ -514,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0P-6w-VTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500" y="-368"/>
+            <point key="canvasLocation" x="-884" y="-224"/>
         </scene>
         <!--Pal View Controller-->
         <scene sceneID="5">
@@ -895,7 +895,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="14" y="-136"/>
+            <point key="canvasLocation" x="-394" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xx7-bU-B6u">
@@ -913,7 +913,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEG-8h-y4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034" y="-655"/>
+            <point key="canvasLocation" x="-1434" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dOE-5N-vYj">
@@ -931,7 +931,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMl-P2-miI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="-1137"/>
+            <point key="canvasLocation" x="-1401" y="-2321"/>
         </scene>
         <!--Pal Instruction View Controller-->
         <scene sceneID="pyV-IW-Y0u">
@@ -1036,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrY-7x-Rmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="-1583"/>
+            <point key="canvasLocation" x="-394" y="-919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Khp-93-GxZ">
@@ -1054,7 +1054,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJG-h4-zHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="-1847"/>
+            <point key="canvasLocation" x="-913" y="-1039"/>
         </scene>
         <!--Pal Information View Controller-->
         <scene sceneID="Ghz-uf-fCx">
@@ -1095,7 +1095,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="1R6-zB-Mng">
                                 <rect key="frame" x="27" y="35" width="266" height="435"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
+                                <string key="text">仙剑奇侠传五前传卡牌小游戏iPhone版
 仙剑卡牌翻转逍遥游
 V 1.1 --- 02/17/13
 ---------------------------------------------
@@ -1109,7 +1109,7 @@ V 1.1 --- 02/17/13
 版权信息
 本游戏使用的大部分图片素材以及音频资料来源于仙剑奇侠传五前传，仙剑奇侠传五前传为软星科技（北京）有限公司作品，所有涉及图片以及音频资料版权均归软星科技（北京）有限公司所有，本游戏为免费游戏，无广告，无应用内支付，不带任何盈利目的，请不要二次使用本游戏所持内容。
 ---------------------------------------------
-2013年2月17号.</mutableString>
+2013年2月17号.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1133,7 +1133,7 @@ V 1.1 --- 02/17/13
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJG-mB-uFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1627" y="-2279"/>
+            <point key="canvasLocation" x="-499" y="-1911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J9d-wi-eR3">
@@ -1151,7 +1151,7 @@ V 1.1 --- 02/17/13
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILy-3z-fCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="-2063"/>
+            <point key="canvasLocation" x="-919" y="-1719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O8k-wA-OAd">
@@ -1169,7 +1169,7 @@ V 1.1 --- 02/17/13
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra8-QM-RwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446" y="-2182"/>
+            <point key="canvasLocation" x="-638" y="-3070"/>
         </scene>
     </scenes>
     <resources>
@@ -1197,6 +1197,7 @@ V 1.1 --- 02/17/13
         <class className="PalDataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
             <relationships>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>

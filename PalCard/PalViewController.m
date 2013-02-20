@@ -56,7 +56,6 @@
     int _rights;
     int _wrongs;
     
-    MBProgressHUD *HUD;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *TextDisplay;
@@ -362,6 +361,7 @@
 
 #pragma mark -------
 
+/*
 - (void) gameLoading
 {
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -377,12 +377,8 @@
 {
     [HUD hide:YES];
 }
+ */
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self gameInitilize];
-}
 
 - (void)viewDidLoad
 {
@@ -393,21 +389,53 @@
     // here are frame tweaks for iPhone 4/4S
     if (!DEVICE_IS_IPHONE5) {
         
-        [self.Card1 setFrame:CGRectMake(30, 3, 78, 110)];
-        [self.Card2 setFrame:CGRectMake(121, 3, 78, 110)];
-        [self.Card3 setFrame:CGRectMake(212, 3, 78, 110)];
+        [self.Card1 setFrame:CGRectMake(33, 5, 74, 104)];
+        [self.PalCardView1 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView1 setFrame:CGRectMake(0, 0, 74, 104)];
         
-        [self.Card4 setFrame:CGRectMake(30, 116, 78, 110)];
-        [self.Card5 setFrame:CGRectMake(121, 116, 78, 110)];
-        [self.Card6 setFrame:CGRectMake(212, 116, 78, 110)];
+        [self.Card2 setFrame:CGRectMake(123, 5, 74, 104)];
+        [self.PalCardView2 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView2 setFrame:CGRectMake(0, 0, 74, 104)];
         
-        [self.Card7 setFrame:CGRectMake(30, 229, 78, 110)];
-        [self.Card8 setFrame:CGRectMake(121, 229, 78, 110)];
-        [self.Card9 setFrame:CGRectMake(212, 229, 78, 110)];
+        [self.Card3 setFrame:CGRectMake(213, 5, 74, 104)];
+        [self.PalCardView3 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView3 setFrame:CGRectMake(0, 0, 74, 104)];
         
-        [self.Card10 setFrame:CGRectMake(30, 342, 78, 110)];
-        [self.Card11 setFrame:CGRectMake(121, 342, 78, 110)];
-        [self.Card12 setFrame:CGRectMake(212, 342, 78, 110)];
+        [self.Card4 setFrame:CGRectMake(33, 118, 74, 104)];
+        [self.PalCardView4 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView4 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card5 setFrame:CGRectMake(123, 118, 74, 104)];
+        [self.PalCardView5 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView5 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card6 setFrame:CGRectMake(213, 118, 74, 104)];
+        [self.PalCardView6 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView6 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card7 setFrame:CGRectMake(33, 231, 74, 104)];
+        [self.PalCardView7 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView7 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card8 setFrame:CGRectMake(123, 231, 74, 104)];
+        [self.PalCardView8 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView8 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card9 setFrame:CGRectMake(213, 231, 74, 104)];
+        [self.PalCardView9 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView9 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card10 setFrame:CGRectMake(33, 344, 74, 104)];
+        [self.PalCardView10 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView10 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card11 setFrame:CGRectMake(123, 344, 74, 104)];
+        [self.PalCardView11 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView11 setFrame:CGRectMake(0, 0, 74, 104)];
+        
+        [self.Card12 setFrame:CGRectMake(213, 344, 74, 104)];
+        [self.PalCardView12 setFrame:CGRectMake(0, 0, 74, 104)];
+        [self.DefaultView12 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.TextDisplay setFrame:CGRectMake(59, 450, 202, 31)];
         
@@ -454,10 +482,10 @@
     
     self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12, nil];
 
-    [self gameLoading];
-    //[self gameInitilize];
+    //[self gameLoading];
     
-	// Do any additional setup after loading the view, typically from a nib.
+    [self gameInitilize];
+
 }
 
 
@@ -568,7 +596,7 @@
      */
     
     
-    [self gameFinishedLoading];
+    //[self gameFinishedLoading];
     
     _animating = YES;
     

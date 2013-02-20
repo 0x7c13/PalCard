@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface PalViewController : UIViewController <UIAlertViewDelegate>
+
+@interface PalViewController : UIViewController <UIAlertViewDelegate, MBProgressHUDDelegate>
 
 @property (copy, nonatomic) NSString *mode;
 

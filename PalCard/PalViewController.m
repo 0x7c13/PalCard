@@ -56,6 +56,7 @@
     int _rights;
     int _wrongs;
     
+    MBProgressHUD *HUD;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *TextDisplay;
@@ -134,6 +135,18 @@
     if(buttonIndex == 0) {
         
         [self cardsInvisiable];
+        
+        self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
+        self.hintView.alpha = 0.0;
+        
+        [UIView animateWithDuration:0.3
+                              delay: 0.0
+                            options: UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             self.hintView.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished){
+                         }];
     
         [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(nextRound:) userInfo:nil repeats: NO];
     }
@@ -198,6 +211,11 @@
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
         
         if (!_cardIsVisiable[i]) {
+            
+            UIImageView *tmp;
+            tmp = [self.cardViews objectAtIndex:i - 1];
+            tmp.alpha = 1.0;
+            
             [self flipActionWithFirst:[self.defaultViews objectAtIndex:(i - 1)] andSecond:   [self.cardViews objectAtIndex:(i - 1)]];
         }
     }
@@ -209,6 +227,7 @@
         
         if (_cardIsVisiable[i]) {
             [self flipActionWithFirst:[self.cardViews objectAtIndex:(i - 1)] andSecond:   [self.defaultViews objectAtIndex:(i - 1)]];
+        
         }
     }
 }
@@ -217,9 +236,12 @@
 - (void)addShadow: (UIImageView *)view
 {
     [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [view.layer setShadowOffset:CGSizeMake(5, 5)];
-    [view.layer setShadowOpacity:0.3];
+    [view.layer setShadowOffset:CGSizeMake(8.0f, 8.0f)];
+    [view.layer setShadowOpacity:0.4];
     [view.layer setShadowRadius:6.0];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:view.bounds];
+    view.layer.shadowPath = path.CGPath;
 }
 
 
@@ -340,6 +362,28 @@
 
 #pragma mark -------
 
+- (void) gameLoading
+{
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:HUD];
+    // Progress loading view
+	HUD.dimBackground = YES;
+	HUD.delegate = self;
+    //HUD.labelText = @"游戏加载中";
+    HUD.detailsLabelText = @"游戏载入中";
+    [HUD show:YES];
+}
+- (void) gameFinishedLoading
+{
+    [HUD hide:YES];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self gameInitilize];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -404,9 +448,14 @@
             [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_GameWinSound ofType:nil] forKey:@"WIN"];
         }
     }
-
     
-    [self gameInitilize];
+    
+    self.cardViews = [NSArray arrayWithObjects:self.PalCardView1, self.PalCardView2, self.PalCardView3, self.PalCardView4, self.PalCardView5, self.PalCardView6, self.PalCardView7, self.PalCardView8, self.PalCardView9, self.PalCardView10, self.PalCardView11, self.PalCardView12, nil];
+    
+    self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12, nil];
+
+    [self gameLoading];
+    //[self gameInitilize];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -414,6 +463,7 @@
 
 - (void)gameInitilize
 {
+    
     // hide all cards
     for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) {
         _cardIsVisiable[i] = NO;
@@ -430,12 +480,6 @@
     
     // use PalCardGenerator to generate images of 12 cards
     PalCardGenerator *cardGenerator = [[PalCardGenerator alloc]init];
-    
-    
-    self.cardViews = [NSArray arrayWithObjects:self.PalCardView1, self.PalCardView2, self.PalCardView3, self.PalCardView4, self.PalCardView5, self.PalCardView6, self.PalCardView7, self.PalCardView8, self.PalCardView9, self.PalCardView10, self.PalCardView11, self.PalCardView12, nil];
-    
-    self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12 , nil];
-    
     
     // mode settings
     if ([self.mode isEqualToString:@"easy"] || [self.mode isEqualToString:@"freeStyle"]) {
@@ -463,13 +507,14 @@
         if ([[cardGenerator lastIsBlackOrNot] isEqualToString:@"YES"]) {
             _isBlackCard[i + 1] = YES;
         }
+        tmp.alpha = 0.0;
         
-        //[self addShadow:tmp];
+        [self addShadow:tmp];
         
         tmp = [self.defaultViews objectAtIndex:i];
         tmp.image = [UIImage imageNamed:_BGPIC];
         
-        //[self addShadow:tmp];
+        [self addShadow:tmp];
         
     }
     
@@ -522,12 +567,16 @@
     }
      */
     
+    
+    [self gameFinishedLoading];
+    
     _animating = YES;
     
     self.TextDisplay.text = @"游戏马上开始";
     
     self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
     self.hintView.alpha = 1.0;
+    
     [UIView animateWithDuration:1.5
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseIn
@@ -638,14 +687,6 @@
     
     self.gameProgress.alpha = 0.0;
     
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
-    {
-        self.TextDisplay.text = @"新卡牌解锁！";
-    }
-    else {
-        self.TextDisplay.text = @"游戏结束";
-    }
-    
     
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
@@ -665,6 +706,16 @@
     
     UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
     imgv.image = [UIImage imageNamed:_GameWinImg];
+    
+    
+    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    {
+        self.TextDisplay.text = @"新卡牌解锁！";
+    }
+    else {
+        self.TextDisplay.text = @"游戏结束";
+    }
+    
     
     return YES;
 }
@@ -686,6 +737,15 @@
         [MCSoundBoard playSoundForKey:@"LOS"];
     }
     
+    
+    // call alert
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
+    [alert show];
+    
+    UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
+    imgv.image = [UIImage imageNamed:_GameLoseImg];
+    
+    
     // check whether new achievement unlocked
     if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
@@ -696,14 +756,6 @@
     }
     
     self.Display.text = @"";
-
-    
-    // call alert
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"\n\n\n" message:@"\n\n\n" delegate:self cancelButtonTitle:@"重新开始" otherButtonTitles:@"返回",nil];
-    [alert show];
-    
-    UIImageView *imgv = [alert valueForKey:@"_backgroundImageView"];
-    imgv.image = [UIImage imageNamed:_GameLoseImg];
 }
 
 

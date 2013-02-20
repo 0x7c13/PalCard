@@ -407,7 +407,7 @@
                                 <rect key="frame" x="40" y="15" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0v-5L-7Hz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0v-5L-7Hz" userLabel="easyModeButton">
                                 <rect key="frame" x="95" y="140" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -421,10 +421,10 @@
                                 </state>
                                 <connections>
                                     <action selector="easyModeButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="fMF-1D-yf6"/>
-                                    <segue destination="2" kind="push" id="lXA-94-2O3"/>
+                                    <segue destination="2" kind="push" id="my0-9H-CDt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Yf-5J-pjS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Yf-5J-pjS" userLabel="normalModeButton">
                                 <rect key="frame" x="95" y="230" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -441,7 +441,7 @@
                                     <segue destination="2" kind="push" id="cVy-CT-gdy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1z5-B7-c2w">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1z5-B7-c2w" userLabel="hardModeButton">
                                 <rect key="frame" x="95" y="320" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -458,7 +458,7 @@
                                     <segue destination="2" kind="push" id="pAc-MM-VQ0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZj-ht-IRd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZj-ht-IRd" userLabel="freeModeButton">
                                 <rect key="frame" x="95" y="410" width="130" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -719,7 +719,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleAspectFill" id="Q8h-oz-8OX" userLabel="Card_11_View">
-                                <rect key="frame" x="121" y="374" width="78" height="110"/>
+                                <rect key="frame" x="119" y="374" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="nPG-hw-ssM" userLabel="Card_11">
@@ -1340,6 +1340,6 @@ V 1.1 --- 02/17/13
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lXA-94-2O3"/>
+        <segue reference="pAc-MM-VQ0"/>
     </inferredMetricsTieBreakers>
 </document>

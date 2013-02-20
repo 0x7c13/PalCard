@@ -57,6 +57,7 @@
 		F7F7003316B7211D00876181 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003216B7211D00876181 /* Default@2x.png */; };
 		F7F7003516B7211D00876181 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003416B7211D00876181 /* Default-568h@2x.png */; };
 		F7F7003B16B7211D00876181 /* PalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F7003A16B7211D00876181 /* PalViewController.m */; };
+		F7F927FD16D49A42007ABB10 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F927FC16D49A42007ABB10 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,8 @@
 		F7F7003416B7211D00876181 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F7F7003916B7211D00876181 /* PalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PalViewController.h; sourceTree = "<group>"; };
 		F7F7003A16B7211D00876181 /* PalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PalViewController.m; sourceTree = "<group>"; };
+		F7F927FB16D49A42007ABB10 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F7F927FC16D49A42007ABB10 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +271,7 @@
 				F7ED0FE316BC96C60036B782 /* PalModeMenuViewController.m */,
 				F7F7003916B7211D00876181 /* PalViewController.h */,
 				F7F7003A16B7211D00876181 /* PalViewController.m */,
+				F7F927FA16D49A42007ABB10 /* MBProgressHUD */,
 				F70F928816CF523D00151527 /* ASMediaFocusManager */,
 				F70F928116CF40E700151527 /* FXImageView */,
 				F710265D16CDC19900FD2836 /* MCSoundBoard */,
@@ -295,6 +299,15 @@
 				F7F7003416B7211D00876181 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7F927FA16D49A42007ABB10 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F7F927FB16D49A42007ABB10 /* MBProgressHUD.h */,
+				F7F927FC16D49A42007ABB10 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +420,7 @@
 				F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */,
 				F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */,
 				F70F92A216D0527D00151527 /* PalDataViewController.m in Sources */,
+				F7F927FD16D49A42007ABB10 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

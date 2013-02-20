@@ -134,6 +134,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    
 	[super viewWillDisappear:animated];
     
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
@@ -226,8 +227,6 @@
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
-    
-	
     // start background animation
     [self backgroundAnimation];
 }
@@ -240,7 +239,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
         [player stop];
@@ -252,6 +251,7 @@
     //[self.navigationController presentViewController:palVC animated:NO completion:nil];
     
 }
+
 
 - (IBAction)easyModeButtonPressed:(UIButton *)sender {
     
@@ -283,7 +283,6 @@
         [MCSoundBoard playSoundForKey:@"selected"];
     }
     self.mode = @"freeStyle";
-    
 }
 
 

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
+
 
 @protocol PalModeMenuViewControllerDelegate;
 

@@ -5,7 +5,7 @@ App名:仙剑卡牌
 
 PalCard.app
 
-V 1.1 Source Code
+V 1.1.1 Source Code
 
 Author: FlyinGeek
 

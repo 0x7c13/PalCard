@@ -14,7 +14,7 @@
 
 
 - (NSString *) getACardWithPath;
-- (NSString *) lastIsBlackOrNot;
+- (NSString *) lastIsBlack;
 
 
 @end

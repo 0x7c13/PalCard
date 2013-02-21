@@ -5,7 +5,7 @@ PalCard 仙剑奇侠传五前传卡牌小游戏iPhone版
 
 PalCard.app
 
-V 1.1.2 Source Code
+V 1.1.3 Source Code
 
 Author: FlyinGeek
 

@@ -507,229 +507,97 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleAspectFill" id="UBq-le-ALj" userLabel="Card_1_View">
+                            <view contentMode="scaleAspectFill" id="UBq-le-ALj" userLabel="Card_1_View" customClass="PalCard">
                                 <rect key="frame" x="26" y="20" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="rVo-TE-Gtd" userLabel="Card_1">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="ChX-mC-Ore" userLabel="DefaultView_1">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mOP-oQ-wQY" appends="YES" id="HGy-ic-yZF"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="xsW-n1-CBP" userLabel="Card_2_View">
+                            <view contentMode="scaleAspectFill" id="xsW-n1-CBP" userLabel="Card_2_View" customClass="PalCard">
                                 <rect key="frame" x="121" y="20" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="xUk-RK-Gh0" userLabel="Card_2">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="iFw-ME-cJp" userLabel="DefaultView_2">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HaO-Yg-ctr" appends="YES" id="a6B-WO-xFx"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="B45-VY-JDP" userLabel="Card_3_View">
+                            <view contentMode="scaleAspectFill" id="B45-VY-JDP" userLabel="Card_3_View" customClass="PalCard">
                                 <rect key="frame" x="216" y="20" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="MUo-MB-BVu" userLabel="Card_3">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="fIV-U6-4bp" userLabel="DefaultView_3">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="anC-Xp-oXq" appends="YES" id="YuT-e9-8nG"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="Jq3-8k-KIP" userLabel="Card_4_View">
+                            <view contentMode="scaleAspectFill" id="Jq3-8k-KIP" userLabel="Card_4_View" customClass="PalCard">
                                 <rect key="frame" x="26" y="138" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="oWM-Nv-iMX" userLabel="Card_4">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="OfS-uJ-eMA" userLabel="DefaultView_4">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Yvm-kW-Uyj" appends="YES" id="IlX-V3-fdY"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="fif-3s-Jmq" userLabel="Card_5_View">
+                            <view contentMode="scaleAspectFill" id="fif-3s-Jmq" userLabel="Card_5_View" customClass="PalCard">
                                 <rect key="frame" x="121" y="138" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="ZyZ-H7-CcF" userLabel="Card_5">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="8QI-hC-IUp" userLabel="DefaultView_5">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="MPm-JE-oyI" appends="YES" id="A9i-51-PkI"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="QxP-Oh-7BX" userLabel="Card_6_View">
+                            <view contentMode="scaleAspectFill" id="QxP-Oh-7BX" userLabel="Card_6_View" customClass="PalCard">
                                 <rect key="frame" x="216" y="138" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="IOe-bd-Svt" userLabel="Card_6">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="UaR-Dx-AFs" userLabel="DefaultView_6">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="0z5-F8-rBF" appends="YES" id="WnN-13-mfM"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="X8k-lm-Uoo" userLabel="Card_7_View">
+                            <view contentMode="scaleAspectFill" id="X8k-lm-Uoo" userLabel="Card_7_View" customClass="PalCard">
                                 <rect key="frame" x="26" y="256" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="1IW-tG-YKq" userLabel="Card_7">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="KuL-0J-bN0" userLabel="DefaultView_7">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="kp3-Zg-l94" appends="YES" id="dgP-TY-0g4"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="pYC-0W-aZr" userLabel="Card_8_View">
+                            <view contentMode="scaleAspectFill" id="pYC-0W-aZr" userLabel="Card_8_View" customClass="PalCard">
                                 <rect key="frame" x="121" y="256" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="p1Y-1G-z6o" userLabel="Card_8">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Jnl-gk-n4O" userLabel="DefaultView_8">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="24k-PL-Z2D" appends="YES" id="xSY-Vg-G42"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="s6S-wh-w4D" userLabel="Card_9_View">
+                            <view contentMode="scaleAspectFill" id="s6S-wh-w4D" userLabel="Card_9_View" customClass="PalCard">
                                 <rect key="frame" x="216" y="256" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="vsa-UH-dYQ" userLabel="Card_9">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="gCI-1u-jcJ" userLabel="DefaultView_9">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="GdK-dp-RG0" appends="YES" id="GiP-Pv-cnl"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="ev1-25-Zam" userLabel="Card_10_View">
+                            <view contentMode="scaleAspectFill" id="ev1-25-Zam" userLabel="Card_10_View" customClass="PalCard">
                                 <rect key="frame" x="26" y="374" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="ObD-4P-62L" userLabel="Card_10">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="7wt-PB-iFP" userLabel="DefaultView_10">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="nJ0-5Y-zq4" appends="YES" id="YLS-u0-7X7"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="Q8h-oz-8OX" userLabel="Card_11_View">
+                            <view contentMode="scaleAspectFill" id="Q8h-oz-8OX" userLabel="Card_11_View" customClass="PalCard">
                                 <rect key="frame" x="121" y="374" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="nPG-hw-ssM" userLabel="Card_11">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="4oB-GH-deV" userLabel="DefaultView_11">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="lND-YK-b4V" appends="YES" id="FI5-tb-doX"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleAspectFill" id="k2O-hP-888" userLabel="Card_12_View">
+                            <view contentMode="scaleAspectFill" id="k2O-hP-888" userLabel="Card_12_View" customClass="PalCard">
                                 <rect key="frame" x="216" y="374" width="78" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" restorationIdentifier="" id="FY8-2y-KCB" userLabel="Card_12">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="9Cy-qh-vod" userLabel="DefaultView_12">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="HuO-WX-gk8" appends="YES" id="gvo-gc-i6a"/>
@@ -781,32 +649,8 @@
                         <outlet property="Card7" destination="X8k-lm-Uoo" id="NPR-QY-dNe"/>
                         <outlet property="Card8" destination="pYC-0W-aZr" id="khF-aQ-xIk"/>
                         <outlet property="Card9" destination="s6S-wh-w4D" id="HHb-Fr-FDI"/>
-                        <outlet property="DefaultView1" destination="ChX-mC-Ore" id="exY-cG-EY0"/>
-                        <outlet property="DefaultView10" destination="7wt-PB-iFP" id="rv2-is-EGQ"/>
-                        <outlet property="DefaultView11" destination="4oB-GH-deV" id="Jmc-z0-Pgy"/>
-                        <outlet property="DefaultView12" destination="9Cy-qh-vod" id="X8I-IS-v1l"/>
-                        <outlet property="DefaultView2" destination="iFw-ME-cJp" id="rOV-qk-xqH"/>
-                        <outlet property="DefaultView3" destination="fIV-U6-4bp" id="9qu-kU-vUr"/>
-                        <outlet property="DefaultView4" destination="OfS-uJ-eMA" id="spL-HC-6WZ"/>
-                        <outlet property="DefaultView5" destination="8QI-hC-IUp" id="28m-9e-T3a"/>
-                        <outlet property="DefaultView6" destination="UaR-Dx-AFs" id="4Sb-2d-rhI"/>
-                        <outlet property="DefaultView7" destination="KuL-0J-bN0" id="PMQ-n8-OG6"/>
-                        <outlet property="DefaultView8" destination="Jnl-gk-n4O" id="BC3-hp-vPb"/>
-                        <outlet property="DefaultView9" destination="gCI-1u-jcJ" id="p5j-7z-xyp"/>
                         <outlet property="Display" destination="ley-P5-X8j" id="ZMk-B8-jqF"/>
                         <outlet property="MainGameBG" destination="rj4-Z9-WvK" id="RL3-aN-exc"/>
-                        <outlet property="PalCardView1" destination="rVo-TE-Gtd" id="n8b-0c-NTH"/>
-                        <outlet property="PalCardView10" destination="ObD-4P-62L" id="j2t-Az-peP"/>
-                        <outlet property="PalCardView11" destination="nPG-hw-ssM" id="7Tr-EO-hoP"/>
-                        <outlet property="PalCardView12" destination="FY8-2y-KCB" id="Thu-xN-omc"/>
-                        <outlet property="PalCardView2" destination="xUk-RK-Gh0" id="Aui-OZ-ReC"/>
-                        <outlet property="PalCardView3" destination="MUo-MB-BVu" id="8ke-hZ-3qy"/>
-                        <outlet property="PalCardView4" destination="oWM-Nv-iMX" id="I8b-3b-9UY"/>
-                        <outlet property="PalCardView5" destination="ZyZ-H7-CcF" id="f2D-uY-EJx"/>
-                        <outlet property="PalCardView6" destination="IOe-bd-Svt" id="rr7-dB-Svg"/>
-                        <outlet property="PalCardView7" destination="1IW-tG-YKq" id="Hmh-m8-I4X"/>
-                        <outlet property="PalCardView8" destination="p1Y-1G-z6o" id="N53-lb-wrS"/>
-                        <outlet property="PalCardView9" destination="vsa-UH-dYQ" id="iGA-lE-0ot"/>
                         <outlet property="TextDisplay" destination="54t-2d-TBz" id="5LC-Ko-ZE9"/>
                         <outlet property="gameProgress" destination="0Me-u5-fSC" id="5vi-SJ-7Lz"/>
                         <outlet property="hintView" destination="7ce-8j-mpS" id="F1r-kG-Mgp"/>
@@ -1146,6 +990,180 @@ V 1.1 --- 02/17/13
     <resources>
         <image name="UIimages/文字框.png" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="PalAchievementViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="achDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="achLabelBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="dataButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="descriptionDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="indexLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PalCard" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalCard.h"/>
+        </class>
+        <class className="PalDataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="easyImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="freeImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="hardImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="normalImg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text1_2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text2_2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text3_2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text4_2" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="PalInformationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="PalInstructionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="easyView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="freeView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="hardView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="normalView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="PalMainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="achievementButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="gameStartButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="informationButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="instructionButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="soundOnOffButtonPressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gameStartButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="informationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="instructionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="logoPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="soundSwitch" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PalModeMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="easyModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="freeStyleModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="normalModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
+                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="difChoice" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="easyButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="freeStyleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="normalButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PalMountainAndCloudView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMountainAndCloudView.h"/>
+        </class>
+        <class className="PalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card11" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card12" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card2" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card3" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card4" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card5" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card6" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card7" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card8" candidateClass="UIView"/>
+                <relationship kind="outlet" name="Card9" candidateClass="UIView"/>
+                <relationship kind="outlet" name="DefaultView1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView10" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView11" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView12" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView6" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView7" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView8" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="DefaultView9" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="Display" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="MainGameBG" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView10" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView11" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView12" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView6" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView7" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView8" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="PalCardView9" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TextDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="hintView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -10,6 +10,7 @@
 #import "MCSoundBoard.h"
 #import "PalCardGenerator.h"
 #import "PalAchievementBrain.h"
+#import "PalCard.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -23,7 +24,7 @@
 #define _GameLoseImg @"UIimages/fal.png"
 #define _GameWinImg @"UIimages/suc.png"
 
-//#define _ThemeMusic @"main01.mp3"
+
 #define _GameLoseSound @"los.wav"
 #define _GameWinSound @"win.wav"
 
@@ -35,15 +36,11 @@
 
 @interface PalViewController (){
     
-    bool _cardIsVisiable[_AMOUNT_OF_CARDS + 1];
-    bool _isBlackCard[_AMOUNT_OF_CARDS + 1];
-    bool _animating;
+    bool _wrongAnimating;
     bool _gameOver;
     bool _soundOff;
     
     int _flag;
-    int _lastCardNumber;
-    int _currentCardNumber;
     int _numberOfFinishedCards;
     int _numberOfBlackCards;
     
@@ -63,111 +60,39 @@
 
 @property (weak, nonatomic) IBOutlet UIProgressView *gameProgress;
 
-
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView1;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView2;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView3;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView4;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView5;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView6;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView7;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView8;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView9;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView10;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView11;
-@property (strong, nonatomic) IBOutlet UIImageView *PalCardView12;
-
-
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView1;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView2;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView3;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView4;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView5;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView6;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView7;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView8;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView9;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView10;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView11;
-@property (strong, nonatomic) IBOutlet UIImageView *DefaultView12;
 @property (strong, nonatomic) IBOutlet UIImageView *MainGameBG;
 
 
-@property (strong, nonatomic) IBOutlet UIView *Card1;
-@property (strong, nonatomic) IBOutlet UIView *Card2;
-@property (strong, nonatomic) IBOutlet UIView *Card3;
-@property (strong, nonatomic) IBOutlet UIView *Card4;
-@property (strong, nonatomic) IBOutlet UIView *Card5;
-@property (strong, nonatomic) IBOutlet UIView *Card6;
-@property (strong, nonatomic) IBOutlet UIView *Card7;
-@property (strong, nonatomic) IBOutlet UIView *Card8;
-@property (strong, nonatomic) IBOutlet UIView *Card9;
-@property (strong, nonatomic) IBOutlet UIView *Card10;
-@property (strong, nonatomic) IBOutlet UIView *Card11;
-@property (strong, nonatomic) IBOutlet UIView *Card12;
+@property (strong, nonatomic) IBOutlet PalCard *Card1;
+@property (strong, nonatomic) IBOutlet PalCard *Card2;
+@property (strong, nonatomic) IBOutlet PalCard *Card3;
+@property (strong, nonatomic) IBOutlet PalCard *Card4;
+@property (strong, nonatomic) IBOutlet PalCard *Card5;
+@property (strong, nonatomic) IBOutlet PalCard *Card6;
+@property (strong, nonatomic) IBOutlet PalCard *Card7;
+@property (strong, nonatomic) IBOutlet PalCard *Card8;
+@property (strong, nonatomic) IBOutlet PalCard *Card9;
+@property (strong, nonatomic) IBOutlet PalCard *Card10;
+@property (strong, nonatomic) IBOutlet PalCard *Card11;
+@property (strong, nonatomic) IBOutlet PalCard *Card12;
 
 @property (strong, nonatomic) IBOutlet UIImageView *hintView;
 
-@property (weak, nonatomic) UIImageView *LastView;
-@property (weak, nonatomic) UIImageView *LastDefault;
-@property (weak, nonatomic) UIImageView *CurrentView;
-@property (weak, nonatomic) UIImageView *CurrentDefault;
+@property (weak, nonatomic) PalCard *LastCard;
+@property (weak, nonatomic) PalCard *CurrentCard;
 
 // right card animation tmp views
-@property (weak, nonatomic) UIImageView *fView;
-@property (weak, nonatomic) UIImageView *sView;
+@property (weak, nonatomic) PalCard *fCard;
+@property (weak, nonatomic) PalCard *sCard;
 
-@property (strong, nonatomic) NSArray *cardViews;
-@property (strong, nonatomic) NSArray *defaultViews;
-@property (strong, nonatomic) NSMutableArray *imagePathValue;
+@property (strong, nonatomic) NSArray *palCards;
+
 
 @end 
 
 @implementation PalViewController
 
 
-#pragma mark  alert  delegate 
-
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0) {
-        
-        [self cardsInvisiable];
-        
-        self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
-        self.hintView.alpha = 0.0;
-        
-        [UIView animateWithDuration:0.3
-                              delay: 0.0
-                            options: UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             self.hintView.alpha = 1.0;
-                         }
-                         completion:^(BOOL finished){
-                         }];
-    
-        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(nextRound:) userInfo:nil repeats: NO];
-    }
-    else {
-        _gameOver = 1;
-        
-        if (!_soundOff) {
-            
-        
-            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
-        
-            AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
-        
-            player.numberOfLoops = -1;  // Endless
-            [player play];
-            [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
-        }
-        
-        
-        [self.navigationController popViewControllerAnimated:NO];
-    }
-}
 
 
 
@@ -194,191 +119,9 @@
 
 
 
-#pragma mark cards animation
-
-// flip effect
-- (void)flipActionWithFirst:(UIImageView *)firstView
-                  andSecond:(UIImageView *)secondView
-{
-    [UIView transitionFromView:firstView toView:secondView duration:_ANITIME_LONG options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    [UIView commitAnimations];
-}
-
-
-- (void)cardsVisiable
-{
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
-        
-        if (!_cardIsVisiable[i]) {
-            
-            UIImageView *tmp;
-            tmp = [self.cardViews objectAtIndex:i - 1];
-            tmp.alpha = 1.0;
-            
-            [self flipActionWithFirst:[self.defaultViews objectAtIndex:(i - 1)] andSecond:   [self.cardViews objectAtIndex:(i - 1)]];
-        }
-    }
-}
-
-- (void)cardsInvisiable
-{
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++){
-        
-        if (_cardIsVisiable[i]) {
-            [self flipActionWithFirst:[self.cardViews objectAtIndex:(i - 1)] andSecond:   [self.defaultViews objectAtIndex:(i - 1)]];
-        
-        }
-    }
-}
-
-// add shadow to the given view
-- (void)addShadow: (UIImageView *)view
-{
-    [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [view.layer setShadowOffset:CGSizeMake(8.0f, 8.0f)];
-    [view.layer setShadowOpacity:0.4];
-    [view.layer setShadowRadius:6.0];
-    
-    // improve performance
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:view.bounds];
-    view.layer.shadowPath = path.CGPath;
-}
-
-
-/*
- -(UIImage*)getGrayImage:(UIImage*)sourceImage
- {
-    int width = sourceImage.size.width;
-    int height = sourceImage.size.height;
- 
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
-    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
-    CGColorSpaceRelease(colorSpace);
- 
-    if (context == NULL) {
-        return nil;
-    }
- 
-    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
-    UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
-    CGContextRelease(context);
- 
-    return grayImage;
- }
- 
- 
- 
- - (void)addBlackCard
- {
-    int blackCard= arc4random() % _AMOUNT_OF_CARDS;
- 
-    while (_isBlackCard[blackCard + 1]) blackCard = arc4random() % _AMOUNT_OF_CARDS;
- 
-    UIImageView *first = [self.cardViews objectAtIndex:blackCard];
-    UIImageView *second;
- 
-    _isBlackCard[blackCard + 1] = YES;
- 
-    for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
- 
-        second = [self.cardViews objectAtIndex:i];
- 
-        if (first.image == second.image && blackCard != i) {
- 
-            _isBlackCard[i + 1] = YES;
-            break;
-        }
-    }
- 
-    first.image = [self getGrayImage:first.image];
-    second.image = [self getGrayImage:second.image];
- 
- }
- 
- */
-
-- (void)rightCardAnimation: (NSTimer *) timer
-{
-    CGFloat t = 2.0;
-    
-    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
-    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
-    
-    self.fView.transform = leftQuake;  // starting point
-    self.sView.transform = leftQuake;
-    
-    [UIView beginAnimations:@"earthquake" context:nil];
-    [UIView setAnimationRepeatAutoreverses:YES];    // important
-    [UIView setAnimationRepeatCount:5];
-    [UIView setAnimationDuration:0.07];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
-    
-    self.fView.transform = rightQuake;    // end here & auto-reverse
-    self.sView.transform = rightQuake;
-    
-    [UIView commitAnimations];
-    
-}
-
-
-- (void) wrongCardAnimation: (NSTimer *) timer
-{
-    /*
-     NSMutableArray *ary = [[NSMutableArray alloc]init];
-     
-     [ary addObject:[UIImage imageNamed:@"020.png"]];
-     [ary addObject:[UIImage imageNamed:@"999.png"]];
-     
-     [FirstView setImage:[UIImage imageNamed:@"999.png"]];
-     [SecondView setImage:[UIImage imageNamed:@"999.png"]];
-     
-     FirstView.animationImages = ary;
-     FirstView.animationDuration = 1;
-     FirstView.animationRepeatCount = 1;
-     
-     SecondView.animationImages = ary;
-     SecondView.animationDuration = 1;
-     SecondView.animationRepeatCount = 1;
-     
-     [FirstView startAnimating];
-     [SecondView startAnimating];
-     */
-    
-    
-    _animating = YES;
-    
-    [UIView transitionFromView:self.LastView toView:self.LastDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    [UIView transitionFromView:self.CurrentView toView:self.CurrentDefault duration:_ANITIME_SHORT options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
-    
-    [UIView commitAnimations];
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval: _ANITIME_SHORT target:self selector:@selector(ArrowAnimationPlay:) userInfo:nil repeats: NO];
-    
-}
-
 
 
 #pragma mark -------
-
-/*
-- (void) gameLoading
-{
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-	[self.view addSubview:HUD];
-    // Progress loading view
-	HUD.dimBackground = YES;
-	HUD.delegate = self;
-    //HUD.labelText = @"游戏加载中";
-    HUD.detailsLabelText = @"游戏载入中";
-    [HUD show:YES];
-}
-- (void) gameFinishedLoading
-{
-    [HUD hide:YES];
-}
- */
 
 
 - (void)viewDidLoad
@@ -391,52 +134,28 @@
     if (!DEVICE_IS_IPHONE5) {
         
         [self.Card1 setFrame:CGRectMake(33, 5, 74, 104)];
-        [self.PalCardView1 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView1 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card2 setFrame:CGRectMake(123, 5, 74, 104)];
-        [self.PalCardView2 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView2 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card3 setFrame:CGRectMake(213, 5, 74, 104)];
-        [self.PalCardView3 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView3 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card4 setFrame:CGRectMake(33, 118, 74, 104)];
-        [self.PalCardView4 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView4 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card5 setFrame:CGRectMake(123, 118, 74, 104)];
-        [self.PalCardView5 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView5 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card6 setFrame:CGRectMake(213, 118, 74, 104)];
-        [self.PalCardView6 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView6 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card7 setFrame:CGRectMake(33, 231, 74, 104)];
-        [self.PalCardView7 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView7 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card8 setFrame:CGRectMake(123, 231, 74, 104)];
-        [self.PalCardView8 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView8 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card9 setFrame:CGRectMake(213, 231, 74, 104)];
-        [self.PalCardView9 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView9 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card10 setFrame:CGRectMake(33, 344, 74, 104)];
-        [self.PalCardView10 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView10 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card11 setFrame:CGRectMake(123, 344, 74, 104)];
-        [self.PalCardView11 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView11 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.Card12 setFrame:CGRectMake(213, 344, 74, 104)];
-        [self.PalCardView12 setFrame:CGRectMake(0, 0, 74, 104)];
-        [self.DefaultView12 setFrame:CGRectMake(0, 0, 74, 104)];
         
         [self.TextDisplay setFrame:CGRectMake(59, 450, 202, 31)];
         
@@ -479,18 +198,7 @@
     }
     
     
-    self.cardViews = [NSArray arrayWithObjects:self.PalCardView1, self.PalCardView2, self.PalCardView3, self.PalCardView4, self.PalCardView5, self.PalCardView6, self.PalCardView7, self.PalCardView8, self.PalCardView9, self.PalCardView10, self.PalCardView11, self.PalCardView12, nil];
-    
-    self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12, nil];
-
-
-    // set default card images
-    for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
-        
-        UIImageView *tmp = [self.defaultViews objectAtIndex:i];
-        tmp.image = [UIImage imageNamed:_BGPIC];
-        [self addShadow:tmp];
-    }
+    self.palCards = [NSArray arrayWithObjects:self.Card1, self.Card2, self.Card3, self.Card4, self.Card5, self.Card6, self.Card7, self.Card8, self.Card9, self.Card10, self.Card11, self.Card12, nil];
     
     [self gameInitilize];
 
@@ -499,13 +207,20 @@
 
 - (void)gameInitilize
 {
+    // set default values
+    self.Display.text = @"";
     
-    // hide all cards
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) {
-        _cardIsVisiable[i] = NO;
-        _isBlackCard[i] = NO;
-    }
+    _wrongAnimating = NO;
+    _gameOver = NO;
+    _flag = 0;
+    _numberOfFinishedCards = 0;
     
+    _endWithBlack = NO;
+    _rights = 0;
+    _wrongs = 0;
+    
+    
+    // play BGM
     if (!_soundOff) {
         AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"BGM"];
     
@@ -528,40 +243,17 @@
         cardGenerator.NumbersOfBlackCards = 2;
     }
     
-    
-    self.imagePathValue = [NSMutableArray arrayWithArray: [[NSMutableArray alloc] initWithCapacity:_AMOUNT_OF_CARDS]];
-    
-    // black cards settings
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
         
-        UIImageView *tmp;
-        tmp = [self.cardViews objectAtIndex:i];
-        self.imagePathValue[i] = [NSString stringWithString:cardGenerator.getACardWithPath];
-        tmp.image = [UIImage imageNamed:self.imagePathValue[i]];
+        PalCard *tmp = self.palCards[i];
         
+        [tmp setImageWithPath:[NSString stringWithString:cardGenerator.getACardWithPath]];
         
-        if ([[cardGenerator lastIsBlackOrNot] isEqualToString:@"YES"]) {
-            _isBlackCard[i + 1] = YES;
+        if ([[cardGenerator lastIsBlack] isEqualToString:@"YES"]) {
+            tmp.isBlackCard = YES;
         }
-        tmp.alpha = 0.0;
-        
-        [self addShadow:tmp];
     }
     
-
-    
-    // set default values
-    self.Display.text = @"";
-    
-    _gameOver = NO;
-    _flag = 0;
-    _lastCardNumber = 0;
-    _currentCardNumber = 0;
-    _numberOfFinishedCards = 0;
-    
-    _endWithBlack = NO;
-    _rights = 0;
-    _wrongs = 0;
     
     // Time setting
     if ([self.mode isEqualToString:@"easy"]) {
@@ -588,22 +280,8 @@
     _roundTime = _totalTime;
     
     
-    /*
-    if ([self.mode isEqualToString:@"normal"]) {
-        [self addBlackCard];
-    }
-    else if ([self.mode isEqualToString:@"hard"]) {
-        [self addBlackCard];
-        [self addBlackCard];
-        
-    }
-     */
     
-    
-    //[self gameFinishedLoading];
-    
-    _animating = YES;
-    
+    // prepare for begin
     self.TextDisplay.text = @"游戏马上开始";
     
     self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
@@ -646,13 +324,11 @@
 
 - (void)prepareDone:(NSTimer *) timer
 {
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = YES;
-    
+
     [self cardsInvisiable]; // 翻回所有卡牌
     
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(startTimer:) userInfo:nil repeats: NO];
     
-    for (int i = 1; i <= _AMOUNT_OF_CARDS; i++) _cardIsVisiable[i] = NO;
 }
 
 
@@ -663,8 +339,6 @@
 - (void)startTimer:(NSTimer *) timer
 {
     self.gameProgress.alpha = 1.0;
-    
-    _animating = NO;
     
     if (DEVICE_IS_IPHONE5) {
         self.TextDisplay.text = @"剩余时间";
@@ -706,7 +380,8 @@
 
 
 
-#pragma mark ------- win and lose
+
+#pragma mark ------- game brain
 
 
 // check whether user win the game 
@@ -791,164 +466,297 @@
 }
 
 
-- (void)ArrowAnimationPlay:(NSTimer *) timer
-{
-    _animating = NO;
-}
-
-
 - (void)nextRound:(NSTimer *) timer
 {
     [self gameInitilize];
 }
 
 
-
 - (void)CardDecision
 {
-    if (_flag == 2) {
         
-        if (![self.imagePathValue[_lastCardNumber - 1] isEqualToString:self.imagePathValue[_currentCardNumber - 1]]) {
-        
-            _cardIsVisiable[_lastCardNumber] = NO;
-            _cardIsVisiable[_currentCardNumber] = NO;
+    if (![self.LastCard.cardName isEqualToString:self.CurrentCard.cardName]) {
             
-            _wrongs ++;
-            [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(wrongCardAnimation:) userInfo:nil repeats: NO];
-        }
-        else {
-            
-            _cardIsVisiable[_lastCardNumber] = YES;
-            _cardIsVisiable[_currentCardNumber] = YES;
-            
-            _rights ++;
-            _numberOfFinishedCards += 2;
-            
-            self.fView = self.CurrentView;
-            self.sView = self.LastView;
-            
-            [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:nil repeats: NO];
-            
-            if (_numberOfFinishedCards == _AMOUNT_OF_CARDS - _numberOfBlackCards) {
-                [self win];
-            }
-            
-            _animating = NO;
-        }
-        
-        _flag = 0;
-        _lastCardNumber = 0;
+        _wrongs ++;
+        _wrongAnimating = YES;
+        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(wrongCardAnimation:) userInfo:nil repeats: NO];
     }
     else {
-        _animating = NO;
+        
+        _rights ++;
+        _numberOfFinishedCards += 2;
+            
+        self.fCard = self.CurrentCard;
+        self.sCard = self.LastCard;
+            
+        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:nil repeats: NO];
+            
+        if (_numberOfFinishedCards == _AMOUNT_OF_CARDS - _numberOfBlackCards) {
+            [self win];
+        }
     }
+        
+    _flag = 0;
+
 }
 
 
-
-- (void)processWithCardView:(UIImageView *)cardImage
-                defaultView:(UIImageView *)defaultImage
-                 cardNumber:(int )number
+- (void)processWithCardNumber:(int )index
 {
     
-    if (!_animating && !_gameOver && !_cardIsVisiable[number]) {
+    PalCard *card = self.palCards[index - 1];
+    
+    if (!card.isAnimating && !_gameOver && !card.isVisiable && !_wrongAnimating) {
         
         _flag ++;
         
-        _animating = YES;
+        [card flipWithDuration:_ANITIME_LONG];
         
-        [UIView transitionFromView:defaultImage toView:cardImage duration:_ANITIME_LONG options:UIViewAnimationOptionTransitionFlipFromRight completion:nil];
         
-        [UIView commitAnimations];
-        
-        _cardIsVisiable[number] = YES;
-        
-        if (_isBlackCard[number]) {
+        if (card.isBlackCard) {
             
             _endWithBlack = YES;
             [self gameFinish];
             return ;
         }
         
-        
         if (_flag == 1) {
-            self.LastView = cardImage;
-            self.LastDefault = defaultImage;
-            _lastCardNumber = number;
+            self.LastCard = card;
         }
         else if (_flag == 2) {
-            self.CurrentView = cardImage;
-            self.CurrentDefault = defaultImage;
-            _currentCardNumber = number;
+            self.CurrentCard = card;
         }
-        
 
-        [self CardDecision];
+        if (_flag == 2) [self CardDecision];
     }
 
 }
 
 
 
+
+#pragma mark cards animation
+
+
+- (void)cardsVisiable
+{
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
+        
+        PalCard *tmp;
+        tmp = [self.palCards objectAtIndex:i];
+        if(!tmp.isVisiable) {
+            [tmp flipWithDuration:_ANITIME_LONG];
+        }
+    }
+}
+
+- (void)cardsInvisiable
+{
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
+        
+        PalCard *tmp;
+        tmp = [self.palCards objectAtIndex:i];
+        if(tmp.isVisiable) {
+            [tmp flipWithDuration:_ANITIME_LONG];
+        }
+    }
+}
+
+
+/*
+ -(UIImage*)getGrayImage:(UIImage*)sourceImage
+ {
+ int width = sourceImage.size.width;
+ int height = sourceImage.size.height;
+ 
+ CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+ CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
+ CGColorSpaceRelease(colorSpace);
+ 
+ if (context == NULL) {
+ return nil;
+ }
+ 
+ CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
+ UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
+ CGContextRelease(context);
+ 
+ return grayImage;
+ }
+ 
+ 
+ 
+ - (void)addBlackCard
+ {
+ int blackCard= arc4random() % _AMOUNT_OF_CARDS;
+ 
+ while (_isBlackCard[blackCard + 1]) blackCard = arc4random() % _AMOUNT_OF_CARDS;
+ 
+ UIImageView *first = [self.cardViews objectAtIndex:blackCard];
+ UIImageView *second;
+ 
+ _isBlackCard[blackCard + 1] = YES;
+ 
+ for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
+ 
+ second = [self.cardViews objectAtIndex:i];
+ 
+ if (first.image == second.image && blackCard != i) {
+ 
+ _isBlackCard[i + 1] = YES;
+ break;
+ }
+ }
+ 
+ first.image = [self getGrayImage:first.image];
+ second.image = [self getGrayImage:second.image];
+ 
+ }
+ 
+ */
+
+- (void)rightCardAnimation: (NSTimer *) timer
+{
+    CGFloat t = 2.0;
+    
+    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
+    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
+    
+    self.fCard.transform = leftQuake;  // starting point
+    self.sCard.transform = leftQuake;
+    
+    [UIView beginAnimations:@"earthquake" context:nil];
+    [UIView setAnimationRepeatAutoreverses:YES];    // important
+    [UIView setAnimationRepeatCount:5];
+    [UIView setAnimationDuration:0.07];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+    
+    self.fCard.transform = rightQuake;    // end here & auto-reverse
+    self.sCard.transform = rightQuake;
+    
+    [UIView commitAnimations];
+    
+}
+
+
+- (void) wrongCardAnimation: (NSTimer *) timer
+{
+    [self.LastCard flipWithDuration:_ANITIME_SHORT];
+    [self.CurrentCard flipWithDuration:_ANITIME_SHORT];
+    [NSTimer scheduledTimerWithTimeInterval: _ANITIME_SHORT target:self selector:@selector(blackAnimationOver) userInfo:nil repeats: NO];
+}
+
+- (void) blackAnimationOver
+{
+    _wrongAnimating = NO;
+}
+
+
+
+#pragma mark  alert  delegate
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+        
+        [self cardsInvisiable];
+        
+        self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
+        self.hintView.alpha = 0.0;
+        
+        [UIView animateWithDuration:0.3
+                              delay: 0.0
+                            options: UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             self.hintView.alpha = 1.0;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+        
+        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(nextRound:) userInfo:nil repeats: NO];
+    }
+    else {
+        _gameOver = 1;
+        
+        if (!_soundOff) {
+            
+            
+            [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
+            
+            AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
+            
+            player.numberOfLoops = -1;  // Endless
+            [player play];
+            [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
+        }
+        
+        
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+}
+
+
 - (IBAction)Card1Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView1 defaultView:self.DefaultView1 cardNumber:1];
+    [self processWithCardNumber:1];
 }
 
 - (IBAction)Card2Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView2 defaultView:self.DefaultView2 cardNumber:2];
+    [self processWithCardNumber:2];
 }
 
 - (IBAction)Card3Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView3 defaultView:self.DefaultView3 cardNumber:3];
+    [self processWithCardNumber:3];
 }
 
 - (IBAction)Card4Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView4 defaultView:self.DefaultView4 cardNumber:4];
+    [self processWithCardNumber:4];
 }
 
 - (IBAction)Card5Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView5 defaultView:self.DefaultView5 cardNumber:5];
+    [self processWithCardNumber:5];
 }
 
 - (IBAction)Card6Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView6 defaultView:self.DefaultView6 cardNumber:6];
+    [self processWithCardNumber:6];
 }
 
 - (IBAction)Card7Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView7 defaultView:self.DefaultView7 cardNumber:7];
+    [self processWithCardNumber:7];
 }
 
 - (IBAction)Card8Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView8 defaultView:self.DefaultView8 cardNumber:8];
+    [self processWithCardNumber:8];
 }
 
 - (IBAction)Card9Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView9 defaultView:self.DefaultView9 cardNumber:9];
+    [self processWithCardNumber:9];
 }
 
 - (IBAction)Card10Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView10 defaultView:self.DefaultView10 cardNumber:10];
+    [self processWithCardNumber:10];
 }
 
 
 - (IBAction)Card11Pressed:(UITapGestureRecognizer *)sender {
 
-    [self processWithCardView:self.PalCardView11 defaultView:self.DefaultView11 cardNumber:11];
+    [self processWithCardNumber:11];
 }
 
 - (IBAction)Card12Pressed:(UITapGestureRecognizer *)sender {
     
-    [self processWithCardView:self.PalCardView12 defaultView:self.DefaultView12 cardNumber:12];
+    [self processWithCardNumber:12];
 }
 
 
@@ -967,29 +775,13 @@
     [self setCard11:nil];
     [self setCard12:nil];
     
-    [self setDefaultView1:nil];
-    [self setDefaultView2:nil];
-    [self setDefaultView3:nil];
-    [self setDefaultView4:nil];
-    [self setDefaultView5:nil];
-    [self setDefaultView6:nil];
-    [self setDefaultView7:nil];
-    [self setDefaultView8:nil];
-    [self setDefaultView9:nil];
-    [self setDefaultView10:nil];
-    [self setDefaultView11:nil];
-    [self setDefaultView12:nil];
+    [self setSCard:nil];
+    [self setFCard:nil];
+    [self setLastCard:nil];
+    [self setCurrentCard:nil];
     
-    [self setCardViews:nil];
-    [self setCurrentDefault:nil];
-    [self setDefaultViews:nil];
-    [self setCurrentView:nil];
     [self setDisplay:nil];
-    [self setFView:nil];
-    [self setSView:nil];
     [self setTextDisplay:nil];
-    [self setLastDefault:nil];
-    [self setLastView:nil];
 
     [self setHintView:nil];
     [super viewDidUnload];

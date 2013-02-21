@@ -59,6 +59,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoPic;
 
+
 @end
 
 @implementation PalMainMenuViewController
@@ -225,7 +226,8 @@
 {
     [self backgroundAnimation];
     [self.bgAnimationView startAnimation];
-}
+
+}   
 
 - (void)viewDidLoad
 {

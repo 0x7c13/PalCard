@@ -66,7 +66,7 @@
 
 }
 
-- (NSString *) lastIsBlackOrNot
+- (NSString *) lastIsBlack
 {
     if(_lastIsBlack) {
         return @"YES";

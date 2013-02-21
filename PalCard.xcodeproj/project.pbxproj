@@ -20,11 +20,9 @@
 		F71F399F16BE5E3600F39979 /* PalAchievementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */; };
 		F71F39A716BE647A00F39979 /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */; };
 		F71F39BA16BF1F4300F39979 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */; };
-		F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */; };
 		F72625BA16D2FDDC00C1DC69 /* main02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F72625B916D2FDDC00C1DC69 /* main02.mp3 */; };
 		F742874E16BA209B00C8B9F9 /* palsource in Resources */ = {isa = PBXBuildFile; fileRef = F742874D16BA209B00C8B9F9 /* palsource */; };
 		F742875116BA20C000C8B9F9 /* pallogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F742874F16BA20C000C8B9F9 /* pallogo.png */; };
-		F742875916BB07DC00C8B9F9 /* PalCardGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */; };
 		F742875D16BB0F9500C8B9F9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */; };
 		F77DC60A16C447360002D88B /* button_pressed.wav in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60916C447360002D88B /* button_pressed.wav */; };
 		F77DC60C16C4601D0002D88B /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = F77DC60B16C4601D0002D88B /* icon57.png */; };
@@ -57,7 +55,10 @@
 		F7F7003316B7211D00876181 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003216B7211D00876181 /* Default@2x.png */; };
 		F7F7003516B7211D00876181 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003416B7211D00876181 /* Default-568h@2x.png */; };
 		F7F7003B16B7211D00876181 /* PalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F7003A16B7211D00876181 /* PalViewController.m */; };
-		F7F9284F16D5C308007ABB10 /* PalMountainAndCloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */; };
+		F7F9286016D69E91007ABB10 /* PalAchievementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9285916D69E91007ABB10 /* PalAchievementBrain.m */; };
+		F7F9286116D69E91007ABB10 /* PalCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9285B16D69E91007ABB10 /* PalCard.m */; };
+		F7F9286216D69E91007ABB10 /* PalCardGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9285D16D69E91007ABB10 /* PalCardGenerator.m */; };
+		F7F9286316D69E91007ABB10 /* PalMountainAndCloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9285F16D69E91007ABB10 /* PalMountainAndCloudView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,13 +84,9 @@
 		F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementViewController.m; sourceTree = "<group>"; };
 		F71F39A616BE646A00F39979 /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		F71F39B916BF1F4300F39979 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = PalCard/en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalAchievementBrain.h; sourceTree = "<group>"; };
-		F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementBrain.m; sourceTree = "<group>"; };
 		F72625B916D2FDDC00C1DC69 /* main02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = main02.mp3; sourceTree = "<group>"; };
 		F742874D16BA209B00C8B9F9 /* palsource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = palsource; sourceTree = "<group>"; };
 		F742874F16BA20C000C8B9F9 /* pallogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pallogo.png; sourceTree = "<group>"; };
-		F742875716BB07DC00C8B9F9 /* PalCardGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalCardGenerator.h; sourceTree = "<group>"; };
-		F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCardGenerator.m; sourceTree = "<group>"; };
 		F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F77DC60916C447360002D88B /* button_pressed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button_pressed.wav; sourceTree = "<group>"; };
 		F77DC60B16C4601D0002D88B /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
@@ -131,8 +128,14 @@
 		F7F7003416B7211D00876181 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F7F7003916B7211D00876181 /* PalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PalViewController.h; sourceTree = "<group>"; };
 		F7F7003A16B7211D00876181 /* PalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PalViewController.m; sourceTree = "<group>"; };
-		F7F9284D16D5C308007ABB10 /* PalMountainAndCloudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalMountainAndCloudView.h; sourceTree = "<group>"; };
-		F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalMountainAndCloudView.m; sourceTree = "<group>"; };
+		F7F9285816D69E91007ABB10 /* PalAchievementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalAchievementBrain.h; sourceTree = "<group>"; };
+		F7F9285916D69E91007ABB10 /* PalAchievementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalAchievementBrain.m; sourceTree = "<group>"; };
+		F7F9285A16D69E91007ABB10 /* PalCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalCard.h; sourceTree = "<group>"; };
+		F7F9285B16D69E91007ABB10 /* PalCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCard.m; sourceTree = "<group>"; };
+		F7F9285C16D69E91007ABB10 /* PalCardGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalCardGenerator.h; sourceTree = "<group>"; };
+		F7F9285D16D69E91007ABB10 /* PalCardGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalCardGenerator.m; sourceTree = "<group>"; };
+		F7F9285E16D69E91007ABB10 /* PalMountainAndCloudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalMountainAndCloudView.h; sourceTree = "<group>"; };
+		F7F9285F16D69E91007ABB10 /* PalMountainAndCloudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalMountainAndCloudView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,26 +256,21 @@
 				F70F92A116D0527D00151527 /* PalDataViewController.m */,
 				F7A3C03D16C1CAE000D42AAF /* PalInstructionViewController.h */,
 				F7A3C03E16C1CAE000D42AAF /* PalInstructionViewController.m */,
-				F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */,
-				F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */,
 				F71F399D16BE5E3600F39979 /* PalAchievementViewController.h */,
 				F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */,
-				F7F9284D16D5C308007ABB10 /* PalMountainAndCloudView.h */,
-				F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */,
 				F7F7002D16B7211D00876181 /* PalAppDelegate.h */,
 				F7F7002E16B7211D00876181 /* PalAppDelegate.m */,
 				F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */,
 				F7A3C04016C1E09D00D42AAF /* PalInformationViewController.h */,
 				F7A3C04116C1E09D00D42AAF /* PalInformationViewController.m */,
 				F77DC60F16C498280002D88B /* CardsInformation.plist */,
-				F742875716BB07DC00C8B9F9 /* PalCardGenerator.h */,
-				F742875816BB07DC00C8B9F9 /* PalCardGenerator.m */,
 				F7ED0FC816BB67DE0036B782 /* PalMainMenuViewController.h */,
 				F7ED0FC916BB67DE0036B782 /* PalMainMenuViewController.m */,
 				F7ED0FE216BC96C60036B782 /* PalModeMenuViewController.h */,
 				F7ED0FE316BC96C60036B782 /* PalModeMenuViewController.m */,
 				F7F7003916B7211D00876181 /* PalViewController.h */,
 				F7F7003A16B7211D00876181 /* PalViewController.m */,
+				F7F9285716D69E90007ABB10 /* PalClasses */,
 				F70F928816CF523D00151527 /* ASMediaFocusManager */,
 				F70F928116CF40E700151527 /* FXImageView */,
 				F710265D16CDC19900FD2836 /* MCSoundBoard */,
@@ -300,6 +298,21 @@
 				F7F7003416B7211D00876181 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7F9285716D69E90007ABB10 /* PalClasses */ = {
+			isa = PBXGroup;
+			children = (
+				F7F9285816D69E91007ABB10 /* PalAchievementBrain.h */,
+				F7F9285916D69E91007ABB10 /* PalAchievementBrain.m */,
+				F7F9285A16D69E91007ABB10 /* PalCard.h */,
+				F7F9285B16D69E91007ABB10 /* PalCard.m */,
+				F7F9285C16D69E91007ABB10 /* PalCardGenerator.h */,
+				F7F9285D16D69E91007ABB10 /* PalCardGenerator.m */,
+				F7F9285E16D69E91007ABB10 /* PalMountainAndCloudView.h */,
+				F7F9285F16D69E91007ABB10 /* PalMountainAndCloudView.m */,
+			);
+			path = PalClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,11 +410,9 @@
 				F7F7002B16B7211D00876181 /* main.m in Sources */,
 				F7F7002F16B7211D00876181 /* PalAppDelegate.m in Sources */,
 				F7F7003B16B7211D00876181 /* PalViewController.m in Sources */,
-				F742875916BB07DC00C8B9F9 /* PalCardGenerator.m in Sources */,
 				F7ED0FCA16BB67DE0036B782 /* PalMainMenuViewController.m in Sources */,
 				F7ED0FE416BC96C60036B782 /* PalModeMenuViewController.m in Sources */,
 				F71F399F16BE5E3600F39979 /* PalAchievementViewController.m in Sources */,
-				F71F39D816C0B13C00F39979 /* PalAchievementBrain.m in Sources */,
 				F7A3C03F16C1CAE100D42AAF /* PalInstructionViewController.m in Sources */,
 				F7A3C04216C1E09D00D42AAF /* PalInformationViewController.m in Sources */,
 				F710265C16CDC17700FD2836 /* iCarousel.m in Sources */,
@@ -412,7 +423,10 @@
 				F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */,
 				F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */,
 				F70F92A216D0527D00151527 /* PalDataViewController.m in Sources */,
-				F7F9284F16D5C308007ABB10 /* PalMountainAndCloudView.m in Sources */,
+				F7F9286016D69E91007ABB10 /* PalAchievementBrain.m in Sources */,
+				F7F9286116D69E91007ABB10 /* PalCard.m in Sources */,
+				F7F9286216D69E91007ABB10 /* PalCardGenerator.m in Sources */,
+				F7F9286316D69E91007ABB10 /* PalMountainAndCloudView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

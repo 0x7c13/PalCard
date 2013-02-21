@@ -239,6 +239,7 @@
     [view.layer setShadowOpacity:0.4];
     [view.layer setShadowRadius:6.0];
     
+    // improve performance
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:view.bounds];
     view.layer.shadowPath = path.CGPath;
 }
@@ -482,7 +483,14 @@
     
     self.defaultViews = [NSArray arrayWithObjects:self.DefaultView1, self.DefaultView2, self.DefaultView3, self.DefaultView4, self.DefaultView5, self.DefaultView6, self.DefaultView7, self.DefaultView8, self.DefaultView9, self.DefaultView10, self.DefaultView11, self.DefaultView12, nil];
 
-    //[self gameLoading];
+
+    // set default card images
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
+        
+        UIImageView *tmp = [self.defaultViews objectAtIndex:i];
+        tmp.image = [UIImage imageNamed:_BGPIC];
+        [self addShadow:tmp];
+    }
     
     [self gameInitilize];
 
@@ -538,13 +546,9 @@
         tmp.alpha = 0.0;
         
         [self addShadow:tmp];
-        
-        tmp = [self.defaultViews objectAtIndex:i];
-        tmp.image = [UIImage imageNamed:_BGPIC];
-        
-        [self addShadow:tmp];
-        
     }
+    
+
     
     // set default values
     self.Display.text = @"";

@@ -216,9 +216,6 @@
 			children = (
 				F77DC60D16C460210002D88B /* icon114.png */,
 				F77DC60B16C4601D0002D88B /* icon57.png */,
-				F71F398C16BE282200F39979 /* QuartzCore.framework */,
-				F7E40B3216BB155B00F1CF97 /* AudioToolbox.framework */,
-				F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */,
 				F7F7002416B7211D00876181 /* PalCard */,
 				F7F7001D16B7211D00876181 /* Frameworks */,
 				F7F7001B16B7211D00876181 /* Products */,
@@ -236,6 +233,9 @@
 		F7F7001D16B7211D00876181 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7E40B3216BB155B00F1CF97 /* AudioToolbox.framework */,
+				F71F398C16BE282200F39979 /* QuartzCore.framework */,
+				F742875C16BB0F9500C8B9F9 /* AVFoundation.framework */,
 				F7F7001E16B7211D00876181 /* UIKit.framework */,
 				F7F7002016B7211D00876181 /* Foundation.framework */,
 				F7F7002216B7211D00876181 /* CoreGraphics.framework */,

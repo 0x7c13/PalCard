@@ -8,10 +8,12 @@
 
 #import "PalAppDelegate.h"
 
+
 @implementation PalAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     
     return YES;
 }

@@ -342,10 +342,11 @@
         imageView.reflectionScale = 0.5f;
         imageView.reflectionAlpha = 0.25f;
         imageView.reflectionGap = 10.0f;
-        imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
-        imageView.shadowBlur = 5.0f;
+        //imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
+        //imageView.shadowBlur = 5.0f;
         imageView.cornerRadius = 0.0f;
         
+        [self addShadow:imageView];
         view = imageView;
  
         //load image
@@ -357,7 +358,17 @@
 
 }
 
-
+- (void)addShadow: (UIImageView *)view
+{
+    [view.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [view.layer setShadowOffset:CGSizeMake(10.0f, 10.0f)];
+    [view.layer setShadowOpacity:0.4];
+    [view.layer setShadowRadius:6.0];
+    
+    // improve performance
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:view.bounds];
+    view.layer.shadowPath = path.CGPath;
+}
 
 
 #pragma mark - protocol
@@ -435,8 +446,6 @@
 */
 
 
-
-
 #pragma mark - ASMediaFocusDelegate
 
 - (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view
@@ -456,6 +465,7 @@
 {
     return self.parentViewController;
 }
+
 
 // Returns a local media path, it must be an image path. This path is used to create an image at full screen.
 - (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager mediaPathForView:(UIView *)view

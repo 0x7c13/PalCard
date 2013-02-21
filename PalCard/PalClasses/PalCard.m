@@ -27,11 +27,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        //
     }
     return self;
 }
 
-- (void) cardInit
+- (void) cardSetup
 {
     _isVisiable = NO;
     _isAnimating = NO;
@@ -69,7 +70,7 @@
 
 - (void) setImageWithPath:(NSString *)imagePath
 {
-    [self cardInit];
+    [self cardSetup];
     
     self.cardImagePath = imagePath;
     self.cardView.image = [UIImage imageNamed:self.cardImagePath];

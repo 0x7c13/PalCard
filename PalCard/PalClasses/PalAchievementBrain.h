@@ -13,7 +13,7 @@
 
 // return YES if new achievement unlocked
 + (BOOL) newAchievementUnlocked: (NSString *)gameMode
-                      winOrLose: (BOOL)win
+                            win: (BOOL)win
                        timeUsed: (float)usedTime
                        timeLeft: (float)lastTime
                     wrongsTimes: (int)wrongs

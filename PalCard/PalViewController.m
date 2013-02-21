@@ -39,6 +39,7 @@
     bool _wrongAnimating;
     bool _gameOver;
     bool _soundOff;
+    bool _gameStarted;
     
     int _flag;
     int _numberOfFinishedCards;
@@ -161,12 +162,12 @@
         
         [self.Display setFrame:CGRectMake(200, 450, 60, 31)];
         
-        [self.Display setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
-        [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
-        
         [self.gameProgress setFrame:CGRectMake(25, 460, 270, 9) ];
         
         [self.hintView setFrame:CGRectMake(35, 125, 250, 200) ];
+        
+        [self.Display setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
+        [self.TextDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:20]];
 
     }
     else {
@@ -210,6 +211,7 @@
     // set default values
     self.Display.text = @"";
     
+    _gameStarted = NO;
     _wrongAnimating = NO;
     _gameOver = NO;
     _flag = 0;
@@ -338,6 +340,8 @@
 
 - (void)startTimer:(NSTimer *) timer
 {
+    _gameStarted = YES;
+    
     self.gameProgress.alpha = 1.0;
     
     if (DEVICE_IS_IPHONE5) {
@@ -350,8 +354,7 @@
     }
     
     [NSTimer scheduledTimerWithTimeInterval: 0.1 target:self selector:@selector(GameTimer:) userInfo:nil repeats: YES];
-    
-    //[NSTimer scheduledTimerWithTimeInterval: 15 target:self selector:@selector(GameOver:) userInfo:nil repeats: NO];
+
 }
 
 - (void)GameTimer:(NSTimer *) timer
@@ -415,7 +418,7 @@
     imgv.image = [UIImage imageNamed:_GameWinImg];
     
     
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    if([PalAchievementBrain newAchievementUnlocked:self.mode win:YES timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
     }
@@ -454,7 +457,7 @@
     
     
     // check whether new achievement unlocked
-    if([PalAchievementBrain newAchievementUnlocked:self.mode winOrLose:NO timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
+    if([PalAchievementBrain newAchievementUnlocked:self.mode win:NO timeUsed:_totalTime - _roundTime timeLeft:_roundTime wrongsTimes:_wrongs rightTimes:_rights endWithBlackOrNot:_endWithBlack])
     {
         self.TextDisplay.text = @"新卡牌解锁！";
     }
@@ -506,7 +509,7 @@
     
     PalCard *card = self.palCards[index - 1];
     
-    if (!card.isAnimating && !_gameOver && !card.isVisiable && !_wrongAnimating) {
+    if (!card.isAnimating && !card.isVisiable && !_wrongAnimating && !_gameOver && _gameStarted) {
         
         _flag ++;
         

@@ -12,7 +12,18 @@
 #define CloudImg_1 @"UIimages/cloud-front.png"
 #define CloudImg_2 @"UIimages/cloud-back.png"
 
-@implementation PalMountainAndCloudView 
+@interface PalMountainAndCloudView () {
+    bool _initialized;
+}
+
+@property (nonatomic, strong) UIImageView *mountainView;
+@property (nonatomic, strong) UIImageView *backCloudView;
+@property (nonatomic, strong) UIImageView *frontCloudView;
+
+@end
+
+
+@implementation PalMountainAndCloudView
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -23,8 +34,31 @@
     return self;
 }
 
+- (void) setup
+{
+    if(!_initialized) {
+        
+        _mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1178, self.bounds.size.height)];
+        self.mountainView.image = [UIImage imageNamed:MountainImg];
+        
+        _backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+        self.backCloudView.image = [UIImage imageNamed:CloudImg_1];
+        self.backCloudView.alpha = 0.8;
+        
+        _frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+        self.frontCloudView.image = [UIImage imageNamed:CloudImg_2];
+        
+        [self addSubview:self.mountainView];
+        [self addSubview:self.backCloudView];
+        [self addSubview:self.frontCloudView];
+    }
+    _initialized = YES;
+
+}
+
 - (void) startAnimation
 {
+    [self setup];
     [self startMountainAnimation];
     [self startBackCloudAnimation];
     [self startFrontCloudAnimation];
@@ -32,13 +66,10 @@
 
 - (void)startMountainAnimation
 {
-    UIImageView *mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1178, self.bounds.size.height)];
-    mountainView.image = [UIImage imageNamed:MountainImg];
     
-    
-    CGRect frame = mountainView.frame;
+    CGRect frame = self.mountainView.frame;
     frame.origin.x = 0;
-    mountainView.frame = frame;
+    self.mountainView.frame = frame;
     
     [UIView beginAnimations:@"mountainAnimation" context:NULL];
     [UIView setAnimationDuration:23.0];
@@ -47,24 +78,19 @@
     [UIView setAnimationRepeatAutoreverses:NO];
     [UIView setAnimationRepeatCount:9999];
 
-    frame = mountainView.frame;
+    frame = self.mountainView.frame;
     frame.origin.x = - frame.size.width + 320;
-    mountainView.frame = frame;
-    
-    [self addSubview:mountainView];
+    self.mountainView.frame = frame;
+
     [UIView commitAnimations];
 }
 
 - (void)startBackCloudAnimation
 {
     
-    UIImageView *backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
-    backCloudView.image = [UIImage imageNamed:CloudImg_1];
-    backCloudView.alpha = 0.8;
-    
-    CGRect frame = backCloudView.frame;
+    CGRect frame = self.backCloudView.frame;
     frame.origin.x = 0;
-    backCloudView.frame = frame;
+    self.backCloudView.frame = frame;
     
     [UIView beginAnimations:@"backCloudAnimation" context:NULL];
     [UIView setAnimationDuration:15.0];
@@ -73,24 +99,20 @@
     [UIView setAnimationRepeatAutoreverses:NO];
     [UIView setAnimationRepeatCount:9999];
     
-    frame = backCloudView.frame;
+    frame = self.backCloudView.frame;
     frame.origin.x = -frame.size.width + 320;
-    backCloudView.frame = frame;
+    self.backCloudView.frame = frame;
     
-    [self addSubview:backCloudView];
     [UIView commitAnimations];
 }
 
 - (void)startFrontCloudAnimation
 {
     
-    UIImageView *frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
-    frontCloudView.image = [UIImage imageNamed:CloudImg_2];
-    //frontCloudView.alpha = 0.8;
     
-    CGRect frame = frontCloudView.frame;
+    CGRect frame = self.frontCloudView.frame;
     frame.origin.x = 0;
-    frontCloudView.frame = frame;
+    self.frontCloudView.frame = frame;
     
     [UIView beginAnimations:@"frontCloudAnimation" context:NULL];
     [UIView setAnimationDuration:8.0];
@@ -99,11 +121,10 @@
     [UIView setAnimationRepeatAutoreverses:NO];
     [UIView setAnimationRepeatCount:9999];
     
-    frame = frontCloudView.frame;
+    frame = self.frontCloudView.frame;
     frame.origin.x = -frame.size.width + 320;
-    frontCloudView.frame = frame;
+    self.frontCloudView.frame = frame;
     
-    [self addSubview:frontCloudView];
     [UIView commitAnimations];
 }
 

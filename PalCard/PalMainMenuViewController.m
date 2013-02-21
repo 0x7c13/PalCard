@@ -11,11 +11,9 @@
 #import "PalAchievementViewController.h"
 #import "PalInstructionViewController.h"
 #import "PalInformationViewController.h"
+#import "PalMountainAndCloudView.h"
 #import "MCSoundBoard.h"
 
-#define _BGPIC @"UIimages/main_bg.jpg"
-#define _BGPIC2 @"UIimages/cloud-front.png"
-#define _BGPIC3 @"UIimages/main_bg.jpg"
 #define _LOGOPIC @"UIimages/main_logo.png"
 
 #define _GameStartButtonImg @"UIimages/button_start.png"
@@ -47,9 +45,6 @@
     bool _soundOff;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic3;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIImageView *soundSwitch;
 
@@ -59,6 +54,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *instructionButton;
 @property (strong, nonatomic) IBOutlet UIButton *informationButton;
 
+
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoPic;
 
@@ -197,51 +194,6 @@
     
     // Background  animation
     self.blackBG.alpha = 1.0;
-    
-    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
-    self.logoPic.image = [UIImage imageNamed:_LOGOPIC];
-    
-    self.bgPic2.alpha = 0.7;
-    
-    
-    CGRect frame = self.bgPic.frame;
-    frame.origin.x = 0;
-    self.bgPic.frame = frame;
-    
-    [UIView beginAnimations:@"testAnimation" context:NULL];
-    [UIView setAnimationDuration:20.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame = self.bgPic.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.bgPic.frame = frame;
-    
-    [UIView commitAnimations];
-    
-    // cloud
-    
-    CGRect frame2 = self.bgPic2.frame;
-    frame2.origin.x = 0;
-    self.bgPic2.frame = frame2;
-    
-    [UIView beginAnimations:@"testAnimation2" context:NULL];
-    [UIView setAnimationDuration:8.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame2 = self.bgPic2.frame;
-    frame2.origin.x = -frame2.size.width + 285;
-    self.bgPic2.frame = frame2;
-    
-    [UIView commitAnimations];
-    
-    
     [UIView beginAnimations:@"fadeIn" context:nil];
     [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
@@ -259,7 +211,7 @@
 
 - (void) restartAnimation{
     
-    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
     //NSLog(@"trigger event when will enter foreground.");
 }
 
@@ -272,6 +224,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 }
 
 - (void)viewDidLoad
@@ -312,8 +265,11 @@
         [self.informationButton setFrame:CGRectMake(242, 245, 60, 180)];
         
         [self.soundSwitch setFrame:CGRectMake(260, 430, 30, 30)];
+        
+        [self.bgAnimationView setFrame:CGRectMake(0, 0, 320, 480)];
     }
     
+    self.logoPic.image = [UIImage imageNamed:_LOGOPIC];
     
     // check whether user has turned off sound
     if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
@@ -348,8 +304,6 @@
     
     [self.informationButton setBackgroundImage:[UIImage imageNamed:_InformationButtonPressedImg] forState:UIControlStateHighlighted];
     
-    // start background animation
-    [self backgroundAnimation];
 
 }
 
@@ -441,4 +395,8 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setBgAnimationView:nil];
+    [super viewDidUnload];
+}
 @end

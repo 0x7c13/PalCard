@@ -7,11 +7,9 @@
 //
 
 #import "PalInformationViewController.h"
+#import "PalMountainAndCloudView.h"
 #import "MCSoundBoard.h"
 
-#define _BGPIC @"UIimages/main_bg.jpg"
-#define _BGPIC2 @"UIimages/cloud-front.png"
-#define _BGPIC3 @"UIimages/cloud-back.png"
 #define _LOGOPIC @"UIimages/main_logo.png"
 
 #define _DefaultCardImg @"palsource/888.png"
@@ -33,8 +31,8 @@
     bool _soundOff;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
+
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
@@ -49,56 +47,18 @@
 - (void)backgroundAnimation
 {
     
-    self.blackBG.alpha = 1.0;
-    
-    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
-    
-    self.bgPic2.alpha = 0.7;
-    
-    // moutain
-    
-    CGRect frame = self.bgPic.frame;
-    frame.origin.x = 0;
-    self.bgPic.frame = frame;
-    
-    [UIView beginAnimations:@"testAnimation" context:NULL];
-    [UIView setAnimationDuration:20.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame = self.bgPic.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.bgPic.frame = frame;
-    
-    [UIView commitAnimations];
-    
-    // cloud
-    
-    CGRect frame2 = self.bgPic2.frame;
-    frame2.origin.x = 0;
-    self.bgPic2.frame = frame2;
-    
-    [UIView beginAnimations:@"testAnimation2" context:NULL];
-    [UIView setAnimationDuration:8.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame2 = self.bgPic2.frame;
-    frame2.origin.x = -frame2.size.width + 285;
-    self.bgPic2.frame = frame2;
-    
-    [UIView commitAnimations];
-    
-    
+    self.blackBG.alpha = 1.0;    
     [UIView beginAnimations:@"fadeIn" context:nil];
     [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
     
 }
 
@@ -121,7 +81,7 @@
 
 - (void) restartAnimation{
     
-    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -154,6 +114,8 @@
         [self.textInfo setFrame:CGRectMake(27, 35, 266, 373)];
         
         [self.returnButton setFrame:CGRectMake(250, 430, 50, 45)];
+        
+        [self.bgAnimationView setFrame:CGRectMake(0, 0, 320, 480)];
     }
     
     
@@ -179,7 +141,7 @@
     
     self.infoBG.image = [UIImage imageNamed:_InfoBG];
     
-    [self backgroundAnimation];
+
 }
 
 
@@ -190,12 +152,12 @@
 }
 
 - (void)viewDidUnload {
-    [self setBgPic:nil];
-    [self setBgPic2:nil];
+
     [self setReturnButton:nil];
     [self setBlackBG:nil];
     [self setInfoBG:nil];
     [self setTextInfo:nil];
+    [self setBgAnimationView:nil];
     [super viewDidUnload];
 }
 

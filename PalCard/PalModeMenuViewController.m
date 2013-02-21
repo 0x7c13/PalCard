@@ -8,10 +8,8 @@
 
 #import "PalModeMenuViewController.h"
 #import "PalViewController.h"
+#import "PalMountainAndCloudView.h"
 #import "MCSoundBoard.h"
-
-#define _BGPIC @"UIimages/main_bg.jpg"
-#define _BGPIC2 @"UIimages/cloud-front.png"
 
 #define _ModeChoiceLabelImg @"UIimages/difficulty_choice.png"
 
@@ -37,8 +35,8 @@
 }
 
 @property (copy, nonatomic) NSString *mode;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
+
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIButton *easyButton;
 @property (strong, nonatomic) IBOutlet UIButton *normalButton;
@@ -56,52 +54,7 @@
 - (void)backgroundAnimation
 {
     
-    // Background  animation
     self.blackBG.alpha = 1.0;
-    
-    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
-    
-    self.bgPic2.alpha = 0.7;
-    
-    
-    CGRect frame = self.bgPic.frame;
-    frame.origin.x = 0;
-    self.bgPic.frame = frame;
-    
-    [UIView beginAnimations:@"testAnimation" context:NULL];
-    [UIView setAnimationDuration:20.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame = self.bgPic.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.bgPic.frame = frame;
-    
-    [UIView commitAnimations];
-    
-    // cloud
-    
-    CGRect frame2 = self.bgPic2.frame;
-    frame2.origin.x = 0;
-    self.bgPic2.frame = frame2;
-    
-    [UIView beginAnimations:@"testAnimation2" context:NULL];
-    [UIView setAnimationDuration:8.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame2 = self.bgPic2.frame;
-    frame2.origin.x = -frame2.size.width + 285;
-    self.bgPic2.frame = frame2;
-    
-    [UIView commitAnimations];
-    
-    
     [UIView beginAnimations:@"fadeIn" context:nil];
     [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
@@ -112,7 +65,7 @@
 
 - (void) restartAnimation{
     
-    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 
 }
 
@@ -153,6 +106,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 }
 
 
@@ -178,6 +132,8 @@
         
         [self.returnButton setFrame:CGRectMake(250, 425, 50, 45)];
         
+        [self.bgAnimationView setFrame:CGRectMake(0, 0, 320, 480)];
+        
 
     }
     
@@ -185,8 +141,6 @@
     // set default images
     self.difChoice.image = [UIImage imageNamed:_ModeChoiceLabelImg];
     
-    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
-
     
     [self.easyButton setBackgroundImage:[UIImage imageNamed:_EasyModeButtonImg] forState:UIControlStateNormal];
     
@@ -227,8 +181,6 @@
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
-    // start background animation
-    [self backgroundAnimation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -297,13 +249,12 @@
 
 - (void)viewDidUnload {
     [self setDifChoice:nil];
-    [self setBgPic:nil];
-    [self setBgPic2:nil];
     [self setBlackBG:nil];
     [self setEasyButton:nil];
     [self setHardButton:nil];
     [self setNormalButton:nil];
     [self setFreeStyleButton:nil];
+    [self setBgAnimationView:nil];
     [super viewDidUnload];
 }
 @end

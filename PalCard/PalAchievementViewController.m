@@ -8,13 +8,11 @@
 
 #import "PalAchievementViewController.h"
 #import "PalDataViewController.h"
+#import "PalMountainAndCloudView.h"
 #import "MCSoundBoard.h"
 
 #define ITEM_SPACING 200
 
-#define _BGPIC @"UIimages/main_bg.jpg"
-#define _BGPIC2 @"UIimages/cloud-front.png"
-#define _BGPIC3 @"UIimages/cloud-back.png"
 #define _LOGOPIC @"UIimages/main_logo.png"
 
 #define _DefaultCardImg @"palsource/888.png"
@@ -37,8 +35,7 @@
     int _amountOfUnlockedCards;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic;
-@property (strong, nonatomic) IBOutlet UIImageView *bgPic2;
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
@@ -72,63 +69,16 @@
     // Background  animation
     
     self.blackBG.alpha = 1.0;
-    
-    self.bgPic.image  = [UIImage imageNamed:_BGPIC];
-    self.bgPic2.image = [UIImage imageNamed:_BGPIC2];
-    
-    self.bgPic2.alpha = 0.7;
-    
-    
-    // mountain
-    
-    CGRect frame = self.bgPic.frame;
-    frame.origin.x = 0;
-    self.bgPic.frame = frame;
-    
-    [UIView beginAnimations:@"testAnimation" context:NULL];
-    [UIView setAnimationDuration:20.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame = self.bgPic.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.bgPic.frame = frame;
-    
-    [UIView commitAnimations];
-    
-    // cloud
-    
-    CGRect frame2 = self.bgPic2.frame;
-    frame2.origin.x = 0;
-    self.bgPic2.frame = frame2;
-    
-    [UIView beginAnimations:@"testAnimation2" context:NULL];
-    [UIView setAnimationDuration:8.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
-    
-    frame2 = self.bgPic2.frame;
-    frame2.origin.x = -frame2.size.width + 285;
-    self.bgPic2.frame = frame2;
-    
-    [UIView commitAnimations];
-    
-    
     [UIView beginAnimations:@"fadeIn" context:nil];
     [UIView setAnimationDuration:0.3];
     self.blackBG.alpha = 0.0f;
     [UIView commitAnimations];
     
-    
 }
 
 - (void) restartAnimation{
     
-    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 
 }
 
@@ -160,6 +110,8 @@
         [self.indexLabel setFrame:CGRectMake(225, 400, 60, 20)];
         
         [self.dataButton setFrame:CGRectMake(270, 23, 18, 19)];
+        
+        [self.bgAnimationView setFrame:CGRectMake(0, 0, 320, 480)];
     }
     
     
@@ -235,8 +187,6 @@
     
     [self.achDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:17]];
     
-    // start back ground animation
-    [self backgroundAnimation];
 }
 
 
@@ -245,9 +195,7 @@
     [self setNameTag:nil];
     [self setAchDisplay:nil];
     [self setAchLabel:nil];
-    [self setBgPic2:nil];
     [self setBlackBG:nil];
-    [self setBgPic:nil];
     [self setCardIsUnlocked:nil];
     [self setCardNameDisplay:nil];
     [self setCardsInformation:nil];
@@ -256,6 +204,7 @@
     [self setAchLabelBG:nil];
     [self setIndexLabel:nil];
     [self setDataButton:nil];
+    [self setBgAnimationView:nil];
     [super viewDidUnload];
 
 }
@@ -295,6 +244,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 }
 
 

@@ -12,14 +12,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eqp-JT-INC" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="5UM-af-ZCP" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="D8c-rV-mxV" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" id="Ip1-NU-bj5" userLabel="infoBG">
                                 <rect key="frame" x="-10" y="0.0" width="340" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -113,8 +110,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="28F-nw-gHe"/>
                     <connections>
-                        <outlet property="bgPic" destination="eqp-JT-INC" id="dGF-so-LAs"/>
-                        <outlet property="bgPic2" destination="5UM-af-ZCP" id="PMj-tI-8Dm"/>
+                        <outlet property="bgAnimationView" destination="D8c-rV-mxV" id="1JO-do-ZnV"/>
                         <outlet property="blackBG" destination="hE8-Xc-ljv" id="0v8-xV-2iH"/>
                         <outlet property="easyImg" destination="ONm-Gy-vag" id="Z6s-jC-YvL"/>
                         <outlet property="freeImg" destination="H24-N9-WHA" id="xeo-gO-Lrz"/>
@@ -144,18 +140,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eV5-c6-3VD" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="zDt-oZ-u6C" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KuK-SJ-mu5" userLabel="BG3">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="pol-10-0zd" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="Zyu-Ef-qFH" userLabel="logo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -168,7 +157,7 @@
                                     <outletCollection property="gestureRecognizers" destination="q3f-bD-0mg" appends="YES" id="OZQ-sH-ZQl"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="L48-Em-FrK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="L48-Em-FrK" userLabel="gameStartButton">
                                 <rect key="frame" x="20" y="255" width="60" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -184,7 +173,7 @@
                                     <action selector="gameStartButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="eG5-2O-91q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="JL3-RW-Ah8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="JL3-RW-Ah8" userLabel="achViewButton">
                                 <rect key="frame" x="92" y="290" width="60" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -200,7 +189,7 @@
                                     <action selector="achievementButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="zbJ-gh-ZCN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="Pkp-kK-rKN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="headTruncation" id="Pkp-kK-rKN" userLabel="instructionViewButton">
                                 <rect key="frame" x="167" y="255" width="60" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -216,7 +205,7 @@
                                     <action selector="instructionButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="5xb-e9-nNo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="G3F-by-pXG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="G3F-by-pXG" userLabel="infoViewButton">
                                 <rect key="frame" x="240" y="290" width="60" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -242,9 +231,7 @@
                     </view>
                     <connections>
                         <outlet property="achViewButton" destination="JL3-RW-Ah8" id="Bus-j5-Koz"/>
-                        <outlet property="bgPic" destination="eV5-c6-3VD" id="sLc-Yv-vI7"/>
-                        <outlet property="bgPic2" destination="zDt-oZ-u6C" id="MeZ-BV-no1"/>
-                        <outlet property="bgPic3" destination="KuK-SJ-mu5" id="gzk-WR-MHO"/>
+                        <outlet property="bgAnimationView" destination="pol-10-0zd" id="pkd-ie-vbY"/>
                         <outlet property="blackBG" destination="oby-zd-wah" id="g4Y-NJ-aWS"/>
                         <outlet property="gameStartButton" destination="L48-Em-FrK" id="bbE-ms-bMD"/>
                         <outlet property="informationButton" destination="G3F-by-pXG" id="26Z-72-KiU"/>
@@ -270,14 +257,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="lDW-NF-VZe" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KpF-MO-KrZ" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="34n-Ex-Frp" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Kb-ps-fpa" userLabel="ReturnButton">
                                 <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -371,8 +355,7 @@
                         <outlet property="achDisplay" destination="KQU-3u-n1m" id="0Jh-ib-U1q"/>
                         <outlet property="achLabel" destination="Pf7-w3-Bza" id="Hau-FU-P2W"/>
                         <outlet property="achLabelBG" destination="4un-qV-8aX" id="k7f-98-yzv"/>
-                        <outlet property="bgPic" destination="lDW-NF-VZe" id="Wig-H2-wbs"/>
-                        <outlet property="bgPic2" destination="KpF-MO-KrZ" id="cR4-mm-QWY"/>
+                        <outlet property="bgAnimationView" destination="34n-Ex-Frp" id="0s6-cj-a9s"/>
                         <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
                         <outlet property="cardNameDisplay" destination="1xE-fB-HId" id="Za4-kd-3Dy"/>
                         <outlet property="carousel" destination="Ydb-gn-SSJ" id="3jf-Tp-xKl"/>
@@ -395,14 +378,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="TuX-zU-VDf" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UtM-lo-3sB" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="Fsx-sG-kYA" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="UH3-Gp-LDu" userLabel="difChoice">
                                 <rect key="frame" x="40" y="15" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -501,8 +481,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MtB-Wu-tKy"/>
                     <connections>
-                        <outlet property="bgPic" destination="TuX-zU-VDf" id="1rs-Sa-jIu"/>
-                        <outlet property="bgPic2" destination="UtM-lo-3sB" id="Tsm-TF-swz"/>
+                        <outlet property="bgAnimationView" destination="Fsx-sG-kYA" id="7Rc-ud-AD3"/>
                         <outlet property="blackBG" destination="OdW-Cb-2p5" id="Tqq-oj-7Hj"/>
                         <outlet property="difChoice" destination="UH3-Gp-LDu" id="jI7-ex-fS4"/>
                         <outlet property="easyButton" destination="e0v-5L-7Hz" id="6rE-29-xS1"/>
@@ -941,14 +920,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="hT0-vu-nEY" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pAS-KS-YXx" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="JQO-I4-jZB" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" id="e3K-3M-sBC" userLabel="infoBG">
                                 <rect key="frame" x="-10" y="5" width="340" height="520"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1019,8 +995,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1vK-DM-5sr"/>
                     <connections>
-                        <outlet property="bgPic" destination="hT0-vu-nEY" id="SYL-br-zmh"/>
-                        <outlet property="bgPic2" destination="pAS-KS-YXx" id="2zi-3M-52l"/>
+                        <outlet property="bgAnimationView" destination="JQO-I4-jZB" id="UaR-SG-tPh"/>
                         <outlet property="blackBG" destination="DDK-5j-Pau" id="Z96-xn-tIs"/>
                         <outlet property="easyView" destination="z3T-qU-bly" id="UDb-sH-HTp"/>
                         <outlet property="freeView" destination="nqS-N2-BkI" id="7VW-7I-R4m"/>
@@ -1064,14 +1039,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="c7d-Jh-glo" userLabel="BG1">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Bp8-NU-xep" userLabel="BG2">
-                                <rect key="frame" x="0.0" y="0.0" width="1179" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="H4T-3q-2Nl" customClass="PalMountainAndCloudView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s3a-ST-F8Y" userLabel="ReturnButton">
                                 <rect key="frame" x="250" y="510" width="50" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1123,8 +1095,7 @@ V 1.1 --- 02/17/13
                     </view>
                     <navigationItem key="navigationItem" id="xZk-NC-2Ce"/>
                     <connections>
-                        <outlet property="bgPic" destination="c7d-Jh-glo" id="sER-33-dCd"/>
-                        <outlet property="bgPic2" destination="Bp8-NU-xep" id="Db3-hJ-FmS"/>
+                        <outlet property="bgAnimationView" destination="H4T-3q-2Nl" id="noU-1K-90J"/>
                         <outlet property="blackBG" destination="GNe-Gr-d3k" id="w1J-Qh-4RY"/>
                         <outlet property="infoBG" destination="N0Z-HZ-GyP" id="2dV-7c-j0i"/>
                         <outlet property="returnButton" destination="s3a-ST-F8Y" id="RcX-pO-7lT"/>
@@ -1175,161 +1146,6 @@ V 1.1 --- 02/17/13
     <resources>
         <image name="UIimages/文字框.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="PalAchievementViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalAchievementViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="achDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="achLabelBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
-                <relationship kind="outlet" name="dataButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="indexLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameTag" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PalDataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalDataViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="easyImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="freeImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="hardImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="normalImg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text1_2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text2_2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text3_2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text4_2" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="PalInformationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="PalInstructionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="easyView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="freeView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="hardView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="normalView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="text1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text3" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="text4" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="PalMainMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalMainMenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="gameStartButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="informationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="instructionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="soundSwitch" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PalModeMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bgPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bgPic2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="difChoice" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="easyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="freeStyleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="normalButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="Card1" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card10" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card11" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card12" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card2" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card3" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card4" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card5" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card6" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card7" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card8" candidateClass="UIView"/>
-                <relationship kind="outlet" name="Card9" candidateClass="UIView"/>
-                <relationship kind="outlet" name="DefaultView1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView10" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView11" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView12" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView6" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView7" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView8" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="DefaultView9" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="Display" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="MainGameBG" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView10" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView11" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView12" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView6" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView7" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView8" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="PalCardView9" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="TextDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gameProgress" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="hintView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="iCarousel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

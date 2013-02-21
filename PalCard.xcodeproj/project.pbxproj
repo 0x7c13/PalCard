@@ -57,6 +57,7 @@
 		F7F7003316B7211D00876181 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003216B7211D00876181 /* Default@2x.png */; };
 		F7F7003516B7211D00876181 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7F7003416B7211D00876181 /* Default-568h@2x.png */; };
 		F7F7003B16B7211D00876181 /* PalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F7003A16B7211D00876181 /* PalViewController.m */; };
+		F7F9284F16D5C308007ABB10 /* PalMountainAndCloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,8 @@
 		F7F7003416B7211D00876181 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F7F7003916B7211D00876181 /* PalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PalViewController.h; sourceTree = "<group>"; };
 		F7F7003A16B7211D00876181 /* PalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PalViewController.m; sourceTree = "<group>"; };
+		F7F9284D16D5C308007ABB10 /* PalMountainAndCloudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PalMountainAndCloudView.h; sourceTree = "<group>"; };
+		F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PalMountainAndCloudView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,8 +255,10 @@
 				F7A3C03E16C1CAE000D42AAF /* PalInstructionViewController.m */,
 				F71F39D616C0B13B00F39979 /* PalAchievementBrain.h */,
 				F71F39D716C0B13C00F39979 /* PalAchievementBrain.m */,
-				F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */,
 				F71F399D16BE5E3600F39979 /* PalAchievementViewController.h */,
+				F71F399E16BE5E3600F39979 /* PalAchievementViewController.m */,
+				F7F9284D16D5C308007ABB10 /* PalMountainAndCloudView.h */,
+				F7F9284E16D5C308007ABB10 /* PalMountainAndCloudView.m */,
 				F7F7002D16B7211D00876181 /* PalAppDelegate.h */,
 				F7F7002E16B7211D00876181 /* PalAppDelegate.m */,
 				F71F39B816BF1F4300F39979 /* iPhoneStoryboard.storyboard */,
@@ -407,6 +412,7 @@
 				F70F929116CF523D00151527 /* ASMediaFocusController.m in Sources */,
 				F70F929316CF523D00151527 /* ASMediaFocusManager.m in Sources */,
 				F70F92A216D0527D00151527 /* PalDataViewController.m in Sources */,
+				F7F9284F16D5C308007ABB10 /* PalMountainAndCloudView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

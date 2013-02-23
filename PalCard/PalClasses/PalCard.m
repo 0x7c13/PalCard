@@ -10,9 +10,7 @@
 
 #define DefaultImg @"palsource/888.png"
 
-@interface PalCard () {
-    bool _initialized;
-}
+@interface PalCard ()
 
 @property (nonatomic, copy) NSString *cardImagePath;
 @property (nonatomic, strong) UIImageView *defaultView;
@@ -27,6 +25,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _isVisiable = NO;
+        _isAnimating = NO;
+        _isBlackCard = NO;
+        _isDisappear = NO;
         [self cardSetup];
     }
     return self;
@@ -37,8 +39,10 @@
     _isVisiable = NO;
     _isAnimating = NO;
     _isBlackCard = NO;
+    _isDisappear = NO;
     
-    if(!_initialized) {
+    if (self.subviews.count == 0) {
+        
         _defaultView = [[UIImageView alloc] initWithFrame:self.bounds];
         self.defaultView.image = [UIImage imageNamed:DefaultImg];
         [self addShadow:self.defaultView];
@@ -51,8 +55,7 @@
         [self addSubview:self.defaultView];
         _cardImagePath = nil;
     }
-    
-    _initialized = YES;
+
 }
 
 - (void)addShadow: (UIImageView *)view
@@ -95,7 +98,7 @@
         [UIView commitAnimations];
 
     }
-    else {
+    else if(self.isVisiable) {
         
         self.isVisiable = NO;
         self.isAnimating = YES;
@@ -108,5 +111,67 @@
     }
 
 }
+
+- (void) disappearWithDuration:(NSTimeInterval)animationTime
+{
+    if(self.isVisiable && !_isDisappear) {
+        
+         self.isAnimating = YES;
+         _isDisappear = YES;
+        
+        [self.defaultView removeFromSuperview];
+        
+        [UIView animateWithDuration:animationTime
+                              delay: 0.0
+                            options: UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             self.cardView.alpha = 0.0;
+                         }
+                         completion:^(BOOL finished){
+                             [self.cardView removeFromSuperview];
+                             self.isAnimating = NO;
+                         }];
+    }
+}
+
+- (void) shakeWithDuration:(NSTimeInterval)animationTime
+{
+    CGFloat t = 2.0;
+    
+    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
+    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
+    
+    self.transform = leftQuake;  // starting point
+    
+    [UIView beginAnimations:@"earthquake" context:nil];
+    [UIView setAnimationRepeatAutoreverses:YES];    // important
+    [UIView setAnimationRepeatCount:5];
+    [UIView setAnimationDuration:animationTime];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+    
+    self.transform = rightQuake;    // end here & auto-reverse
+    
+    [UIView commitAnimations];
+}
+
+
+- (void) moveTo:(CGRect)position withDuration:(NSTimeInterval)animationTime
+{
+
+    self.isAnimating = YES;
+        
+    [UIView animateWithDuration:animationTime
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveLinear
+                     animations:^{
+                            self.frame = position;
+                    }
+                    completion:^(BOOL finished){
+                        self.isAnimating = NO;
+    }];
+
+}
+
 
 @end

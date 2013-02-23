@@ -15,14 +15,26 @@
 @property (nonatomic) bool isVisiable;
 @property (nonatomic) bool isAnimating;
 @property (nonatomic) bool isBlackCard;
+@property (nonatomic) bool isDisappear;
+@property (nonatomic) int cardNumber;
+@property (nonatomic) CGRect originFrame;
 
 - (NSString *) cardName;
 
 // set image
 - (void) setImageWithPath: (NSString *)imagePath;
 
-// do flip animation 
+// flip animation 
 - (void) flipWithDuration: (NSTimeInterval) animationTime;
 
+// disappear animation
+- (void) disappearWithDuration: (NSTimeInterval) animationTime;
+
+// shake animation
+- (void) shakeWithDuration: (NSTimeInterval) animationTime;
+
+// move animation
+- (void) moveTo: (CGRect) position
+   withDuration: (NSTimeInterval) animationTime;
 
 @end

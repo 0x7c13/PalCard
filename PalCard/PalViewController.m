@@ -82,9 +82,6 @@
 @property (weak, nonatomic) PalCard *LastCard;
 @property (weak, nonatomic) PalCard *CurrentCard;
 
-// right card animation tmp views
-@property (weak, nonatomic) PalCard *fCard;
-@property (weak, nonatomic) PalCard *sCard;
 
 @property (strong, nonatomic) NSArray *palCards;
 
@@ -254,6 +251,8 @@
         if ([[cardGenerator lastIsBlack] isEqualToString:@"YES"]) {
             tmp.isBlackCard = YES;
         }
+        tmp.cardNumber = i;
+        tmp.originFrame = tmp.frame;
     }
     
     
@@ -320,14 +319,14 @@
 
 - (void)prepare:(NSTimer *) timer
 {
-    [self cardsVisiable];
+    [self cardsVisiableWithDuration:_ANITIME_LONG];
     self.TextDisplay.text = @"请记忆卡牌位置";
 }
 
 - (void)prepareDone:(NSTimer *) timer
 {
 
-    [self cardsInvisiable]; // 翻回所有卡牌
+    [self cardsInvisiableWithDuration:_ANITIME_LONG]; // 翻回所有卡牌
     
     [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(startTimer:) userInfo:nil repeats: NO];
     
@@ -488,11 +487,14 @@
         
         _rights ++;
         _numberOfFinishedCards += 2;
-            
-        self.fCard = self.CurrentCard;
-        self.sCard = self.LastCard;
-            
-        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:nil repeats: NO];
+        
+        NSMutableDictionary *myDictionary = [[NSMutableDictionary alloc] init];
+        [myDictionary setObject:self.CurrentCard forKey:@"fCard"];
+        [myDictionary setObject:self.LastCard forKey:@"sCard"];
+        
+        [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(rightCardAnimation:) userInfo:myDictionary repeats: NO];
+        
+        myDictionary = nil;
             
         if (_numberOfFinishedCards == _AMOUNT_OF_CARDS - _numberOfBlackCards) {
             [self win];
@@ -509,7 +511,7 @@
     
     PalCard *card = self.palCards[index - 1];
     
-    if (!card.isAnimating && !card.isVisiable && !_wrongAnimating && !_gameOver && _gameStarted) {
+    if (!card.isAnimating && !card.isVisiable && !card.isDisappear && !_wrongAnimating && !_gameOver && _gameStarted) {
         
         _flag ++;
         
@@ -541,105 +543,86 @@
 #pragma mark cards animation
 
 
-- (void)cardsVisiable
+- (void)cardsVisiableWithDuration: (NSTimeInterval) animationTime
 {
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
         
-        PalCard *tmp;
-        tmp = [self.palCards objectAtIndex:i];
+        PalCard *tmp = [self.palCards objectAtIndex:i];
         if(!tmp.isVisiable) {
-            [tmp flipWithDuration:_ANITIME_LONG];
+            [tmp flipWithDuration:animationTime];
         }
     }
 }
 
-- (void)cardsInvisiable
+- (void)cardsInvisiableWithDuration: (NSTimeInterval) animationTime
 {
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
         
-        PalCard *tmp;
-        tmp = [self.palCards objectAtIndex:i];
+        PalCard *tmp = [self.palCards objectAtIndex:i];
         if(tmp.isVisiable) {
-            [tmp flipWithDuration:_ANITIME_LONG];
+            [tmp flipWithDuration:animationTime];
         }
     }
 }
 
+- (void)cardsMoveToOrigin
+{
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
+        
+        PalCard *tmp = [self.palCards objectAtIndex:i];
+        tmp.frame = tmp.originFrame;
+    }
+}
 
-/*
- -(UIImage*)getGrayImage:(UIImage*)sourceImage
- {
- int width = sourceImage.size.width;
- int height = sourceImage.size.height;
- 
- CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
- CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);
- CGColorSpaceRelease(colorSpace);
- 
- if (context == NULL) {
- return nil;
- }
- 
- CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
- UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
- CGContextRelease(context);
- 
- return grayImage;
- }
- 
- 
- 
- - (void)addBlackCard
- {
- int blackCard= arc4random() % _AMOUNT_OF_CARDS;
- 
- while (_isBlackCard[blackCard + 1]) blackCard = arc4random() % _AMOUNT_OF_CARDS;
- 
- UIImageView *first = [self.cardViews objectAtIndex:blackCard];
- UIImageView *second;
- 
- _isBlackCard[blackCard + 1] = YES;
- 
- for (int i = 0; i < _AMOUNT_OF_CARDS; i++) {
- 
- second = [self.cardViews objectAtIndex:i];
- 
- if (first.image == second.image && blackCard != i) {
- 
- _isBlackCard[i + 1] = YES;
- break;
- }
- }
- 
- first.image = [self getGrayImage:first.image];
- second.image = [self getGrayImage:second.image];
- 
- }
- 
- */
+
 
 - (void)rightCardAnimation: (NSTimer *) timer
 {
-    CGFloat t = 2.0;
+    PalCard *fCard = [[timer userInfo] objectForKey:@"fCard"];
+    PalCard *sCard = [[timer userInfo] objectForKey:@"sCard"];
     
-    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t,-t);
-    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity,-t, t);
+    if (fCard.cardNumber > sCard.cardNumber) {
+        PalCard *tmp = fCard;
+        fCard = sCard;
+        sCard = tmp;
+    }
     
-    self.fCard.transform = leftQuake;  // starting point
-    self.sCard.transform = leftQuake;
+    if (![self.mode isEqualToString:@"hard"]) {
+        
+        [fCard shakeWithDuration:0.07f];
+        [sCard shakeWithDuration:0.07f];
+    }
+    else {
+            int lastNumber = fCard.cardNumber;
+            CGRect lastFrame = fCard.frame;
     
-    [UIView beginAnimations:@"earthquake" context:nil];
-    [UIView setAnimationRepeatAutoreverses:YES];    // important
-    [UIView setAnimationRepeatCount:5];
-    [UIView setAnimationDuration:0.07];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+            while (lastNumber >= 3) {
+                lastNumber -= 3;
+                PalCard *tmp = self.palCards[lastNumber];
+                if (!tmp.isDisappear) {
+                    CGRect tmpFrame = tmp.frame;
+                    [tmp moveTo:lastFrame withDuration:_ANITIME_SHORT];
+                    lastFrame = tmpFrame;
+                    tmp.cardNumber = lastNumber;
+                }
+            }
+            [fCard disappearWithDuration:_ANITIME_SHORT];
     
-    self.fCard.transform = rightQuake;    // end here & auto-reverse
-    self.sCard.transform = rightQuake;
-    
-    [UIView commitAnimations];
-    
+            lastNumber = sCard.cardNumber;
+            lastFrame = sCard.frame;
+            while (lastNumber >= 3) {
+                lastNumber -= 3;
+                PalCard *tmp = self.palCards[lastNumber];
+                if (!tmp.isDisappear) {
+                    CGRect tmpFrame = tmp.frame;
+                    [tmp moveTo:lastFrame withDuration:_ANITIME_SHORT];
+                    lastFrame = tmpFrame;
+                    tmp.cardNumber = lastNumber;
+                }
+
+            }
+            [sCard disappearWithDuration:_ANITIME_SHORT];
+    }
 }
 
 
@@ -664,7 +647,13 @@
 {
     if(buttonIndex == 0) {
         
-        [self cardsInvisiable];
+        if([self.mode isEqualToString:@"hard"]) {
+            [self cardsMoveToOrigin];
+            [self cardsInvisiableWithDuration:0.0];
+        }
+        else {
+            [self cardsInvisiableWithDuration:_ANITIME_LONG];
+        }
         
         self.hintView.image = [UIImage imageNamed:_HintPrepareIMG];
         self.hintView.alpha = 0.0;
@@ -681,7 +670,7 @@
         [NSTimer scheduledTimerWithTimeInterval: _ANITIME_LONG target:self selector:@selector(nextRound:) userInfo:nil repeats: NO];
     }
     else {
-        _gameOver = 1;
+        _gameOver = YES;
         
         if (!_soundOff) {
             
@@ -702,7 +691,7 @@
 
 
 - (IBAction)Card1Pressed:(UITapGestureRecognizer *)sender {
-    
+
     [self processWithCardNumber:1];
 }
 
@@ -777,9 +766,7 @@
     [self setCard10:nil];
     [self setCard11:nil];
     [self setCard12:nil];
-    
-    [self setSCard:nil];
-    [self setFCard:nil];
+
     [self setLastCard:nil];
     [self setCurrentCard:nil];
     

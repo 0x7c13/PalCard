@@ -30,6 +30,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setup];
     }
     return self;
 }
@@ -76,7 +77,7 @@
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
+    [UIView setAnimationRepeatCount:99999];
 
     frame = self.mountainView.frame;
     frame.origin.x = - frame.size.width + 320;
@@ -97,7 +98,7 @@
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
+    [UIView setAnimationRepeatCount:99999];
     
     frame = self.backCloudView.frame;
     frame.origin.x = -frame.size.width + 320;
@@ -119,7 +120,7 @@
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:9999];
+    [UIView setAnimationRepeatCount:99999];
     
     frame = self.frontCloudView.frame;
     frame.origin.x = -frame.size.width + 320;

@@ -27,7 +27,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //
+        [self cardSetup];
     }
     return self;
 }

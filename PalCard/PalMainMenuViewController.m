@@ -192,7 +192,7 @@
     
     [self.informationButton setBackgroundImage:[UIImage imageNamed:_InformationButtonPressedImg] forState:UIControlStateHighlighted];
     
-
+    [self.bgAnimationView setup];
 }
 
 
@@ -230,7 +230,7 @@
     if (!_soundOff) {
         [MCSoundBoard playSoundForKey:@"button"];
     }
-    PalInstructionViewController *insVC = [self.storyboard instantiateViewControllerWithIdentifier:@"instructionSegue"];
+    PalInstructionViewController *insVC = [self.storyboard instantiateViewControllerWithIdentifier:@"insSegue"];
     
     [self presentViewController:insVC animated:NO completion:nil];
 
@@ -241,7 +241,7 @@
     if (!_soundOff) {
         [MCSoundBoard playSoundForKey:@"button"];
     }
-    PalInformationViewController *infoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"informationSegue"];
+    PalInformationViewController *infoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"infoSegue"];
     
     [self presentViewController:infoVC animated:NO completion:nil];
 

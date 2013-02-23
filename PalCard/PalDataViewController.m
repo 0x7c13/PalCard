@@ -45,7 +45,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 
-@property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @end
@@ -62,23 +61,8 @@
 }
 
 
-
-- (void)backgroundAnimation
-{
-    // Background  animation
-    
-    self.blackBG.alpha = 1.0;
-    [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.blackBG.alpha = 0.0f;
-    [UIView commitAnimations];
-    
-    
-}
-
 - (void)viewDidAppear:(BOOL)animated
-{
-    [self backgroundAnimation];
+{ 
     [self.bgAnimationView startAnimation];
 }
 
@@ -187,6 +171,7 @@
 	// Do any additional setup after loading the view.
     
     [self showData];
+    [self.bgAnimationView setup];
 }
 
 
@@ -245,7 +230,6 @@
     [self setText4:nil];
     [self setInfoBG:nil];
     [self setReturnButton:nil];
-    [self setBlackBG:nil];
     [self setText1_2:nil];
     [self setText2_2:nil];
     [self setText3_2:nil];
@@ -260,7 +244,7 @@
     if (!_soundOff) {
         [MCSoundBoard playSoundForKey:@"button"];
     }
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 @end

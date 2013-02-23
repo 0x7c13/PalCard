@@ -59,7 +59,6 @@
 
 - (void) startAnimation
 {
-    [self setup];
     [self startMountainAnimation];
     [self startBackCloudAnimation];
     [self startFrontCloudAnimation];
@@ -69,7 +68,7 @@
 {
     
     CGRect frame = self.mountainView.frame;
-    frame.origin.x = 0;
+    frame.origin.x = self.mountainView.frame.origin.x;
     self.mountainView.frame = frame;
     
     [UIView beginAnimations:@"mountainAnimation" context:NULL];
@@ -90,7 +89,7 @@
 {
     
     CGRect frame = self.backCloudView.frame;
-    frame.origin.x = 0;
+    frame.origin.x = self.backCloudView.frame.origin.x;
     self.backCloudView.frame = frame;
     
     [UIView beginAnimations:@"backCloudAnimation" context:NULL];
@@ -112,7 +111,7 @@
     
     
     CGRect frame = self.frontCloudView.frame;
-    frame.origin.x = 0;
+    frame.origin.x = self.frontCloudView.frame.origin.x;
     self.frontCloudView.frame = frame;
     
     [UIView beginAnimations:@"frontCloudAnimation" context:NULL];

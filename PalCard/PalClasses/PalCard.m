@@ -114,10 +114,10 @@
 
 - (void) disappearWithDuration:(NSTimeInterval)animationTime
 {
-    if(self.isVisiable && !_isDisappear) {
+    if(!self.isDisappear) {
         
          self.isAnimating = YES;
-         _isDisappear = YES;
+         self.isDisappear = YES;
         
         [self.defaultView removeFromSuperview];
         

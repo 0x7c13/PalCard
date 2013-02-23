@@ -31,6 +31,7 @@
 #define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 @interface PalModeMenuViewController (){
+    bool _gameStarted;
     bool _soundOff;
 }
 
@@ -90,7 +91,7 @@
     
 	[super viewWillDisappear:animated];
     
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 
@@ -105,8 +106,14 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self backgroundAnimation];
-    [self.bgAnimationView startAnimation];
+    if(_gameStarted) {
+        [self.bgAnimationView startAnimation];
+        _gameStarted = NO;
+    }
+    else {
+        [self backgroundAnimation];
+        [self.bgAnimationView startAnimation];
+    }
 }
 
 
@@ -181,6 +188,8 @@
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
     }
     
+    [self.bgAnimationView setup];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,7 +209,9 @@
     PalViewController *palVC = segue.destinationViewController;
     palVC.mode = self.mode;
     
-    //[self.navigationController presentViewController:palVC animated:NO completion:nil];
+    palVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    _gameStarted = YES;
     
 }
 

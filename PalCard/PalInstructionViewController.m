@@ -83,9 +83,7 @@
     // restart animation when game enter to foreground
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+ 
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
@@ -104,8 +102,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     
 	[super viewWillDisappear:animated];
-   
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
     
 }
 
@@ -173,7 +169,8 @@
             [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
         }
     }
-
+    
+    [self.bgAnimationView setup];
     
 }
 
@@ -205,7 +202,7 @@
     if (!_soundOff) {
         [MCSoundBoard playSoundForKey:@"button"];
     }
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 

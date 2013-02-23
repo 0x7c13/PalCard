@@ -100,13 +100,11 @@
 	[super viewWillAppear:animated];
     
     // hide navigation bar
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
     
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -543,7 +541,7 @@
 #pragma mark cards animation
 
 
-- (void)cardsVisiableWithDuration: (NSTimeInterval) animationTime
+- (void) cardsVisiableWithDuration: (NSTimeInterval) animationTime
 {
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
         
@@ -554,7 +552,7 @@
     }
 }
 
-- (void)cardsInvisiableWithDuration: (NSTimeInterval) animationTime
+- (void) cardsInvisiableWithDuration: (NSTimeInterval) animationTime
 {
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
         
@@ -565,7 +563,19 @@
     }
 }
 
-- (void)cardsMoveToOrigin
+- (void) cardsDisappear
+{
+    for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
+        
+        PalCard *tmp = [self.palCards objectAtIndex:i];
+        if(!tmp.isDisappear) {
+            [tmp disappearWithDuration:0.0];
+        }
+    }
+
+}
+
+- (void) cardsMoveToOrigin
 {
     for (int i = 0; i < _AMOUNT_OF_CARDS; i++){
         
@@ -648,8 +658,8 @@
     if(buttonIndex == 0) {
         
         if([self.mode isEqualToString:@"hard"]) {
+            [self cardsDisappear];
             [self cardsMoveToOrigin];
-            [self cardsInvisiableWithDuration:0.0];
         }
         else {
             [self cardsInvisiableWithDuration:_ANITIME_LONG];
@@ -685,7 +695,7 @@
         }
         
         
-        [self.navigationController popViewControllerAnimated:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

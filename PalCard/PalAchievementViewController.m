@@ -31,6 +31,7 @@
 
 
 @interface PalAchievementViewController (){
+    bool _dataButtonPressed;
     bool _soundOff;
     int _amountOfUnlockedCards;
 }
@@ -187,27 +188,10 @@
     
     [self.achDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:17]];
     
+    [self.bgAnimationView setup];
 }
 
 
-- (void)viewDidUnload
-{
-    [self setNameTag:nil];
-    [self setAchDisplay:nil];
-    [self setAchLabel:nil];
-    [self setBlackBG:nil];
-    [self setCardIsUnlocked:nil];
-    [self setCardNameDisplay:nil];
-    [self setCardsInformation:nil];
-    [self setCardViews:nil];
-    [self setCarousel:nil];
-    [self setAchLabelBG:nil];
-    [self setIndexLabel:nil];
-    [self setDataButton:nil];
-    [self setBgAnimationView:nil];
-    [super viewDidUnload];
-
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -231,7 +215,7 @@
     
 	[super viewWillDisappear:animated];
     
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 
@@ -243,16 +227,24 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self backgroundAnimation];
-    [self.bgAnimationView startAnimation];
+    if (_dataButtonPressed) {
+        [self.bgAnimationView startAnimation];
+        _dataButtonPressed = NO;
+    }
+    else {
+        [self backgroundAnimation];
+        [self.bgAnimationView startAnimation];
+    }
 }
 
 
 - (IBAction)dataButtonPressed:(UIButton *)sender {
     
-    PalDataViewController *dataVC = [self.storyboard instantiateViewControllerWithIdentifier:@"dataRoot"];
+    _dataButtonPressed = YES;
+    PalDataViewController *dataVC = [self.storyboard instantiateViewControllerWithIdentifier:@"dataSegue"];
     
-    [self presentViewController:dataVC animated:NO completion:nil];
+    dataVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:dataVC animated:YES completion:nil];
 }
 
 
@@ -443,6 +435,24 @@
 
 
 
+- (void)viewDidUnload
+{
+    [self setNameTag:nil];
+    [self setAchDisplay:nil];
+    [self setAchLabel:nil];
+    [self setBlackBG:nil];
+    [self setCardIsUnlocked:nil];
+    [self setCardNameDisplay:nil];
+    [self setCardsInformation:nil];
+    [self setCardViews:nil];
+    [self setCarousel:nil];
+    [self setAchLabelBG:nil];
+    [self setIndexLabel:nil];
+    [self setDataButton:nil];
+    [self setBgAnimationView:nil];
+    [super viewDidUnload];
+    
+}
 
 
 @end

@@ -10,7 +10,7 @@
 
 @interface PalMountainAndCloudView : UIView
 
-
+- (void)setup;
 - (void)startAnimation;
 
 @end

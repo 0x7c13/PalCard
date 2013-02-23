@@ -94,10 +94,15 @@
     // register for later use:
     // restart animation when game enter to foreground
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    [self backgroundAnimation];
+    [self.bgAnimationView setup];
+    [self.bgAnimationView startAnimation];
 }
 
 - (void) restartAnimation{
-    
+
+    [self.bgAnimationView setup];
     [self.bgAnimationView startAnimation];
     //NSLog(@"trigger event when will enter foreground.");
 }
@@ -108,12 +113,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self backgroundAnimation];
-    [self.bgAnimationView startAnimation];
 
-}   
 
 - (void)viewDidLoad
 {

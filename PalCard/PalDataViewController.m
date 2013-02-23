@@ -61,10 +61,6 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{ 
-    [self.bgAnimationView startAnimation];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -78,6 +74,7 @@
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
     
+
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
@@ -89,6 +86,7 @@
 
 - (void) restartAnimation{
     
+    [self.bgAnimationView setup];
     [self.bgAnimationView startAnimation];
     
 }
@@ -101,6 +99,10 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.bgAnimationView startAnimation];
+}
 
 
 - (void)viewDidLoad

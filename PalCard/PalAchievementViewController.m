@@ -79,6 +79,7 @@
 
 - (void) restartAnimation{
     
+    [self.bgAnimationView setup];
     [self.bgAnimationView startAnimation];
 
 }
@@ -209,6 +210,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -225,17 +227,21 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+
+- (void) viewDidAppear:(BOOL)animated
 {
     if (_dataButtonPressed) {
+        [self.bgAnimationView setup];
         [self.bgAnimationView startAnimation];
         _dataButtonPressed = NO;
     }
     else {
         [self backgroundAnimation];
+        [self.bgAnimationView setup];
         [self.bgAnimationView startAnimation];
     }
 }
+
 
 
 - (IBAction)dataButtonPressed:(UIButton *)sender {

@@ -67,12 +67,6 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [self backgroundAnimation];
-    [self.bgAnimationView startAnimation];
-    
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -84,6 +78,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
  
+    [self backgroundAnimation];
+    [self.bgAnimationView startAnimation];
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
@@ -95,6 +91,7 @@
 
 - (void) restartAnimation{
     
+    [self.bgAnimationView setup];
     [self.bgAnimationView startAnimation];
     
 }

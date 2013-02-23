@@ -12,9 +12,7 @@
 #define CloudImg_1 @"UIimages/cloud-front.png"
 #define CloudImg_2 @"UIimages/cloud-back.png"
 
-@interface PalMountainAndCloudView () {
-    bool _initialized;
-}
+@interface PalMountainAndCloudView () 
 
 @property (nonatomic, strong) UIImageView *mountainView;
 @property (nonatomic, strong) UIImageView *backCloudView;
@@ -37,24 +35,26 @@
 
 - (void) setup
 {
-    if(!_initialized) {
-        
-        _mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1178, self.bounds.size.height)];
-        self.mountainView.image = [UIImage imageNamed:MountainImg];
-        
-        _backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
-        self.backCloudView.image = [UIImage imageNamed:CloudImg_1];
-        self.backCloudView.alpha = 0.8;
-        
-        _frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
-        self.frontCloudView.image = [UIImage imageNamed:CloudImg_2];
-        
-        [self addSubview:self.mountainView];
-        [self addSubview:self.backCloudView];
-        [self addSubview:self.frontCloudView];
+    if (self.subviews.count == 3) {
+        [self.mountainView removeFromSuperview];
+        [self.backCloudView removeFromSuperview];
+        [self.frontCloudView removeFromSuperview];
     }
-    _initialized = YES;
-
+    
+    _mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1178, self.bounds.size.height)];
+    self.mountainView.image = [UIImage imageNamed:MountainImg];
+        
+    _backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+    self.backCloudView.image = [UIImage imageNamed:CloudImg_1];
+    self.backCloudView.alpha = 0.8;
+        
+    _frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+    self.frontCloudView.image = [UIImage imageNamed:CloudImg_2];
+        
+    [self addSubview:self.mountainView];
+    [self addSubview:self.backCloudView];
+    [self addSubview:self.frontCloudView];
+    
 }
 
 - (void) startAnimation

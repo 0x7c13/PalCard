@@ -65,7 +65,7 @@
 }
 
 - (void) restartAnimation{
-    
+    [self.bgAnimationView setup];
     [self.bgAnimationView startAnimation];
 
 }
@@ -79,6 +79,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    if(_gameStarted) {
+        
+        [self.bgAnimationView setup];
+        [self.bgAnimationView startAnimation];
+        _gameStarted = NO;
+    }
+    else {
+        [self backgroundAnimation];
+        [self.bgAnimationView setup];
+        [self.bgAnimationView startAnimation];
+    }
 }
 
 -(void) viewDidDisappear:(BOOL)animated{
@@ -104,17 +116,6 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    if(_gameStarted) {
-        [self.bgAnimationView startAnimation];
-        _gameStarted = NO;
-    }
-    else {
-        [self backgroundAnimation];
-        [self.bgAnimationView startAnimation];
-    }
-}
 
 
 

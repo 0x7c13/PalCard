@@ -211,6 +211,8 @@
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    [self.bgAnimationView setup];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -231,13 +233,11 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     if (_dataButtonPressed) {
-        [self.bgAnimationView setup];
         [self.bgAnimationView startAnimation];
         _dataButtonPressed = NO;
     }
     else {
         [self backgroundAnimation];
-        [self.bgAnimationView setup];
         [self.bgAnimationView startAnimation];
     }
 }

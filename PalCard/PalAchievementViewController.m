@@ -36,7 +36,7 @@
     int _amountOfUnlockedCards;
 }
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;

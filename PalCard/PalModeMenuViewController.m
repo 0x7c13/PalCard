@@ -37,7 +37,7 @@
 
 @property (copy, nonatomic) NSString *mode;
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIButton *easyButton;
 @property (strong, nonatomic) IBOutlet UIButton *normalButton;

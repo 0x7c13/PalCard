@@ -56,7 +56,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *informationButton;
 
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoPic;
 

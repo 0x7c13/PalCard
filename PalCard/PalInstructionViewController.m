@@ -34,7 +34,7 @@
 }
 
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;

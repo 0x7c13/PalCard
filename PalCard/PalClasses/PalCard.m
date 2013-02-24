@@ -25,10 +25,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _isVisiable = NO;
-        _isAnimating = NO;
-        _isBlackCard = NO;
-        _isDisappear = NO;
         [self cardSetup];
     }
     return self;
@@ -92,8 +88,12 @@
         self.isAnimating = YES;
         
         self.cardView.alpha = 1.0f;
-        [UIView transitionFromView:self.defaultView toView:self.cardView duration:animationTime options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
-                self.isAnimating = NO;
+        [UIView transitionFromView:self.defaultView
+                            toView:self.cardView
+                          duration:animationTime
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        completion:^(BOOL finished){
+                                self.isAnimating = NO;
         }];
         [UIView commitAnimations];
 
@@ -103,8 +103,12 @@
         self.isVisiable = NO;
         self.isAnimating = YES;
         
-        [UIView transitionFromView:self.cardView toView:self.defaultView duration:animationTime options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished){
-                self.isAnimating = NO;
+        [UIView transitionFromView:self.cardView
+                            toView:self.defaultView
+                          duration:animationTime
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        completion:^(BOOL finished){
+                                self.isAnimating = NO;
         }];
         [UIView commitAnimations];
         self.cardView.alpha = 0.0f;
@@ -126,6 +130,7 @@
                             options: UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              self.cardView.alpha = 0.0;
+                             self.cardView.transform = CGAffineTransformMakeScale(0.0f, 0.0f);
                          }
                          completion:^(BOOL finished){
                              [self.cardView removeFromSuperview];
@@ -148,7 +153,7 @@
     [UIView setAnimationRepeatCount:5];
     [UIView setAnimationDuration:animationTime];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
+    //[UIView setAnimationDidStopSelector:@selector(earthquakeEnded:finished:context:)];
     
     self.transform = rightQuake;    // end here & auto-reverse
     

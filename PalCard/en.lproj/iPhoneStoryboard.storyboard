@@ -214,18 +214,12 @@
                                     <action selector="informationButtonPressed:" destination="SWO-lb-cUf" eventType="touchUpInside" id="yyu-h0-GRL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oby-zd-wah" userLabel="blackBG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="achViewButton" destination="JL3-RW-Ah8" id="Bus-j5-Koz"/>
                         <outlet property="bgAnimationView" destination="pol-10-0zd" id="pkd-ie-vbY"/>
-                        <outlet property="blackBG" destination="oby-zd-wah" id="g4Y-NJ-aWS"/>
                         <outlet property="gameStartButton" destination="L48-Em-FrK" id="bbE-ms-bMD"/>
                         <outlet property="informationButton" destination="G3F-by-pXG" id="26Z-72-KiU"/>
                         <outlet property="instructionButton" destination="Pkp-kK-rKN" id="RiV-vC-66M"/>
@@ -335,11 +329,6 @@
                                     <action selector="dataButtonPressed:" destination="aog-W9-chg" eventType="touchUpInside" id="KsN-sR-xe6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="crw-uK-Nnh" userLabel="blackBG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -349,7 +338,6 @@
                         <outlet property="achLabel" destination="Pf7-w3-Bza" id="Hau-FU-P2W"/>
                         <outlet property="achLabelBG" destination="4un-qV-8aX" id="k7f-98-yzv"/>
                         <outlet property="bgAnimationView" destination="34n-Ex-Frp" id="0s6-cj-a9s"/>
-                        <outlet property="blackBG" destination="crw-uK-Nnh" id="J9t-aj-0Tf"/>
                         <outlet property="cardNameDisplay" destination="1xE-fB-HId" id="Za4-kd-3Dy"/>
                         <outlet property="carousel" destination="Ydb-gn-SSJ" id="3jf-Tp-xKl"/>
                         <outlet property="dataButton" destination="r1Q-73-LvQ" id="Ipn-Pk-XMl"/>
@@ -464,18 +452,12 @@
                                     <action selector="returnButtonPressed:" destination="bwh-ww-fUJ" eventType="touchUpInside" id="htA-F3-ufK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="OdW-Cb-2p5" userLabel="blackBG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MtB-Wu-tKy"/>
                     <connections>
                         <outlet property="bgAnimationView" destination="Fsx-sG-kYA" id="7Rc-ud-AD3"/>
-                        <outlet property="blackBG" destination="OdW-Cb-2p5" id="Tqq-oj-7Hj"/>
                         <outlet property="difChoice" destination="UH3-Gp-LDu" id="jI7-ex-fS4"/>
                         <outlet property="easyButton" destination="e0v-5L-7Hz" id="6rE-29-xS1"/>
                         <outlet property="freeStyleButton" destination="FZj-ht-IRd" id="KZI-dK-XxI"/>
@@ -822,17 +804,11 @@
                                     <action selector="returnButtonPressed:" destination="AJ5-5R-ohp" eventType="touchUpInside" id="4zo-vc-gxi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="DDK-5j-Pau" userLabel="blackBG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="bgAnimationView" destination="JQO-I4-jZB" id="UaR-SG-tPh"/>
-                        <outlet property="blackBG" destination="DDK-5j-Pau" id="Z96-xn-tIs"/>
                         <outlet property="easyView" destination="z3T-qU-bly" id="UDb-sH-HTp"/>
                         <outlet property="freeView" destination="nqS-N2-BkI" id="7VW-7I-R4m"/>
                         <outlet property="hardView" destination="8fc-dh-hqh" id="nVG-Ca-o5V"/>
@@ -903,17 +879,11 @@ V 1.1 --- 02/17/13
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GNe-Gr-d3k" userLabel="blackBG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="bgAnimationView" destination="H4T-3q-2Nl" id="noU-1K-90J"/>
-                        <outlet property="blackBG" destination="GNe-Gr-d3k" id="w1J-Qh-4RY"/>
                         <outlet property="infoBG" destination="N0Z-HZ-GyP" id="2dV-7c-j0i"/>
                         <outlet property="returnButton" destination="s3a-ST-F8Y" id="RcX-pO-7lT"/>
                         <outlet property="textInfo" destination="1R6-zB-Mng" id="O9q-1R-MJM"/>
@@ -935,7 +905,6 @@ V 1.1 --- 02/17/13
                 <relationship kind="outlet" name="achLabel" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="achLabelBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cardNameDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
                 <relationship kind="outlet" name="dataButton" candidateClass="UIButton"/>
@@ -972,7 +941,6 @@ V 1.1 --- 02/17/13
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInformationViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="infoBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textInfo" candidateClass="UITextView"/>
@@ -982,7 +950,6 @@ V 1.1 --- 02/17/13
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalInstructionViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="easyView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="freeView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="hardView" candidateClass="UIImageView"/>
@@ -1000,7 +967,6 @@ V 1.1 --- 02/17/13
             <relationships>
                 <relationship kind="outlet" name="achViewButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="gameStartButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="informationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="instructionButton" candidateClass="UIButton"/>
@@ -1011,8 +977,12 @@ V 1.1 --- 02/17/13
         <class className="PalModeMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalModeMenuViewController.h"/>
             <relationships>
+                <relationship kind="action" name="easyModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="freeStyleModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="hardModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="normalModeButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="returnButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bgAnimationView" candidateClass="PalMountainAndCloudView"/>
-                <relationship kind="outlet" name="blackBG" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="difChoice" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="easyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="freeStyleButton" candidateClass="UIButton"/>
@@ -1027,6 +997,18 @@ V 1.1 --- 02/17/13
         <class className="PalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PalViewController.h"/>
             <relationships>
+                <relationship kind="action" name="Card10Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card11Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card12Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card1Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card2Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card3Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card4Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card5Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card6Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card7Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card8Pressed:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="Card9Pressed:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="Card1" candidateClass="PalCard"/>
                 <relationship kind="outlet" name="Card10" candidateClass="PalCard"/>
                 <relationship kind="outlet" name="Card11" candidateClass="PalCard"/>

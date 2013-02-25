@@ -38,7 +38,6 @@
 @property (copy, nonatomic) NSString *mode;
 
 @property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
-@property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIButton *easyButton;
 @property (strong, nonatomic) IBOutlet UIButton *normalButton;
 @property (strong, nonatomic) IBOutlet UIButton *hardButton;
@@ -54,13 +53,20 @@
 
 - (void)backgroundAnimation
 {
+    // black fade in/out animation
+    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    blackImg.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:blackImg];
     
-    self.blackBG.alpha = 1.0;
-    [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.blackBG.alpha = 0.0f;
-    [UIView commitAnimations];
-    
+    [UIView animateWithDuration:0.3f
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         blackImg.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         [blackImg removeFromSuperview];
+                     }];
     
 }
 
@@ -261,7 +267,6 @@
 
 - (void)viewDidUnload {
     [self setDifChoice:nil];
-    [self setBlackBG:nil];
     [self setEasyButton:nil];
     [self setHardButton:nil];
     [self setNormalButton:nil];

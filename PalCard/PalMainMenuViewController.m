@@ -46,7 +46,6 @@
     bool _soundOff;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *blackBG;
 @property (strong, nonatomic) IBOutlet UIImageView *soundSwitch;
 
 
@@ -78,13 +77,20 @@
 
 - (void)backgroundAnimation
 {
+    // black fade in/out animation
+    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    blackImg.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:blackImg];
     
-    // Background  animation
-    self.blackBG.alpha = 1.0;
-    [UIView beginAnimations:@"fadeIn" context:nil];
-    [UIView setAnimationDuration:0.3];
-    self.blackBG.alpha = 0.0f;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.3f
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         blackImg.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         [blackImg removeFromSuperview];
+                     }];
     
 
 }

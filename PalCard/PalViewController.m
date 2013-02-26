@@ -507,7 +507,8 @@
     
     PalCard *card = self.palCards[index - 1];
     
-    if (!card.isAnimating && !card.isVisiable && !card.isDisappear && !_wrongAnimating && !_gameOver && _gameStarted) {
+    if (!card.isAnimating && !card.isVisiable && !card.isDisappear
+            && !_wrongAnimating && !_gameOver && _gameStarted) {
         
         _flag ++;
         
@@ -589,11 +590,6 @@
     PalCard *fCard = [[timer userInfo] objectForKey:@"fCard"];
     PalCard *sCard = [[timer userInfo] objectForKey:@"sCard"];
     
-    if (fCard.cardNumber > sCard.cardNumber) {
-        PalCard *tmp = fCard;
-        fCard = sCard;
-        sCard = tmp;
-    }
     
     if (![self.mode isEqualToString:@"hard"]) {
         
@@ -601,6 +597,12 @@
         [sCard shakeWithDuration:0.07f];
     }
     else {
+            if (fCard.cardNumber > sCard.cardNumber) {
+                PalCard *tmp = fCard;
+                fCard = sCard;
+                sCard = tmp;
+            }
+        
             int lastNumber = fCard.cardNumber;
             CGRect lastFrame = fCard.frame;
     

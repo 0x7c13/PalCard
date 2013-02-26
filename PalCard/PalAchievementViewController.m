@@ -106,7 +106,7 @@
         
         [self.cardNameDisplay setFrame:CGRectMake(35, 10, 250, 38)];
         
-        [self.nameTag setFrame:CGRectMake(35, 15, 250, 38)];
+        [self.nameTag setFrame:CGRectMake(30, 15, 250, 38)];
         
         [self.returnButton setFrame:CGRectMake(250, 435, 50, 45)];
         

@@ -281,7 +281,7 @@
                                 <size key="shadowOffset" width="2" height="2"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="p9R-ab-n0N" userLabel="nameTag">
-                                <rect key="frame" x="35" y="40" width="250" height="38"/>
+                                <rect key="frame" x="30" y="40" width="250" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1xE-fB-HId" userLabel="cardName">

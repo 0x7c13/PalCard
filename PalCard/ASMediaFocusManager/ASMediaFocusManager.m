@@ -17,6 +17,8 @@ static CGFloat const kAnimationDuration = 0.5;
 // The media view being focused.
 @property (nonatomic, strong) UIView *mediaView;
 @property (nonatomic, strong) ASMediaFocusController *focusViewController;
+@property (nonatomic) bool isZooming;
+
 @end
 
 @implementation ASMediaFocusManager
@@ -54,6 +56,8 @@ static CGFloat const kAnimationDuration = 0.5;
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
         self.elasticAnimation = YES;
         self.zoomEnabled = YES;
+        self.gestureDisabledDuringZooming = YES;
+        self.isZooming = NO;
     }
     
     return self;
@@ -144,6 +148,8 @@ static CGFloat const kAnimationDuration = 0.5;
     imageView.transform = mediaView.transform;
     imageView.bounds = mediaView.bounds;
     
+    self.isZooming = YES;
+    
     [UIView animateWithDuration:self.animationDuration
                      animations:^{
                          CGRect frame;
@@ -183,12 +189,15 @@ static CGFloat const kAnimationDuration = 0.5;
                                               }
                               completion:^(BOOL finished) {
                                   [self installZoomView];
+                                   self.isZooming = NO;
                               }];
                          }
                          else
                          {
                              [self installZoomView];
+                              self.isZooming = NO;
                          }
+
                      }];
     
 }
@@ -223,6 +232,8 @@ static CGFloat const kAnimationDuration = 0.5;
 
 - (void)handleDefocusGesture:(UIGestureRecognizer *)gesture
 {
+    if(self.isZooming && self.gestureDisabledDuringZooming) return;
+    
     UIView *contentView;
     CGRect __block bounds;
     

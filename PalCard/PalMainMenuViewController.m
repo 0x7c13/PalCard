@@ -55,7 +55,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *informationButton;
 
 
-@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoPic;
 
@@ -75,48 +75,11 @@
     return self;
 }
 
-- (void)backgroundAnimation
-{
-    // black fade in/out animation
-    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    blackImg.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:blackImg];
-    
-    [UIView animateWithDuration:0.3f
-                          delay: 0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         blackImg.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished){
-                         [blackImg removeFromSuperview];
-                     }];
-    
 
-}
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    // register for later use:
-    // restart animation when game enter to foreground
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-    [self backgroundAnimation];
-    [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
-}
-
-- (void) restartAnimation{
-
-    [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
-    //NSLog(@"trigger event when will enter foreground.");
-}
-
--(void) viewDidDisappear:(BOOL)animated{
-    
-    // unregister when view disappear
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [PalMountainAndCloudView backgroundAnimation:self.view];
 }
 
 
@@ -199,6 +162,7 @@
     [self.informationButton setBackgroundImage:[UIImage imageNamed:_InformationButtonPressedImg] forState:UIControlStateHighlighted];
     
     [self.bgAnimationView setup];
+    [self.bgAnimationView startAnimation];
 }
 
 

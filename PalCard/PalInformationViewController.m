@@ -32,7 +32,7 @@
 }
 
 
-@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UITextView *textInfo;
@@ -43,49 +43,16 @@
 
 
 
-- (void)backgroundAnimation
-{
-    // black fade in/out animation
-    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    blackImg.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:blackImg];
-    
-    [UIView animateWithDuration:0.3f
-                          delay: 0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         blackImg.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished){
-                         [blackImg removeFromSuperview];
-                     }];
-    
-}
-
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
 	[super viewWillAppear:animated];
-    
-    // register for later use:
-    // restart animation when game enter to foreground
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-    [self backgroundAnimation];
-    [self.bgAnimationView startAnimation];
-    
+
+    [PalMountainAndCloudView backgroundAnimation:self.view];
 }
 
--(void) viewDidDisappear:(BOOL)animated{
-    
-    // unregister when view disappear
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
-- (void) restartAnimation{
-    [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -143,6 +110,7 @@
     self.infoBG.image = [UIImage imageNamed:_InfoBG];
     
     [self.bgAnimationView setup];
+    [self.bgAnimationView startAnimation];
 }
 
 

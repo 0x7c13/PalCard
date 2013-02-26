@@ -12,6 +12,9 @@
 #define CloudImg_1 @"UIimages/cloud-front.png"
 #define CloudImg_2 @"UIimages/cloud-back.png"
 
+#define MountainImgWidth 1178
+#define CloudImgWidth 1320
+
 @interface PalMountainAndCloudView () 
 
 @property (nonatomic, strong) UIImageView *mountainView;
@@ -35,20 +38,22 @@
 
 - (void) setup
 {
+    self.animationStarted = NO;
+    
     if (self.subviews.count == 3) {
         [self.mountainView removeFromSuperview];
         [self.backCloudView removeFromSuperview];
         [self.frontCloudView removeFromSuperview];
     }
     
-    _mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1178, self.bounds.size.height)];
+    _mountainView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MountainImgWidth, self.bounds.size.height)];
     self.mountainView.image = [UIImage imageNamed:MountainImg];
         
-    _backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+    _backCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height)];
     self.backCloudView.image = [UIImage imageNamed:CloudImg_1];
     self.backCloudView.alpha = 0.8;
         
-    _frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1320, self.bounds.size.height)];
+    _frontCloudView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height)];
     self.frontCloudView.image = [UIImage imageNamed:CloudImg_2];
         
     [self addSubview:self.mountainView];
@@ -59,6 +64,8 @@
 
 - (void) startAnimation
 {
+    self.animationStarted = YES;
+    
     [self startMountainAnimation];
     [self startBackCloudAnimation];
     [self startFrontCloudAnimation];
@@ -66,66 +73,78 @@
 
 - (void)startMountainAnimation
 {
-    
-    CGRect frame = self.mountainView.frame;
-    frame.origin.x = self.mountainView.frame.origin.x;
-    self.mountainView.frame = frame;
-    
-    [UIView beginAnimations:@"mountainAnimation" context:NULL];
-    [UIView setAnimationDuration:23.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:99999];
 
-    frame = self.mountainView.frame;
-    frame.origin.x = - frame.size.width + 320;
-    self.mountainView.frame = frame;
-
-    [UIView commitAnimations];
+    self.mountainView.frame =
+    CGRectMake(0, 0, MountainImgWidth, self.bounds.size.height);
+    
+    [UIView animateWithDuration: 23.0
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.mountainView.frame =
+                         CGRectMake(- MountainImgWidth + 320, 0, MountainImgWidth, self.bounds.size.height);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         [self startMountainAnimation];
+                     }];
 }
 
 - (void)startBackCloudAnimation
 {
     
-    CGRect frame = self.backCloudView.frame;
-    frame.origin.x = self.backCloudView.frame.origin.x;
-    self.backCloudView.frame = frame;
+    self.backCloudView.frame =
+    CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height);
     
-    [UIView beginAnimations:@"backCloudAnimation" context:NULL];
-    [UIView setAnimationDuration:15.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:99999];
-    
-    frame = self.backCloudView.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.backCloudView.frame = frame;
-    
-    [UIView commitAnimations];
+    [UIView animateWithDuration: 15.0
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.backCloudView.frame =
+                         CGRectMake(- CloudImgWidth + 320, 0, CloudImgWidth, self.bounds.size.height);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         [self startBackCloudAnimation];
+                     }];
 }
 
 - (void)startFrontCloudAnimation
 {
     
-    
-    CGRect frame = self.frontCloudView.frame;
-    frame.origin.x = self.frontCloudView.frame.origin.x;
-    self.frontCloudView.frame = frame;
-    
-    [UIView beginAnimations:@"frontCloudAnimation" context:NULL];
-    [UIView setAnimationDuration:8.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationRepeatAutoreverses:NO];
-    [UIView setAnimationRepeatCount:99999];
-    
-    frame = self.frontCloudView.frame;
-    frame.origin.x = -frame.size.width + 320;
-    self.frontCloudView.frame = frame;
-    
-    [UIView commitAnimations];
+    self.frontCloudView.frame =
+    CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height);
+     
+    [UIView animateWithDuration: 8.0
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.frontCloudView.frame =
+                         CGRectMake(- CloudImgWidth + 320, 0, CloudImgWidth, self.bounds.size.height);
+                         
+                     }
+                     completion:^(BOOL finished){
+                         [self startFrontCloudAnimation];
+                     }];
 }
 
+
++ (void)backgroundAnimation: (UIView *)view
+{
+    // black fade in/out animation
+    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:view.bounds];
+    blackImg.backgroundColor = [UIColor blackColor];
+    [view addSubview:blackImg];
+    
+    [UIView animateWithDuration:0.3f
+                          delay: 0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         blackImg.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         [blackImg removeFromSuperview];
+                     }];
+    
+}
 @end

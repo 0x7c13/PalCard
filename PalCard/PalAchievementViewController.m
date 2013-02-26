@@ -36,7 +36,7 @@
     int _amountOfUnlockedCards;
 }
 
-@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UILabel *cardNameDisplay;
@@ -62,31 +62,37 @@
 @synthesize carousel;
 
 
-
-- (void)backgroundAnimation
-{
-    // black fade in/out animation
-    UIImageView *blackImg = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    blackImg.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:blackImg];
+- (void)viewWillAppear:(BOOL)animated {
     
-    [UIView animateWithDuration:0.3f
-                          delay: 0.0
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         blackImg.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished){
-                         [blackImg removeFromSuperview];
-                     }];
+	[super viewWillAppear:animated];
+    
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
     
 }
 
-- (void) restartAnimation{
+- (void)viewWillDisappear:(BOOL)animated {
     
-    [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
+	[super viewWillDisappear:animated];
+    
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
 
+
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    if (_dataButtonPressed) {
+        _dataButtonPressed = NO;
+        if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView startAnimation];
+        }
+    }
+    else {
+        [PalMountainAndCloudView backgroundAnimation:self.view];
+        if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView startAnimation];
+        }
+    }
 }
 
 
@@ -205,47 +211,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-	[super viewWillAppear:animated];
-    
-    // register for later use:
-    // restart animation when game enter to foreground
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    [self.bgAnimationView setup];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-	[super viewWillDisappear:animated];
-    
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-
--(void) viewDidDisappear:(BOOL)animated{
-    
-    // unregister when view disappear
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-
-- (void) viewDidAppear:(BOOL)animated
-{
-    if (_dataButtonPressed) {
-        [self.bgAnimationView startAnimation];
-        _dataButtonPressed = NO;
-    }
-    else {
-        [self backgroundAnimation];
-        [self.bgAnimationView startAnimation];
-    }
-}
 
 
 

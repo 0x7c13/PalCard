@@ -45,11 +45,12 @@
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 
-@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @end
 
 @implementation PalDataViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,35 +62,13 @@
 }
 
 
-
 - (void)viewWillAppear:(BOOL)animated {
     
 	[super viewWillAppear:animated];
     
-    
-    // register for later use:
-    // restart animation when game enter to foreground
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-
 }
 
--(void) viewDidDisappear:(BOOL)animated{
-    
-    // unregister when view disappear
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void) restartAnimation{
-    
-    [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
-    
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     
@@ -101,7 +80,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.bgAnimationView startAnimation];
+    if(!self.bgAnimationView.animationStarted) {
+        [self.bgAnimationView startAnimation];
+    }
 }
 
 
@@ -174,6 +155,7 @@
     
     [self showData];
     [self.bgAnimationView setup];
+
 }
 
 

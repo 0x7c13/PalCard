@@ -10,7 +10,13 @@
 
 @interface PalMountainAndCloudView : UIView
 
+
+@property (nonatomic) bool animationStarted;
+
 - (void)setup;
 - (void)startAnimation;
+
+// black fade in/out animation
++ (void)backgroundAnimation: (UIView *)view;
 
 @end

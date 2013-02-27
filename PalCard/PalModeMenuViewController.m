@@ -63,6 +63,9 @@
     }
     else {
         [PalMountainAndCloudView backgroundAnimation:self.view];
+        if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView startAnimation];
+        }
     }
 }
 
@@ -70,6 +73,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     
 	[super viewWillDisappear:animated];
+    
+    self.bgAnimationView.animationStarted = NO;
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
@@ -83,7 +88,6 @@
     }
     return self;
 }
-
 
 
 
@@ -158,7 +162,6 @@
     }
     
     [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
     
 }
 

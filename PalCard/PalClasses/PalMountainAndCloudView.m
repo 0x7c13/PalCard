@@ -73,7 +73,8 @@
 
 - (void)startMountainAnimation
 {
-
+    if(!self.animationStarted) return;
+    
     self.mountainView.frame =
     CGRectMake(0, 0, MountainImgWidth, self.bounds.size.height);
     
@@ -92,6 +93,7 @@
 
 - (void)startBackCloudAnimation
 {
+    if(!self.animationStarted) return;
     
     self.backCloudView.frame =
     CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height);
@@ -111,6 +113,7 @@
 
 - (void)startFrontCloudAnimation
 {
+    if(!self.animationStarted) return;
     
     self.frontCloudView.frame =
     CGRectMake(0, 0, CloudImgWidth, self.bounds.size.height);
@@ -127,6 +130,8 @@
                          [self startFrontCloudAnimation];
                      }];
 }
+
+
 
 
 + (void)backgroundAnimation: (UIView *)view

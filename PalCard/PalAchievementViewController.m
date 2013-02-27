@@ -36,7 +36,7 @@
     int _amountOfUnlockedCards;
 }
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionDisplay;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 @property (strong, nonatomic) IBOutlet UILabel *cardNameDisplay;
@@ -68,24 +68,9 @@
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
     
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-	[super viewWillDisappear:animated];
-    
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
-
-
-- (void) viewDidAppear:(BOOL)animated
-{
     if (_dataButtonPressed) {
         _dataButtonPressed = NO;
-        if(!self.bgAnimationView.animationStarted) {
-            [self.bgAnimationView startAnimation];
-        }
+        
     }
     else {
         [PalMountainAndCloudView backgroundAnimation:self.view];
@@ -93,7 +78,22 @@
             [self.bgAnimationView startAnimation];
         }
     }
+    
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+	[super viewWillDisappear:animated];
+    
+    if (!_dataButtonPressed) {
+        self.bgAnimationView.animationStarted = NO;
+    }
+    
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+
+
 
 
 - (void)viewDidLoad

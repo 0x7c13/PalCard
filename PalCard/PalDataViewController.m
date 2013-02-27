@@ -45,7 +45,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *infoBG;
 @property (strong, nonatomic) IBOutlet UIButton *returnButton;
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @end
 
@@ -75,6 +75,12 @@
 	[super viewWillDisappear:animated];
     
 	[self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.bgAnimationView.animationStarted = NO;
     
 }
 

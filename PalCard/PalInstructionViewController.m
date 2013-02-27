@@ -58,6 +58,10 @@
 	[super viewWillAppear:animated];
  
     [PalMountainAndCloudView backgroundAnimation:self.view];
+    
+    if(!self.bgAnimationView.animationStarted) {
+        [self.bgAnimationView startAnimation];
+    }
 }
 
 
@@ -68,6 +72,12 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.bgAnimationView.animationStarted = NO;
+
 }
 
 
@@ -126,7 +136,6 @@
     }
     
     [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
     
 }
 

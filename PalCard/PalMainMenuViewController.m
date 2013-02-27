@@ -55,7 +55,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *informationButton;
 
 
-@property (strong, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
+@property (weak, nonatomic) IBOutlet PalMountainAndCloudView *bgAnimationView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoPic;
 
@@ -75,13 +75,23 @@
     return self;
 }
 
-
-
-- (void) viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [PalMountainAndCloudView backgroundAnimation:self.view];
+    
+    if(!_bgAnimationView.animationStarted){
+        
+        [self.bgAnimationView setup];
+        [self.bgAnimationView startAnimation];
+    }
+
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.bgAnimationView.animationStarted = NO;
+
+}
 
 
 - (void)viewDidLoad
@@ -162,7 +172,6 @@
     [self.informationButton setBackgroundImage:[UIImage imageNamed:_InformationButtonPressedImg] forState:UIControlStateHighlighted];
     
     [self.bgAnimationView setup];
-    [self.bgAnimationView startAnimation];
 }
 
 
@@ -170,6 +179,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
 }
 
 

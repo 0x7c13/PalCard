@@ -60,10 +60,15 @@
     if(_gameStarted) {
 
         _gameStarted = NO;
+        if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView setup];
+            [self.bgAnimationView startAnimation];
+        }
     }
     else {
         [PalMountainAndCloudView backgroundAnimation:self.view];
         if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView setup];
             [self.bgAnimationView startAnimation];
         }
     }

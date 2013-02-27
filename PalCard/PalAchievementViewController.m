@@ -70,11 +70,16 @@
     
     if (_dataButtonPressed) {
         _dataButtonPressed = NO;
+        if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView setup];
+            [self.bgAnimationView startAnimation];
+        }
         
     }
     else {
         [PalMountainAndCloudView backgroundAnimation:self.view];
         if(!self.bgAnimationView.animationStarted) {
+            [self.bgAnimationView setup];
             [self.bgAnimationView startAnimation];
         }
     }

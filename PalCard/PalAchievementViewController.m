@@ -90,14 +90,10 @@
     
 	[super viewWillDisappear:animated];
     
-    if (!_dataButtonPressed) {
-        self.bgAnimationView.animationStarted = NO;
-    }
+    self.bgAnimationView.animationStarted = NO;
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
 }
-
-
 
 
 
@@ -205,7 +201,6 @@
     
     [self.achDisplay setFont:[UIFont fontWithName:@"DuanNing-XIng" size:17]];
     
-    [self.bgAnimationView setup];
 }
 
 

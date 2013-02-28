@@ -77,7 +77,7 @@
     
     self.mountainView.frame =
     CGRectMake(0, 0, MountainImgWidth, self.bounds.size.height);
-    
+
     [UIView animateWithDuration: 23.0
                           delay: 0.0
                         options: UIViewAnimationOptionCurveLinear

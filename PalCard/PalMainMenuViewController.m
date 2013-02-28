@@ -87,10 +87,31 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopAnimation) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)stopAnimation
+{
+    self.bgAnimationView.animationStarted = NO;
+}
+
+- (void)restartAnimation
+{
+    if(!_bgAnimationView.animationStarted){
+        
+        [self.bgAnimationView setup];
+        [self.bgAnimationView startAnimation];
+    }
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     self.bgAnimationView.animationStarted = NO;
-
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -115,9 +136,6 @@
         }
     }
     
-    //self.viewDeckController.panningMode = IIViewDeckNoPanning;
-    //self.viewDeckController.leftSize = 100;
-    //self.viewDeckController.openSlideAnimationDuration = 0.8f;
     
     // I use storyboard to design UI for iphone 5
     // here are frame tweaks for iPhone 4/4S

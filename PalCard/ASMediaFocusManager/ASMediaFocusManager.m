@@ -123,6 +123,8 @@ static CGFloat const kAnimationDuration = 0.5;
 
 - (void)handleFocusGesture:(UIGestureRecognizer *)gesture
 {
+    if(self.isZooming && self.gestureDisabledDuringZooming) return;
+    
     UIViewController *parentViewController;
     ASMediaFocusController *focusViewController;
     CGPoint center;
@@ -239,6 +241,8 @@ static CGFloat const kAnimationDuration = 0.5;
     
     [self uninstallZoomView];
     contentView = self.focusViewController.mainImageView;
+    
+    self.isZooming = YES;
     [UIView animateWithDuration:self.animationDuration
                      animations:^{                         
                          self.focusViewController.contentView.transform = CGAffineTransformIdentity;
@@ -261,6 +265,7 @@ static CGFloat const kAnimationDuration = 0.5;
                                               [self.focusViewController.view removeFromSuperview];
                                               [self.focusViewController removeFromParentViewController];
                                               self.focusViewController = nil;
+                                              self.isZooming = NO;
                                           }];
                      }];
 }

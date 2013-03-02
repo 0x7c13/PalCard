@@ -12,6 +12,7 @@
 #import "MCSoundBoard.h"
 
 #define ITEM_SPACING 200
+#define AmountOfCards 64
 
 #define _LOGOPIC @"UIimages/main_logo.png"
 
@@ -146,14 +147,14 @@
     carousel.dataSource = self;
     carousel.type = iCarouselTypeCoverFlow;
     
-    for (int i = 1; i <= 64; i++) {
+    for (int i = 1; i <= AmountOfCards; i++) {
         if([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"YES"]) {
             _amountOfUnlockedCards ++;
         }
     }
     
-    self.achDisplay.text = [NSString stringWithFormat: @"卡牌解锁进度: %.1f%%",(float)_amountOfUnlockedCards * 100.0 / 64.0];
-    self.indexLabel.text = [NSString stringWithFormat:@"1/64"];
+    self.achDisplay.text = [NSString stringWithFormat: @"卡牌解锁进度: %.1f%%",(float)_amountOfUnlockedCards * 100.0 / AmountOfCards];
+    self.indexLabel.text = [NSString stringWithFormat:@"1/%d", AmountOfCards];
     
     // read cards information from CardsInformation.plist
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CardsInformation" ofType:@"plist"];
@@ -238,7 +239,7 @@
 {
     _cardViews = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i <= 64; i++)
+    for (int i = 1; i <= AmountOfCards; i++)
     {
         UIView *view;
         NSString *viewPath;
@@ -257,14 +258,16 @@
         FXImageView *imageView = [[FXImageView alloc] initWithFrame:CGRectMake(70, 80, 180, 260)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.asynchronous = YES;
-        imageView.reflectionScale = 0.5f;
+        imageView.reflectionScale = 0.35f;
         imageView.reflectionAlpha = 0.25f;
         imageView.reflectionGap = 10.0f;
         //imageView.shadowOffset = CGSizeMake(0.0f, 2.0f);
         //imageView.shadowBlur = 5.0f;
         imageView.cornerRadius = 0.0f;
         
-        [self addShadow:imageView];
+        if(DEVICE_IS_IPHONE5) {
+            [self addShadow:imageView];
+        }
         view = imageView;
  
         //load image
@@ -321,13 +324,13 @@
     
     self.cardNameDisplay.text = self.cardsInformation[index + 1][0];
     self.descriptionDisplay.text = self.cardsInformation[index + 1][1];
-    self.indexLabel.text = [NSString stringWithFormat:@"%d/64", index + 1];
+    self.indexLabel.text = [NSString stringWithFormat:@"%d/%d", index + 1, AmountOfCards];
 
 }
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return 64;
+    return AmountOfCards;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view

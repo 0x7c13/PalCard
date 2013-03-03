@@ -301,6 +301,7 @@
                                           }
                                           completion:^(BOOL finished){
                                               self.hintView.alpha = 0.0;
+                                              _gameStarted = YES;
                                           }];
                      }];
     
@@ -335,7 +336,6 @@
 
 - (void)startTimer:(NSTimer *) timer
 {
-    _gameStarted = YES;
     
     self.gameProgress.alpha = 1.0;
     

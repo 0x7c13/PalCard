@@ -72,8 +72,25 @@
             [self.bgAnimationView startAnimation];
         }
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopAnimation) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartAnimation) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
+- (void)stopAnimation
+{
+    self.bgAnimationView.animationStarted = NO;
+}
+
+- (void)restartAnimation
+{
+    if(!_bgAnimationView.animationStarted){
+        
+        [self.bgAnimationView setup];
+        [self.bgAnimationView startAnimation];
+    }
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     
@@ -82,6 +99,11 @@
     self.bgAnimationView.animationStarted = NO;
     
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

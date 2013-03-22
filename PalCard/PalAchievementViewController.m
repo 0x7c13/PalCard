@@ -52,7 +52,9 @@
 @property (strong) NSMutableArray *CardIsUnlocked;
 
 @property (strong, nonatomic) ASMediaFocusManager *mediaFocusManager;
+
 @property (strong, nonatomic) NSMutableArray *cardViews;
+@property (strong, nonatomic) NSMutableArray *unlockedCardViews;
 
 @property (strong, nonatomic) IBOutlet UIButton *dataButton;
 
@@ -162,7 +164,7 @@
     // ASMediaFocus init
     self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
     self.mediaFocusManager.delegate = self;
-    [self.mediaFocusManager installOnViews:self.cardViews];
+    [self.mediaFocusManager installOnViews:self.unlockedCardViews];
     
     
     // carousel view init
@@ -261,14 +263,17 @@
 - (void) prepareForCardsViews
 {
     _cardViews = [[NSMutableArray alloc] init];
+    _unlockedCardViews = [[NSMutableArray alloc] init];
     
     for (int i = 1; i <= AmountOfCards; i++)
     {
         UIView *view;
         NSString *viewPath;
+        bool unlocked = true;
     
         if ([[self.CardIsUnlocked objectAtIndex:i] isEqualToString:@"NO"]) {
             viewPath = _DefaultCardImg;
+            unlocked = false;
             
         }
         else if (i < 10) {
@@ -297,6 +302,7 @@
         [(FXImageView *)view setImage:[UIImage imageNamed:viewPath]];
         
         [self.cardViews addObject:view];
+        if (unlocked) [self.unlockedCardViews addObject:view];
     }
 
 

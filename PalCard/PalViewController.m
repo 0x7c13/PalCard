@@ -684,13 +684,9 @@
         
         if (!_soundOff) {
             
-            
             [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
             
-            AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
-            
-            player.numberOfLoops = -1;  // Endless
-            [player play];
+            [MCSoundBoard loopAudioForKey:@"MainBGM" numberOfLoops:-1];
             [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
         }
         

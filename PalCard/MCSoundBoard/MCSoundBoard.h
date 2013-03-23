@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#define MCSOUNDBOARD_SOUND_PLAYED_NOTIFICATION @"MCSOUNDBOARD_SOUND_PLAYED_NOTIFICATION"
+#define MCSOUNDBOARD_AUDIO_STARTED_NOTIFICATION @"MCSOUNDBOARD_AUDIO_STARTED_NOTIFICATION"
+#define MCSOUNDBOARD_AUDIO_PAUSED_NOTIFICATION @"MCSOUNDBOARD_AUDIO_PAUSED_NOTIFICATION"
+#define MCSOUNDBOARD_AUDIO_STOPPED_NOTIFICATION @"MCSOUNDBOARD_AUDIO_STOPPED_NOTIFICATION"
+
 @interface MCSoundBoard : NSObject
 
 + (void)addSoundAtPath:(NSString *)filePath forKey:(id)key;
@@ -26,5 +31,7 @@
 + (void)pauseAudioForKey:(id)key;
 
 + (AVAudioPlayer *)audioPlayerForKey:(id)key;
+
++ (void)loopAudioForKey:(id)key numberOfLoops:(NSInteger)loops;
 
 @end

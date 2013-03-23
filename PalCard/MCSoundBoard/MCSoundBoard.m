@@ -18,7 +18,6 @@
 
 // Sound board singleton
 // Taken from http://lukeredpath.co.uk/blog/a-note-on-objective-c-singletons.html
-
 + (MCSoundBoard *)sharedInstance
 {
     __strong static id _sharedObject = nil;
@@ -57,6 +56,7 @@
 {
     SystemSoundID soundId = [(NSNumber *)[_sounds objectForKey:key] intValue];
     AudioServicesPlaySystemSound(soundId);
+    [[NSNotificationCenter defaultCenter] postNotificationName:MCSOUNDBOARD_SOUND_PLAYED_NOTIFICATION object:key];
 }
 
 + (void)playSoundForKey:(id)key
@@ -69,7 +69,6 @@
     NSURL* fileURL = [NSURL fileURLWithPath:filePath];
     AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:NULL];
     [_audio setObject:player forKey:key];
-    
 }
 
 + (void)addAudioAtPath:(NSString *)filePath forKey:(id)key
@@ -106,6 +105,8 @@
     }
     
     [player play];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MCSOUNDBOARD_AUDIO_STARTED_NOTIFICATION object:key];
 }
 
 + (void)playAudioForKey:(id)key fadeInInterval:(NSTimeInterval)fadeInInterval
@@ -129,7 +130,7 @@
     
     if (volume == 0.0) {
         [timer invalidate];
-        [player pause];
+        [player stop];
     }
 }
 
@@ -148,6 +149,8 @@
     } else {
         [player stop];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MCSOUNDBOARD_AUDIO_STOPPED_NOTIFICATION object:key];
 }
 
 + (void)stopAudioForKey:(id)key fadeOutInterval:(NSTimeInterval)fadeOutInterval
@@ -171,7 +174,7 @@
     
     if (volume == 0.0) {
         [timer invalidate];
-        [player stop];
+        [player pause];
     }
 }
 
@@ -190,6 +193,8 @@
     } else {
         [player pause];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MCSOUNDBOARD_AUDIO_PAUSED_NOTIFICATION object:key];
 }
 
 
@@ -212,6 +217,12 @@
 + (AVAudioPlayer *)audioPlayerForKey:(id)key
 {
     return [[self sharedInstance] audioPlayerForKey:key];
+}
+
++ (void)loopAudioForKey:(id)key numberOfLoops:(NSInteger)loops
+{
+    AVAudioPlayer * player = [self audioPlayerForKey:key];
+    player.numberOfLoops = loops;
 }
 
 @end

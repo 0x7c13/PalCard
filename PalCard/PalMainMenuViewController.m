@@ -12,7 +12,6 @@
 #import "PalInstructionViewController.h"
 #import "PalInformationViewController.h"
 #import "PalMountainAndCloudView.h"
-#import "PalDataInit.h"
 #import "MCSoundBoard.h"
 
 #define _LOGOPIC @"UIimages/main_logo.png"
@@ -119,8 +118,6 @@
 {
     [super viewDidLoad];
     
-    [PalDataInit gameDataInit];
-   
     NSString *turnOffSound = [[NSUserDefaults standardUserDefaults] valueForKey:@"turnOffSound"];
     
     if (turnOffSound) {
@@ -157,21 +154,18 @@
     self.logoPic.image = [UIImage imageNamed:_LOGOPIC];
     
     // check whether user has turned off sound
-    if (![MCSoundBoard audioPlayerForKey:@"MainBGM"] && !_soundOff)
+    if (!_soundOff)
     {
         [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
         
         [MCSoundBoard addSoundAtPath:[[NSBundle mainBundle] pathForResource:_ButtonPressedSound ofType:nil] forKey:@"button"];
         
+        [MCSoundBoard loopAudioForKey:@"MainBGM" numberOfLoops:-1];
         
-        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
-        
-        player.numberOfLoops = -1;  // Endless
-        [player play];
-        [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
+        [MCSoundBoard playAudioForKey:@"MainBGM"];
     }
-    
-    
+
+
     // set default images for the buttons
     [self.gameStartButton setBackgroundImage:[UIImage imageNamed:_GameStartButtonImg] forState:UIControlStateNormal];
     
@@ -262,10 +256,7 @@
             [MCSoundBoard addAudioAtPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"main0%d.mp3", arc4random() % 2 + 1] ofType:nil] forKey:@"MainBGM"];
         }
         
-        AVAudioPlayer *player = [MCSoundBoard audioPlayerForKey:@"MainBGM"];
-        
-        player.numberOfLoops = -1;  // Endless
-        [player play];
+        [MCSoundBoard loopAudioForKey:@"MainBGM" numberOfLoops:-1];
         [MCSoundBoard playAudioForKey:@"MainBGM" fadeInInterval:1.0];
         
     }

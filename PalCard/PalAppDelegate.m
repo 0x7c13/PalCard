@@ -7,13 +7,13 @@
 //
 
 #import "PalAppDelegate.h"
-
+#import "PalDataInit.h"
 
 @implementation PalAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [PalDataInit gameDataInit];
     
     return YES;
 }

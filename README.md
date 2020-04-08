@@ -1,7 +1,7 @@
 PalCard 仙剑奇侠传五前传卡牌小游戏iPhone版
 ====================================
 
-![Hero](ScreenShots/hero.png?raw=true)
+![Hero](ScreenShots/hero.PNG)
 
 --------------------------------
 ## Demo 演示视频

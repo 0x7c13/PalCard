@@ -7,18 +7,13 @@
 <p align="center">
   仙剑奇侠传五前传卡牌小游戏iPhone版
 </p>
-
---------------------------------
-
-![Hero](ScreenShots/hero.PNG)
-
---------------------------------
+<p align="center">
+  <img align="center" src="ScreenShots/hero.PNG">
+</p>
 
 ## Demo 演示视频
 
 ![demo](ScreenShots/demo.gif?raw=true)
-
---------------------------------
 
 ## Platform
 
@@ -26,18 +21,19 @@ Xcode 4.6
 Target: iOS 5.0
 iPhone 3GS/4/4S/5 supported
 
---------------------------------
-
 ## V 1.0 -> V 1.1 更新说明
 
 1.修复bug，卡牌解锁条件轻微调整
-2.游戏难度调整，增加新模式"自由"
-3.优化游戏性能，UI轻微调整
-4.卡牌点击即可放大看高清原图
-5.增加数据中心，显示游戏数据
-6.增加准备和开始提示以及时间进度条
 
---------------------------------
+2.游戏难度调整，增加新模式"自由"
+
+3.优化游戏性能，UI轻微调整
+
+4.卡牌点击即可放大看高清原图
+
+5.增加数据中心，显示游戏数据
+
+6.增加准备和开始提示以及时间进度条
 
 ## Dependencies and References
 
@@ -45,8 +41,6 @@ iPhone 3GS/4/4S/5 supported
 * MCSoundBoard : https://github.com/Baglan/MCSoundBoard
 * FXImageView : https://github.com/nicklockwood/FXImageView
 * ASMediaFocusManager : https://github.com/autresphere/ASMediaFocusManager
-
---------------------------------
 
 ## 版权信息
 

@@ -17,9 +17,9 @@
 
 ## Platform
 
-Xcode 4.6
-Target: iOS 5.0
-iPhone 3GS/4/4S/5 supported
+* Xcode 4.6
+* Target: iOS 5.0
+* iPhone 3GS/4/4S/5 supported
 
 ## V 1.0 -> V 1.1 更新说明
 
